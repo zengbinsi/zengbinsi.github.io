@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.audio</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.audio</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworkaudio">framework.audio</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#audiogetmusicvolume">audio.getMusicVolume</a></div></li>
+<li class="level2"><div class="li"><a href="#audiosetmusicvolume">audio.setMusicVolume</a></div></li>
+<li class="level2"><div class="li"><a href="#audiogetsoundsvolume_audiogeteffectsvolume">audio.getSoundsVolume, audio.getEffectsVolume</a></div></li>
+<li class="level2"><div class="li"><a href="#audiosetsoundsvolume_audioseteffectsvolume">audio.setSoundsVolume, audio.setEffectsVolume</a></div></li>
+<li class="level2"><div class="li"><a href="#audiopreloadmusic_audiopreloadbackgroundmusic">audio.preloadMusic, audio.preloadBackgroundMusic</a></div></li>
+<li class="level2"><div class="li"><a href="#audioplaymusic_audioplaybackgroundmusic">audio.playMusic, audio.playBackgroundMusic</a></div></li>
+<li class="level2"><div class="li"><a href="#audiostopmusic_audiostopbackgroundmusic">audio.stopMusic, audio.stopBackgroundMusic</a></div></li>
+<li class="level2"><div class="li"><a href="#audiopausemusic_audiopausebackgroundmusic">audio.pauseMusic, audio.pauseBackgroundMusic</a></div></li>
+<li class="level2"><div class="li"><a href="#audioresumemusic_audioresumebackgroundmusic">audio.resumeMusic, audio.resumeBackgroundMusic</a></div></li>
+<li class="level2"><div class="li"><a href="#audiorewindmusic_audiorewindbackgroundmusic">audio.rewindMusic, audio.rewindBackgroundMusic</a></div></li>
+<li class="level2"><div class="li"><a href="#audiowillplaymusic_audiowillplaybackgroundmusic">audio.willPlayMusic, audio.willPlayBackgroundMusic</a></div></li>
+<li class="level2"><div class="li"><a href="#audioismusicplaying_audioisbackgroundmusicplaying">audio.isMusicPlaying, audio.isBackgroundMusicPlaying</a></div></li>
+<li class="level2"><div class="li"><a href="#audioplaysound_audioplayeffect">audio.playSound, audio.playEffect</a></div></li>
+<li class="level2"><div class="li"><a href="#audiopausesound_audiopauseeffect">audio.pauseSound, audio.pauseEffect</a></div></li>
+<li class="level2"><div class="li"><a href="#audiopauseallsounds_audiopausealleffects">audio.pauseAllSounds, audio.pauseAllEffects</a></div></li>
+<li class="level2"><div class="li"><a href="#audioresumesound_audioresumeeffect">audio.resumeSound, audio.resumeEffect</a></div></li>
+<li class="level2"><div class="li"><a href="#audioresumeallsounds_audioresumealleffects">audio.resumeAllSounds, audio.resumeAllEffects</a></div></li>
+<li class="level2"><div class="li"><a href="#audiostopsound_audiostopeffect">audio.stopSound, audio.stopEffect</a></div></li>
+<li class="level2"><div class="li"><a href="#audiostopallsounds_audiostopalleffects">audio.stopAllSounds, audio.stopAllEffects</a></div></li>
+<li class="level2"><div class="li"><a href="#audiopreloadsound_audiopreloadeffect">audio.preloadSound, audio.preloadEffect</a></div></li>
+<li class="level2"><div class="li"><a href="#audiounloadsound_audiounloadeffect">audio.unloadSound, audio.unloadEffect</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworkaudio">framework.audio</h1>
+<div class="level1">
+
+<p>
+播放音乐、音效
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="audiogetmusicvolume">audio.getMusicVolume</h2>
+<div class="level2">
+
+<p>
+返回音乐的音量值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">volume <span class="sy0">=</span> audio<span class="sy0">.</span>getMusicVolume<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+返回值在 0 到 1 之间，0 表示完全静音，1 表示 100% 音量。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="audiosetmusicvolume">audio.setMusicVolume</h2>
+<div class="level2">
+
+<p>
+设置音乐的音量。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>setMusicVolume<span class="br0">&#40;</span>音量值<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="audiogetsoundsvolume_audiogeteffectsvolume">audio.getSoundsVolume, audio.getEffectsVolume</h2>
+<div class="level2">
+
+<p>
+返回音效的音量值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">volume <span class="sy0">=</span> audio<span class="sy0">.</span>getSoundsVolume<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="audiosetsoundsvolume_audioseteffectsvolume">audio.setSoundsVolume, audio.setEffectsVolume</h2>
+<div class="level2">
+
+<p>
+设置音效的音量值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>setSoundsVolume<span class="br0">&#40;</span>音量值<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="audiopreloadmusic_audiopreloadbackgroundmusic">audio.preloadMusic, audio.preloadBackgroundMusic</h2>
+<div class="level2">
+
+<p>
+预载入一个音乐文件。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>preloadMusic<span class="br0">&#40;</span>音乐文件名<span class="br0">&#41;</span></pre>
+
+<p>
+在播放音乐前预先载入，可以在需要播放音乐时无延迟立即播放。不过限于硬件设备和操作系统的限制，通常只能预载入一个音乐文件。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="audioplaymusic_audioplaybackgroundmusic">audio.playMusic, audio.playBackgroundMusic</h2>
+<div class="level2">
+
+<p>
+播放音乐。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>playMusic<span class="br0">&#40;</span>音乐文件名<span class="sy0">,</span> <span class="br0">&#91;</span>是否循环播放<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+如果音乐文件尚未载入，则会首先载入音乐文件，然后开始播放。默认会无限循环播放音乐。
+</p>
+
+<p>
+注意，即便音乐音量为 0，playMusic() 仍然会进行播放操作。如果希望停止音乐来降低 CPU 占用，应该使用 stopMusic() 接口完全停止音乐播放。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="audiostopmusic_audiostopbackgroundmusic">audio.stopMusic, audio.stopBackgroundMusic</h2>
+<div class="level2">
+
+<p>
+停止播放音乐。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>stopMusic<span class="br0">&#40;</span><span class="br0">&#91;</span>是否释放音乐数据<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+默认在停止音乐时不会立即释放音乐数据占用的内存。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="audiopausemusic_audiopausebackgroundmusic">audio.pauseMusic, audio.pauseBackgroundMusic</h2>
+<div class="level2">
+
+<p>
+暂停音乐的播放。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="audioresumemusic_audioresumebackgroundmusic">audio.resumeMusic, audio.resumeBackgroundMusic</h2>
+<div class="level2">
+
+<p>
+恢复暂停的音乐。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="audiorewindmusic_audiorewindbackgroundmusic">audio.rewindMusic, audio.rewindBackgroundMusic</h2>
+<div class="level2">
+
+<p>
+从头开始重新播放当前音乐。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="audiowillplaymusic_audiowillplaybackgroundmusic">audio.willPlayMusic, audio.willPlayBackgroundMusic</h2>
+<div class="level2">
+
+<p>
+检查是否可以开始播放音乐，如果可以则返回 true。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> audio<span class="sy0">.</span>willPlayMusic<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+如果尚未载入音乐，或者载入的音乐格式不被设备所支持，该方法将返回 false。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="audioismusicplaying_audioisbackgroundmusicplaying">audio.isMusicPlaying, audio.isBackgroundMusicPlaying</h2>
+<div class="level2">
+
+<p>
+检查当前是否正在播放音乐，如果有音乐正在播放则返回 true。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> audio<span class="sy0">.</span>isMusicPlaying<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="audioplaysound_audioplayeffect">audio.playSound, audio.playEffect</h2>
+<div class="level2">
+
+<p>
+播放音效，并返回音效句柄。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">handle <span class="sy0">=</span> audio<span class="sy0">.</span>playSound<span class="br0">&#40;</span>音效文件名<span class="sy0">,</span> <span class="br0">&#91;</span>是否重复播放<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+如果音效尚未载入，则会载入后开始播放。
+</p>
+
+<p>
+该方法返回的音效句柄用于 stopSound()、pauseSound() 等方法。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="audiopausesound_audiopauseeffect">audio.pauseSound, audio.pauseEffect</h2>
+<div class="level2">
+
+<p>
+暂停指定的音效。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>pauseSound<span class="br0">&#40;</span>音效句柄<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="audiopauseallsounds_audiopausealleffects">audio.pauseAllSounds, audio.pauseAllEffects</h2>
+<div class="level2">
+
+<p>
+暂停所有音效。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="audioresumesound_audioresumeeffect">audio.resumeSound, audio.resumeEffect</h2>
+<div class="level2">
+
+<p>
+恢复暂停的音效。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>resumeSound<span class="br0">&#40;</span>音效句柄<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="audioresumeallsounds_audioresumealleffects">audio.resumeAllSounds, audio.resumeAllEffects</h2>
+<div class="level2">
+
+<p>
+恢复所有暂停的音效。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="audiostopsound_audiostopeffect">audio.stopSound, audio.stopEffect</h2>
+<div class="level2">
+
+<p>
+停止指定的音效。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>stopSound<span class="br0">&#40;</span>音效句柄<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="audiostopallsounds_audiostopalleffects">audio.stopAllSounds, audio.stopAllEffects</h2>
+<div class="level2">
+
+<p>
+停止所有的音效。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="audiopreloadsound_audiopreloadeffect">audio.preloadSound, audio.preloadEffect</h2>
+<div class="level2">
+
+<p>
+预载入一个音效文件。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>preloadSound<span class="br0">&#40;</span>音效文件名<span class="br0">&#41;</span></pre>
+
+<p>
+可以在进入场景前，载入该场景需要的所有音效。这样就不会因为首次播放某个未载入的音效，而导致游戏暂停执行。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="audiounloadsound_audiounloadeffect">audio.unloadSound, audio.unloadEffect</h2>
+<div class="level2">
+
+<p>
+从内存卸载一个音效。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">audio<span class="sy0">.</span>unloadSound<span class="br0">&#40;</span>音效文件名<span class="br0">&#41;</span></pre>
+
+<p>
+退出场景时，可以卸载掉只有该场景使用的音效，从而节约内存。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.audio.txt · Last modified: 2013/08/17 06:19 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ccscene</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:ccscene</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#ccscene">CCScene</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#场景切换时的事件调用顺序">场景切换时的事件调用顺序</a></div></li>
+<li class="level2"><div class="li"><a href="#markautocleanupimage">markAutoCleanupImage</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ccscene">CCScene</h1>
+<div class="level1">
+
+<p>
+CCScene 对象在 quick 中作为一个场景中所有其他 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:basic_concepts_display_object" class="wikilink2" title="zh_cn:basic_concepts_display_object" rel="nofollow">显示对象</a> 的容器。
+</p>
+
+<p>
+如果是从 Flash 转过来的开发者，可以将 CCScene 对象当作 Stage（舞台）。只不过 quick 里可以创建多个场景，并从一个场景切换到另一个场景。
+</p>
+
+<p>
+~~
+</p>
+
+<p>
+<strong>对象继承关系：</strong> 
+<a href="ccobject.html" class="wikilink1" title="zh_cn:api:ccobject">CCObject</a> -> 
+<a href="ccnode.html" class="wikilink1" title="zh_cn:api:ccnode">CCNode</a> -> CCScene
+</p>
+
+<p>
+~~
+</p>
+
+<p>
+CCScene 最重要的功能是提供了一组可以在继承类中覆盖的方法：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>onEnter</strong> 场景开始运行时自动调用此方法</div>
+</li>
+<li class="level1"><div class="li"><strong>onExit</strong> 场景退出后自动调用此方法</div>
+</li>
+<li class="level1"><div class="li"><strong>onEnterTransitionFinish</strong> 切入当前场景的过渡效果完成后自动调用此方法</div>
+</li>
+<li class="level1"><div class="li"><strong>onExitTransitionStart</strong> 退出当前场景的过渡效果开始运行时自动调用此方法</div>
+</li>
+<li class="level1"><div class="li"><strong>onCleanup</strong> 场景清理资源时自动调用此方法</div>
+</li>
+</ul>
+
+<p>
+一旦在继承类中覆盖了这些方法，那么在相应事件发生时会自动调用上述方法。
+</p>
+
+<p>
+~
+</p>
+
+<p>
+下面的示例代码创建一个场景，并在场景开始运行后不断增加屏幕上的计数器数值。
+</p>
+
+<p>
+<strong>HelloScene 模块</strong>
+</p>
+<pre class="code lua"><span class="kw1">local</span> HelloScene <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;HelloScene&quot;</span><span class="sy0">,</span> <span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="kw1">return</span> display<span class="sy0">.</span>newScene<span class="br0">&#40;</span><span class="st0">&quot;HelloScene&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">end</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 在构造函数中初始化场景内容</span>
+<span class="kw1">function</span> HelloScene<span class="sy0">:</span>ctor<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="co1">-- 添加一张背景图</span>
+    <span class="kw1">local</span> bg <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;HelloSceneBg.png&quot;</span><span class="sy0">,</span> display<span class="sy0">.</span>cx<span class="sy0">,</span> display<span class="sy0">.</span>cy<span class="br0">&#41;</span>
+    self<span class="sy0">:</span>addChild<span class="br0">&#40;</span>bg<span class="br0">&#41;</span>
+    <span class="co1">-- 将背景图标记为自动清理</span>
+    self<span class="sy0">:</span>markAutoCleanupImage<span class="br0">&#40;</span><span class="st0">&quot;HelloSceneBg.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+    <span class="co1">-- 创建一个文字显示对象，并保存到场景对象的 counterLabel 属性中</span>
+    self<span class="sy0">.</span>counterLabel <span class="sy0">=</span> ui<span class="sy0">.</span>newTTFLabel<span class="br0">&#40;</span><span class="br0">&#123;</span>
+        text <span class="sy0">=</span> <span class="st0">&quot;FRAME 00000&quot;</span><span class="sy0">,</span>
+        font <span class="sy0">=</span> <span class="st0">&quot;Arial&quot;</span><span class="sy0">,</span>
+        size <span class="sy0">=</span> <span class="nu0">24</span><span class="sy0">,</span>
+        x <span class="sy0">=</span> display<span class="sy0">.</span>cx<span class="sy0">,</span>
+        y <span class="sy0">=</span> display<span class="sy0">.</span>cy<span class="sy0">,</span>
+    <span class="br0">&#125;</span><span class="br0">&#41;</span>
+    self<span class="sy0">:</span>addChild<span class="br0">&#40;</span>self<span class="sy0">.</span>counterLabel<span class="br0">&#41;</span>
+&nbsp;
+    <span class="co1">-- 初始化计数器</span>
+    self<span class="sy0">.</span>counter <span class="sy0">=</span> <span class="nu0">0</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">function</span> HelloScene<span class="sy0">:</span>onEnterFrame<span class="br0">&#40;</span>dt<span class="br0">&#41;</span>
+    <span class="co1">-- 在帧事件里增加计数器，并更新文字</span>
+    self<span class="sy0">.</span>counter <span class="sy0">=</span> self<span class="sy0">.</span>counter <span class="sy0">+</span> <span class="nu0">1</span>
+    self<span class="sy0">.</span>counterLabel<span class="sy0">:</span>setString<span class="br0">&#40;</span><span class="kw3">string.format</span><span class="br0">&#40;</span><span class="st0">&quot;FRAME %05d&quot;</span><span class="sy0">,</span> self<span class="sy0">.</span>counter<span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">function</span> HelloScene<span class="sy0">:</span>onEnter<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="co1">-- 在场景开始运行时，注册帧事件</span>
+    self<span class="sy0">:</span>scheduleUpdate<span class="br0">&#40;</span>handler<span class="br0">&#40;</span>self<span class="sy0">,</span> self<span class="sy0">.</span>onEnterFrame<span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">return</span> HelloScene</pre>
+
+<p>
+<strong>从 main.lua 中启动场景</strong>
+</p>
+<pre class="code lua"><span class="kw3">require</span><span class="br0">&#40;</span><span class="st0">&quot;config.lua&quot;</span><span class="br0">&#41;</span>
+<span class="kw3">require</span><span class="br0">&#40;</span><span class="st0">&quot;framework.init&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">local</span> HelloScene <span class="sy0">=</span> <span class="kw3">require</span><span class="br0">&#40;</span><span class="st0">&quot;HelloScene&quot;</span><span class="br0">&#41;</span>
+display<span class="sy0">.</span>replaceScene<span class="br0">&#40;</span>HelloScene<span class="sy0">.</span>new<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="场景切换时的事件调用顺序">场景切换时的事件调用顺序</h2>
+<div class="level2">
+
+<p>
+从一个场景切换到另一个场景时，会自动调用两个场景对象的 onEnter()、onExit() 等方法。这些方法的调用顺序如下：
+</p>
+<ul>
+<li class="level1"><div class="li">从 SceneA 切换到 SceneB（不使用过渡效果）：</div>
+<ul>
+<li class="level2"><div class="li">SceneB:onEnter()</div>
+</li>
+<li class="level2"><div class="li">SceneA:onExit()</div>
+</li>
+<li class="level2"><div class="li">SceneA:onCleanup()</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li">从 SceneA 切换到 SceneB（使用过渡效果）：</div>
+<ul>
+<li class="level2"><div class="li">SceneA:onExitTransitionStart()</div>
+</li>
+<li class="level2"><div class="li">SceneB:onEnter()</div>
+</li>
+<li class="level2"><div class="li">SceneB:onEnterTransitionFinish()</div>
+</li>
+<li class="level2"><div class="li">SceneA:onExit()</div>
+</li>
+<li class="level2"><div class="li">SceneA:onCleanup()</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+~
+</p>
+
+<p>
+如果是整个游戏的第一个场景，那么会直接调用场景对象的 onEnter() 方法。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="markautocleanupimage">markAutoCleanupImage</h2>
+<div class="level2">
+
+<p>
+添加需要在场景退出时自动卸载的图像。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">scene<span class="sy0">:</span>markAutoCleanupImage<span class="br0">&#40;</span>图像文件名<span class="br0">&#41;</span></pre>
+
+<p>
+如果一个图像文件仅在当前场景中使用，那就应该用 markAutoCleanupImage() 方法将该文件标记为自动清理。这样在场景退出时，quick 会从缓存里删除标记为自动清理的图像数据。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/ccscene.txt · Last modified: 2013/08/19 16:36 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.display</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.display</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworkdisplay">framework.display</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#displaynewscene">display.newScene</a></div></li>
+<li class="level2"><div class="li"><a href="#displaywrapscenewithtransition">display.wrapSceneWithTransition</a></div></li>
+<li class="level2"><div class="li"><a href="#displayreplacescene">display.replaceScene</a></div></li>
+<li class="level2"><div class="li"><a href="#displaygetrunningscene">display.getRunningScene</a></div></li>
+<li class="level2"><div class="li"><a href="#displaypause">display.pause</a></div></li>
+<li class="level2"><div class="li"><a href="#displayresume">display.resume</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewlayer">display.newLayer</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewnode">display.newNode</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewclippingregionnode">display.newClippingRegionNode</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewsprite">display.newSprite</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewscale9sprite">display.newScale9Sprite</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewbackgroundtilessprite">display.newBackgroundTilesSprite</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewcircle">display.newCircle</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewrect">display.newRect</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewpolygon">display.newPolygon</a></div></li>
+<li class="level2"><div class="li"><a href="#displayalign">display.align</a></div></li>
+<li class="level2"><div class="li"><a href="#displayaddspriteframeswithfile">display.addSpriteFramesWithFile</a></div></li>
+<li class="level2"><div class="li"><a href="#displayremovespriteframeswithfile">display.removeSpriteFramesWithFile</a></div></li>
+<li class="level2"><div class="li"><a href="#displaysettexturepixelformat">display.setTexturePixelFormat</a></div></li>
+<li class="level2"><div class="li"><a href="#displayremovespriteframebyimagename">display.removeSpriteFrameByImageName</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewbatchnode">display.newBatchNode</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewspriteframe">display.newSpriteFrame</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewframes">display.newFrames</a></div></li>
+<li class="level2"><div class="li"><a href="#displaynewanimation">display.newAnimation</a></div></li>
+<li class="level2"><div class="li"><a href="#displaysetanimationcache">display.setAnimationCache</a></div></li>
+<li class="level2"><div class="li"><a href="#displaygetanimationcache">display.getAnimationCache</a></div></li>
+<li class="level2"><div class="li"><a href="#displayremoveanimationcache">display.removeAnimationCache</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworkdisplay">framework.display</h1>
+<div class="level1">
+
+<p>
+与显示图像、场景有关的功能
+</p>
+
+<p>
+display 模块封装了绝大部分与显示有关的功能，并负责根据 config.lua 中定义的分辨率设定计算屏幕的设计分辨率。
+</p>
+
+<p>
+关于设计分辨率，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:advanced_adaptive_multi_resolution" class="wikilink2" title="zh_cn:advanced_adaptive_multi_resolution" rel="nofollow">自适应多种分辨率</a> 。
+</p>
+
+<p>
+框架初始化后，display 模块提供下列属性：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>display.sizeInPixels.width</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.sizeInPixels.height</strong> 屏幕的像素分辨率</div>
+</li>
+<li class="level1"><div class="li"><strong>display.widthInPixels</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.heightInPixels</strong> 屏幕的像素分辨率</div>
+</li>
+<li class="level1"><div class="li"><strong>display.contentScaleFactor</strong> 内容缩放因子</div>
+</li>
+<li class="level1"><div class="li"><strong>display.size.width</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.size.height</strong> 屏幕的设计分辨率</div>
+</li>
+<li class="level1"><div class="li"><strong>display.width</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.height</strong> 屏幕的设计分辨率</div>
+</li>
+<li class="level1"><div class="li"><strong>display.cx</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.cy</strong> 屏幕中央的 x 坐标和 y 坐标</div>
+</li>
+<li class="level1"><div class="li"><strong>display.left</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.top</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.right</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.bottom</strong> 屏幕四边的坐标</div>
+</li>
+<li class="level1"><div class="li"><strong>display.c_left</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.c_top</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.c_right</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.c_bottom</strong> 当父对象在屏幕中央时，屏幕四边的坐标</div>
+</li>
+</ul>
+
+<p>
+颜色：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>display.COLOR_WHITE</strong> 白色, ccc3(255, 255, 255)</div>
+</li>
+<li class="level1"><div class="li"><strong>display.COLOR_BLACK</strong> 黑色, ccc3(0, 0, 0)</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="displaynewscene">display.newScene</h2>
+<div class="level2">
+
+<p>
+创建一个新场景，并返回 CCScene 场景对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">scene <span class="sy0">=</span> display<span class="sy0">.</span>newScene<span class="br0">&#40;</span><span class="br0">&#91;</span>场景名称<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+指定场景名称方便调试。
+</p>
+
+<p>
+关于 CCScene 对象，请参考 
+<a href="ccscene.html" class="wikilink1" title="zh_cn:api:ccscene">CCScene</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="displaywrapscenewithtransition">display.wrapSceneWithTransition</h2>
+<div class="level2">
+
+<p>
+用场景切换过渡效果包装场景对象，并返回场景过渡对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">transition <span class="sy0">=</span> display<span class="sy0">.</span>wrapSceneWithTransition<span class="br0">&#40;</span>scene<span class="sy0">,</span> 过渡效果名<span class="sy0">,</span> 过渡时间<span class="sy0">,</span> <span class="br0">&#91;</span>过渡效果附加参数<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 创建一个新场景</span>
+<span class="kw1">local</span> nextScene <span class="sy0">=</span> display<span class="sy0">.</span>newScene<span class="br0">&#40;</span><span class="st0">&quot;NextScene&quot;</span><span class="br0">&#41;</span>
+<span class="co1">-- 包装过渡效果</span>
+<span class="kw1">local</span> transition <span class="sy0">=</span> display<span class="sy0">.</span>wrapSceneWithTransition<span class="br0">&#40;</span>nextScene<span class="sy0">,</span> <span class="st0">&quot;fade&quot;</span><span class="sy0">,</span> <span class="nu0">0.5</span><span class="br0">&#41;</span>
+<span class="co1">-- 切换到新场景</span>
+display<span class="sy0">.</span>replaceScene<span class="br0">&#40;</span>nextScene<span class="br0">&#41;</span></pre>
+
+<p>
+可用的过渡效果有：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>crossFade</strong> 淡出当前场景的同时淡入下一个场景</div>
+</li>
+<li class="level1"><div class="li"><strong>fade</strong> 淡出当前场景到指定颜色，默认颜色为 ccc3(0, 0, 0)，可用 wrapSceneWithTransition() 的最后一个参数指定颜色</div>
+</li>
+<li class="level1"><div class="li"><strong>fadeBL</strong> 从左下角开始淡出场景</div>
+</li>
+<li class="level1"><div class="li"><strong>fadeDown</strong> 从底部开始淡出场景</div>
+</li>
+<li class="level1"><div class="li"><strong>fadeTR</strong> 从右上角开始淡出场景</div>
+</li>
+<li class="level1"><div class="li"><strong>fadeUp</strong> 从顶部开始淡出场景</div>
+</li>
+<li class="level1"><div class="li"><strong>flipAngular</strong> 当前场景倾斜后翻转成下一个场景，默认从左边开始翻转，可以指定为：</div>
+<ul>
+<li class="level2"><div class="li"><strong>kCCTransitionOrientationLeftOver</strong> 从左边开始</div>
+</li>
+<li class="level2"><div class="li"><strong>kCCTransitionOrientationRightOver</strong> 从右边开始</div>
+</li>
+<li class="level2"><div class="li"><strong>kCCTransitionOrientationUpOver</strong> 从顶部开始</div>
+</li>
+<li class="level2"><div class="li"><strong>kCCTransitionOrientationDownOver</strong> 从底部开始</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><strong>flipX</strong> 水平翻转，默认从左往右翻转，可用的附加参数同上</div>
+</li>
+<li class="level1"><div class="li"><strong>flipY</strong> 垂直翻转，默认从上往下翻转，可用的附加参数同上</div>
+</li>
+<li class="level1"><div class="li"><strong>zoomFlipAngular</strong> 倾斜翻转的同时放大，可用的附加参数同上</div>
+</li>
+<li class="level1"><div class="li"><strong>zoomFlipX</strong> 水平翻转的同时放大，可用的附加参数同上</div>
+</li>
+<li class="level1"><div class="li"><strong>zoomFlipY</strong> 垂直翻转的同时放大，可用的附加参数同上</div>
+</li>
+<li class="level1"><div class="li"><strong>jumpZoom</strong> 跳跃放大切换场景</div>
+</li>
+<li class="level1"><div class="li"><strong>moveInB</strong> 新场景从底部进入，现有场景同时从顶部退出</div>
+</li>
+<li class="level1"><div class="li"><strong>moveInL</strong> 新场景从左侧进入，现有场景同时从右侧退出</div>
+</li>
+<li class="level1"><div class="li"><strong>moveInR</strong> 新场景从右侧进入，现有场景同时从左侧退出</div>
+</li>
+<li class="level1"><div class="li"><strong>moveInT</strong> 新场景从顶部进入，现有场景同时从底部退出</div>
+</li>
+<li class="level1"><div class="li"><strong>pageTurn</strong> 翻页效果，如果指定附加参数为 true，则表示从左侧往右翻页</div>
+</li>
+<li class="level1"><div class="li"><strong>rotoZoom</strong> 旋转放大切换场景</div>
+</li>
+<li class="level1"><div class="li"><strong>shrinkGrow</strong> 收缩交叉切换场景</div>
+</li>
+<li class="level1"><div class="li"><strong>slideInB</strong> 新场景从底部进入，直接覆盖现有场景</div>
+</li>
+<li class="level1"><div class="li"><strong>slideInL</strong> 新场景从左侧进入，直接覆盖现有场景</div>
+</li>
+<li class="level1"><div class="li"><strong>slideInR</strong> 新场景从右侧进入，直接覆盖现有场景</div>
+</li>
+<li class="level1"><div class="li"><strong>slideInT</strong> 新场景从顶部进入，直接覆盖现有场景</div>
+</li>
+<li class="level1"><div class="li"><strong>splitCols</strong> 分成多列切换入新场景</div>
+</li>
+<li class="level1"><div class="li"><strong>splitRows</strong> 分成多行切换入新场景，类似百叶窗</div>
+</li>
+<li class="level1"><div class="li"><strong>turnOffTiles</strong> 当前场景分成多个块，逐渐替换为新场景</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="displayreplacescene">display.replaceScene</h2>
+<div class="level2">
+
+<p>
+切换到新场景。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>replaceScene<span class="br0">&#40;</span>场景对象<span class="sy0">,</span> <span class="br0">&#91;</span>过渡效果名<span class="br0">&#93;</span><span class="sy0">,</span> 过渡时间<span class="sy0">,</span> <span class="br0">&#91;</span>过渡效果附加参数<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 使用红色做过渡色</span>
+display<span class="sy0">.</span>replaceScene<span class="br0">&#40;</span>nextScene<span class="sy0">,</span> <span class="st0">&quot;fade&quot;</span><span class="sy0">,</span> <span class="nu0">0.5</span><span class="sy0">,</span> ccc3<span class="br0">&#40;</span><span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="displaygetrunningscene">display.getRunningScene</h2>
+<div class="level2">
+
+<p>
+返回当前正在运行的场景对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">scene <span class="sy0">=</span> display<span class="sy0">.</span>getRunningScene<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="displaypause">display.pause</h2>
+<div class="level2">
+
+<p>
+暂停当前场景。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="displayresume">display.resume</h2>
+<div class="level2">
+
+<p>
+恢复当前暂停的场景。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="displaynewlayer">display.newLayer</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCLayer 层对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">layer <span class="sy0">=</span> display<span class="sy0">.</span>newLayer<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+CCLayer 对象提供了触摸事件、重力感应、Android 按键检测等功能，具体请参考 
+<a href="cclayer.html" class="wikilink1" title="zh_cn:api:cclayer">CCLayer</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="displaynewnode">display.newNode</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCNode 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">node <span class="sy0">=</span> display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+CCNode 对象并不能显示对象，但可以作为其他显示对象的容器（起到群组的作用）。具体请参考 
+<a href="ccnode.html" class="wikilink1" title="zh_cn:api:ccnode">CCNode</a> 。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> group <span class="sy0">=</span> display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span>     <span class="co1">-- 创建一个容器</span>
+group<span class="sy0">:</span>addChild<span class="br0">&#40;</span>sprite1<span class="br0">&#41;</span>             <span class="co1">-- 添加显示对象到容器中</span>
+group<span class="sy0">:</span>addChild<span class="br0">&#40;</span>sprite2<span class="br0">&#41;</span>             <span class="co1">-- 添加显示对象到容器中</span>
+&nbsp;
+<span class="co1">-- 移动容器时，其中包含的子对象也会同时移动</span>
+transition<span class="sy0">.</span>moveBy<span class="br0">&#40;</span>group<span class="sy0">,</span> <span class="br0">&#123;</span><span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">2.0</span><span class="sy0">,</span> x <span class="sy0">=</span> <span class="nu0">100</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="displaynewclippingregionnode">display.newClippingRegionNode</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCClippingRegionNode 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">clipnode <span class="sy0">=</span> display<span class="sy0">.</span>newClippingRegionNode<span class="br0">&#40;</span>CCRect 对象<span class="br0">&#41;</span></pre>
+
+<p>
+创建 CCClippingRegionNode 对象时需要指定一个屏幕区域，然后在显示时，所以加入 CCClippingRegionNode 对象的内容都会进行剪裁，超出指定区域的内容不会显示。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 剪裁区域从屏幕左下角靠内 100 点，到屏幕右上角</span>
+<span class="kw1">local</span> rect <span class="sy0">=</span> CCRect<span class="br0">&#40;</span>display<span class="sy0">.</span>left <span class="sy0">+</span> <span class="nu0">100</span><span class="sy0">,</span>
+                    display<span class="sy0">.</span>bottom <span class="sy0">+</span> <span class="nu0">100</span><span class="sy0">,</span>
+                    display<span class="sy0">.</span>width <span class="sy0">-</span> <span class="nu0">200</span><span class="sy0">,</span>
+                    display<span class="sy0">.</span>height <span class="sy0">-</span> <span class="nu0">200</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> clipnode <span class="sy0">=</span> display<span class="sy0">.</span>newClippingRegionNode<span class="br0">&#40;</span>rect<span class="br0">&#41;</span>
+&nbsp;
+clipnode<span class="sy0">:</span>addChild<span class="br0">&#40;</span>sprite1<span class="br0">&#41;</span>
+clipnode<span class="sy0">:</span>addChild<span class="br0">&#40;</span>sprite2<span class="br0">&#41;</span>
+&nbsp;
+scene<span class="sy0">:</span>addChild<span class="br0">&#40;</span>clipnode<span class="br0">&#41;</span></pre>
+
+<p>
+<strong>注意：</strong> CCClippingRegionNode 的父对象其坐标必须是 0, 0。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="displaynewsprite">display.newSprite</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCSprite 显示对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">sprite <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span>图像名 | CCSpriteFrame 对象<span class="sy0">,</span> <span class="br0">&#91;</span>x<span class="sy0">,</span> y<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+display.newSprite() 有三种方式创建显示对象：
+</p>
+<ol>
+<li class="level1"><div class="li">从图片文件创建</div>
+</li>
+<li class="level0"><div class="li">从缓存的图像帧创建</div>
+</li>
+<li class="level0"><div class="li">从 CCSpriteFrame 对象创建</div>
+</li>
+</ol>
+
+<p>
+~
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 从图片文件创建显示对象</span>
+<span class="kw1">local</span> sprite1 <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;hello1.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 从缓存的图像帧创建显示对象</span>
+<span class="co1">-- 图像帧的名字就是图片文件名，但为了和图片文件名区分，所以此处需要在文件名前添加 “#” 字符</span>
+<span class="co1">-- 添加 “#” 的规则适用于所有需要区分图像和图像帧的地方</span>
+<span class="kw1">local</span> sprite2 <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;#frame0001.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 从 CCSpriteFrame 对象创建</span>
+<span class="kw1">local</span> frame <span class="sy0">=</span> display<span class="sy0">.</span>newFrame<span class="br0">&#40;</span><span class="st0">&quot;frame0002.png&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> sprite3 <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span>frame<span class="br0">&#41;</span></pre>
+
+<p>
+如果指定了 x,y 参数，那么创建显示对象后会调用对象的 setPosition() 方法设置对象位置。
+</p>
+
+<p>
+关于 CCSprite 的详细用法请参考 
+<a href="ccsprite.html" class="wikilink1" title="zh_cn:api:ccsprite">CCSprite</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="displaynewscale9sprite">display.newScale9Sprite</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCSprite9Scale 显示对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">sprite <span class="sy0">=</span> display<span class="sy0">.</span>newScale9Sprite<span class="br0">&#40;</span>图像名<span class="sy0">,</span> <span class="br0">&#91;</span>x<span class="sy0">,</span> y<span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#91;</span>CCSize 对象<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+CCSprite9Scale 就是通常所說的“九宫格”图像。一个矩形图像会被分为 9 部分，然后根据要求拉伸图像，同时保证拉伸后的图像四边不变形。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 创建一个 Scale9 图像，并拉伸到 400, 300 点大小</span>
+<span class="kw1">local</span> sprite <span class="sy0">=</span> display<span class="sy0">.</span>newScale9Sprite<span class="br0">&#40;</span><span class="st0">&quot;Box.png&quot;</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> CCSize<span class="br0">&#40;</span><span class="nu0">400</span><span class="sy0">,</span> <span class="nu0">300</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="displaynewbackgroundtilessprite">display.newBackgroundTilesSprite</h2>
+<div class="level2">
+
+<p>
+创建并返回一个在指定区域内重复的显示对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">sprite <span class="sy0">=</span> display<span class="sy0">.</span>newBackgroundTilesSprite<span class="br0">&#40;</span>图像名<span class="sy0">,</span> <span class="br0">&#91;</span>CCRect 对象<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+有时候，我们的背景图是用一张图像重复显示拼接而成。newBackgroundTilesSprite() 可以很方便的创建这种重复显示图像。
+</p>
+
+<p>
+如果不指定第二个参数，将默认创建整个屏幕大小的图像。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="displaynewcircle">display.newCircle</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCCircleShape （圆）对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">shape <span class="sy0">=</span> display<span class="sy0">.</span>newCircle<span class="br0">&#40;</span>圆的半径<span class="br0">&#41;</span></pre>
+
+<p>
+关于 CCCircleShape 的详细用法请参考 
+<a href="ccshapenode.html" class="wikilink1" title="zh_cn:api:ccshapenode">CCShapeNode</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="displaynewrect">display.newRect</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCRectShape （矩形）对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">shape <span class="sy0">=</span> display<span class="sy0">.</span>newRect<span class="br0">&#40;</span>宽度<span class="sy0">,</span> 高度 | CCRect | CCSize<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 下面两行代码都创建一个宽度 200，高度 100 的矩形</span>
+<span class="kw1">local</span> shape1 <span class="sy0">=</span> display<span class="sy0">.</span>newRect<span class="br0">&#40;</span><span class="nu0">200</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> shape2 <span class="sy0">=</span> display<span class="sy0">.</span>newRect<span class="br0">&#40;</span>CCSize<span class="br0">&#40;</span><span class="nu0">200</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 创建一个宽度 200，高度 100 的矩形，并且定位于 50, 80</span>
+<span class="kw1">local</span> shape3 <span class="sy0">=</span> display<span class="sy0">.</span>newRect<span class="br0">&#40;</span>CCRect<span class="br0">&#40;</span><span class="nu0">50</span><span class="sy0">,</span> <span class="nu0">80</span><span class="sy0">,</span> <span class="nu0">200</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+关于 CCRectShape 的详细用法请参考 
+<a href="ccshapenode.html" class="wikilink1" title="zh_cn:api:ccshapenode">CCShapeNode</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="displaynewpolygon">display.newPolygon</h2>
+<div class="level2">
+
+<p>
+创建并返回一个 CCPolygonShape （多边形）对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">shape <span class="sy0">=</span> display<span class="sy0">.</span>newPolygon<span class="br0">&#40;</span>包含多边形每一个点坐标的表格对象<span class="sy0">,</span> <span class="br0">&#91;</span>缩放比例<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> points <span class="sy0">=</span> <span class="br0">&#123;</span>
+    <span class="br0">&#123;</span><span class="nu0">10</span><span class="sy0">,</span> <span class="nu0">10</span><span class="br0">&#125;</span><span class="sy0">,</span>  <span class="co1">-- point 1</span>
+    <span class="br0">&#123;</span><span class="nu0">50</span><span class="sy0">,</span> <span class="nu0">50</span><span class="br0">&#125;</span><span class="sy0">,</span>  <span class="co1">-- point 2</span>
+    <span class="br0">&#123;</span><span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">10</span><span class="br0">&#125;</span><span class="sy0">,</span> <span class="co1">-- point 3</span>
+<span class="br0">&#125;</span>
+<span class="kw1">local</span> polygon <span class="sy0">=</span> display<span class="sy0">.</span>newPolygon<span class="br0">&#40;</span>points<span class="br0">&#41;</span>
+polygon<span class="sy0">:</span>setClose<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 将第一个点和最后一个点相连</span></pre>
+
+<p>
+关于 CCPolygonShape 的详细用法请参考 
+<a href="ccshapenode.html" class="wikilink1" title="zh_cn:api:ccshapenode">CCShapeNode</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="displayalign">display.align</h2>
+<div class="level2">
+
+<p>
+将指定的显示对象按照特定锚点对齐。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>align<span class="br0">&#40;</span>显示对象<span class="sy0">,</span> 锚点位置<span class="sy0">,</span> <span class="br0">&#91;</span>x<span class="sy0">,</span> y<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+显示对象锚点位置：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>display.CENTER</strong> 图像中央</div>
+</li>
+<li class="level1"><div class="li"><strong>display.LEFT_TOP</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.TOP_LEFT</strong> 图像左上角</div>
+</li>
+<li class="level1"><div class="li"><strong>display.CENTER_TOP</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.TOP_CENTER</strong> 图像顶部的中间</div>
+</li>
+<li class="level1"><div class="li"><strong>display.RIGHT_TOP</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.TOP_RIGHT</strong> 图像顶部的中间</div>
+</li>
+<li class="level1"><div class="li"><strong>display.CENTER_LEFT</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.LEFT_CENTER</strong> 图像左边的中间</div>
+</li>
+<li class="level1"><div class="li"><strong>display.CENTER_RIGHT</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.RIGHT_CENTER</strong> 图像右边的中间</div>
+</li>
+<li class="level1"><div class="li"><strong>display.BOTTOM_LEFT</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.LEFT_BOTTOM</strong> 图像左边的底部</div>
+</li>
+<li class="level1"><div class="li"><strong>display.BOTTOM_RIGHT</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.RIGHT_BOTTOM</strong> 图像右边的底部</div>
+</li>
+<li class="level1"><div class="li"><strong>display.BOTTOM_CENTER</strong>,</div>
+</li>
+<li class="level1"><div class="li"><strong>display.CENTER_BOTTOM</strong> 图像中间的底部</div>
+</li>
+</ul>
+
+<p>
+锚点设置请参考下图：
+</p>
+
+<p>
+<a href="anchorpoint.png" class="media" title="zh_cn:api:anchorpoint.png">
+<img src="anchorpoint.png" class="mediacenter" alt="" /></a>
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 将图像按左上角对齐，并放置在屏幕左上角</span>
+display<span class="sy0">.</span>align<span class="br0">&#40;</span>sprite<span class="sy0">,</span> display<span class="sy0">.</span>LEFT_TOP<span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="displayaddspriteframeswithfile">display.addSpriteFramesWithFile</h2>
+<div class="level2">
+
+<p>
+将指定的 Sprite Sheets 材质文件及其数据文件载入图像帧缓存。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>addSpriteFramesWithFile<span class="br0">&#40;</span>数据文件名<span class="sy0">,</span> 材质文件名<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>addSpriteFramesWithFile<span class="br0">&#40;</span><span class="st0">&quot;Sprites.plist&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Sprites.png&quot;</span><span class="br0">&#41;</span></pre>
+
+<p>
+Sprite Sheets 通俗一点解释就是包含多张图片的集合。Sprite Sheets 材质文件由多张图片组成，而数据文件则记录了图片在材质文件中的位置等信息。
+</p>
+
+<p>
+关于 Sprite Sheets 的详细内容，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:advanced_sprite_sheets" class="wikilink2" title="zh_cn:advanced_sprite_sheets" rel="nofollow">Sprite Sheets</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="displayremovespriteframeswithfile">display.removeSpriteFramesWithFile</h2>
+<div class="level2">
+
+<p>
+从内存中卸载 Sprite Sheets 材质和数据文件。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>removeSpriteFramesWithFile<span class="br0">&#40;</span>数据文件名<span class="sy0">,</span> 材质文件名<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="displaysettexturepixelformat">display.setTexturePixelFormat</h2>
+<div class="level2">
+
+<p>
+设置材质格式。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>setTexturePixelFormat<span class="br0">&#40;</span>材质文件名<span class="sy0">,</span> 材质格式<span class="br0">&#41;</span></pre>
+
+<p>
+为了节约内存，我们会使用一些颜色品质较低的材质格式，例如针对背景图使用 kCCTexture2DPixelFormat_RGB565 格式。
+</p>
+
+<p>
+display.setTexturePixelFormat() 可以指定材质文件的材质格式，这样在加载材质文件时就会使用指定的格式。
+</p>
+
+<p>
+关于材质格式和内存占用关系，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:advanced_texture_pixel_format" class="wikilink2" title="zh_cn:advanced_texture_pixel_format" rel="nofollow">Texture Pixel Format</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="displayremovespriteframebyimagename">display.removeSpriteFrameByImageName</h2>
+<div class="level2">
+
+<p>
+从图像帧缓存中删除一个图像。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>removeSpriteFrameByImageName<span class="br0">&#40;</span>图像文件名<span class="br0">&#41;</span></pre>
+
+<p>
+有时候，某些图像仅在特定场景中使用，例如背景图。那么在场景退出时，就可以用 display.removeSpriteFrameByImageName() 从缓存里删除不再使用的图像数据。
+</p>
+
+<p>
+此外，CCScene 提供了 markAutoCleanupImage() 接口，可以指定场景退出时需要自动清理的图像，推荐使用。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="displaynewbatchnode">display.newBatchNode</h2>
+<div class="level2">
+
+<p>
+从指定的图像文件创建并返回一个批量渲染对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">batch <span class="sy0">=</span> display<span class="sy0">.</span>newBatchNode<span class="br0">&#40;</span>图像文件名<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> imageName <span class="sy0">=</span> <span class="st0">&quot;Sprites.png&quot;</span>
+display<span class="sy0">.</span>addSpriteFramesWithFile<span class="br0">&#40;</span><span class="st0">&quot;Sprites.plist&quot;</span><span class="sy0">,</span> imageName<span class="br0">&#41;</span> <span class="co1">-- 载入图像到帧缓存</span>
+&nbsp;
+<span class="co1">-- 下面的代码绘制 100 个图像只用了 1 次 OpenGL draw call</span>
+<span class="kw1">local</span> batch <span class="sy0">=</span> display<span class="sy0">.</span>newBatch<span class="br0">&#40;</span>imageName<span class="br0">&#41;</span>
+<span class="kw1">for</span> i <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">100</span> <span class="kw1">do</span>
+    <span class="kw1">local</span> sprite <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;#Sprite0001.png&quot;</span><span class="br0">&#41;</span>
+    batch<span class="sy0">:</span>addChild<span class="br0">&#40;</span>sprite<span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">-- 下面的代码绘制 100 个图像则要使用 100 次 OpenGL draw call</span>
+<span class="kw1">local</span> group <span class="sy0">=</span> display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw1">for</span> i <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">100</span> <span class="kw1">do</span>
+    <span class="kw1">local</span> sprite <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;#Sprite0001.png&quot;</span><span class="br0">&#41;</span>
+    group<span class="sy0">:</span>addChild<span class="br0">&#40;</span>sprite<span class="br0">&#41;</span>
+<span class="kw1">end</span></pre>
+
+<p>
+关于批量渲染，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:advanced_batch_node" class="wikilink2" title="zh_cn:advanced_batch_node" rel="nofollow">Batch Node</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="displaynewspriteframe">display.newSpriteFrame</h2>
+<div class="level2">
+
+<p>
+创建并返回一个图像帧对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">frame <span class="sy0">=</span> display<span class="sy0">.</span>newSpriteFrame<span class="br0">&#40;</span>图像帧名称<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>addSpriteFramesWithFile<span class="br0">&#40;</span><span class="st0">&quot;Sprites.plist&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Sprites.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 创建一个 CCSprite</span>
+<span class="kw1">local</span> sprite <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;#Yes.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 创建一个图像帧</span>
+<span class="kw1">local</span> frameNo <span class="sy0">=</span> display<span class="sy0">.</span>newSpriteFrame<span class="br0">&#40;</span><span class="st0">&quot;No.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 在需要时，修改 CCSprite 的显示内容</span>
+sprite<span class="sy0">:</span>setDisplayFrame<span class="br0">&#40;</span>frameNo<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit24" id="displaynewframes">display.newFrames</h2>
+<div class="level2">
+
+<p>
+以特定模式创建一个包含多个图像帧对象的数组。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span>模式<span class="sy0">,</span> 起始索引<span class="sy0">,</span> 长度<span class="sy0">,</span> <span class="br0">&#91;</span>是否是递减索引<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 创建一个数组，包含 Walk0001.png 到 Walk0008.png 的 8 个图像帧对象</span>
+<span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Walk%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">8</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 创建一个数组，包含 Walk0008.png 到 Walk0001.png 的 8 个图像帧对象</span>
+<span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Walk%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">8</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="displaynewanimation">display.newAnimation</h2>
+<div class="level2">
+
+<p>
+以包含图像帧的数组创建一个动画对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>包含图像帧的数组<span class="sy0">,</span> 每一桢动画之间的间隔时间<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Walk%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">8</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.5</span> <span class="sy0">/</span> <span class="nu0">8</span><span class="br0">&#41;</span> <span class="co1">-- 0.5 秒播放 8 桢</span>
+sprite<span class="sy0">:</span>playAnimationOnce<span class="br0">&#40;</span>animation<span class="br0">&#41;</span> <span class="co1">-- 播放一次动画</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit26" id="displaysetanimationcache">display.setAnimationCache</h2>
+<div class="level2">
+
+<p>
+以指定名字缓存创建好的动画对象，以便后续反复使用。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>setAnimationCache<span class="br0">&#40;</span>名字<span class="sy0">,</span> 动画对象<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Walk%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">8</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.5</span> <span class="sy0">/</span> <span class="nu0">8</span><span class="br0">&#41;</span> <span class="co1">-- 0.5 秒播放 8 桢</span>
+display<span class="sy0">.</span>setAnimationCache<span class="br0">&#40;</span><span class="st0">&quot;Walk&quot;</span><span class="sy0">,</span> animation<span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 在需要使用 Walk 动画的地方</span>
+sprite<span class="sy0">:</span>playAnimationOnce<span class="br0">&#40;</span>display<span class="sy0">.</span>getAnimationCache<span class="br0">&#40;</span><span class="st0">&quot;Walk&quot;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 播放一次动画</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit27" id="displaygetanimationcache">display.getAnimationCache</h2>
+<div class="level2">
+
+<p>
+取得以指定名字缓存的动画对象，如果不存在则返回 nil。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">animation <span class="sy0">=</span> display<span class="sy0">.</span>getAnimationCache<span class="br0">&#40;</span>名字<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit28" id="displayremoveanimationcache">display.removeAnimationCache</h2>
+<div class="level2">
+
+<p>
+删除指定名字缓存的动画对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">display<span class="sy0">.</span>removeAnimationCache<span class="br0">&#40;</span>名字<span class="br0">&#41;</span></pre>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.display.txt · Last modified: 2013/08/20 04:12 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

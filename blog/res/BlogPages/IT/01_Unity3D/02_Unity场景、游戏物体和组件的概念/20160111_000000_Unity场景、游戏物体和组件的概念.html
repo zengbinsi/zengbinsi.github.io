@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+*{margin:0;padding:0;}
+body {
+	font:13.34px helvetica,arial,freesans,clean,sans-serif;
+	color:black;
+	line-height:1.4em;
+	background-color: #F8F8F8;
+	padding: 0.7em;
+}
+p {
+	margin:1em 0;
+	line-height:1.5em;
+}
+table {
+	font-size:inherit;
+	font:100%;
+	margin:1em;
+}
+table th{border-bottom:1px solid #bbb;padding:.2em 1em;}
+table td{border-bottom:1px solid #ddd;padding:.2em 1em;}
+input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}
+select,option{padding:0 .25em;}
+optgroup{margin-top:.5em;}
+pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+pre {
+	margin:1em 0;
+	font-size:12px;
+	background-color:#eee;
+	border:1px solid #ddd;
+	padding:5px;
+	line-height:1.5em;
+	color:#444;
+	overflow:auto;
+	-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;border-radius:3px;
+}
+pre code {
+	padding:0;
+	font-size:12px;
+	background-color:#eee;
+	border:none;
+}
+code {
+	font-size:12px;
+	background-color:#f8f8ff;
+	color:#444;
+	padding:0 .2em;
+	border:1px solid #dedede;
+}
+img{border:0;max-width:100%;}
+abbr{border-bottom:none;}
+a{color:#4183c4;text-decoration:none;}
+a:hover{text-decoration:underline;}
+a code,a:link code,a:visited code{color:#4183c4;}
+h2,h3{margin:1em 0;}
+h1,h2,h3,h4,h5,h6{border:0;}
+h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em;}
+h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}
+h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;}
+h3{margin-top:1em;}
+hr{border:1px solid #ddd;}
+ul{margin:1em 0 1em 2em;}
+ol{margin:1em 0 1em 2em;}
+ul li,ol li{margin-top:.5em;margin-bottom:.5em;}
+ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}
+blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}
+dt{font-weight:bold;margin-left:1em;}
+dd{margin-left:2em;margin-bottom:1em;}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>Unity3D 场景、游戏物体和组件的概念</title>
+
+</head>
+<body>
+<h1>Unity3D 场景、游戏物体和组件的概念</h1>
+
+<p>游戏和电影一样，是通过每一个镜头的串联来实现的，而这样的镜头我们称之为“场景”。一个游戏一般包含一个到多个场景，这些场景里面实现了不同的功能，把它们组合起来就变成一个完整的游戏了。</p>
+
+<h2>一、场景中的游戏对象</h2>
+
+<p>在电影里面，每个镜头会包含布景，然后还会有演员在表演，摄像机将表演的画面记录下来，然后就变成了电影。同样的，在Unity游戏里面也同样存在相机，它的作用也是将游戏的画面展示在游戏设备的显示屏上面。所不同的是，Unity游戏里面，不论是布景还是人物，所有的东西我们都称之为“GameObject”游戏对象（2D游戏一般称之为“精灵”）。所以游戏场景是由游戏对象组成的，一个场景就相当于是一个独立的世界，我们可以简单的把游戏场景理解成是游戏对象的一个容器。</p>
+
+<p><img src="res/01.jpg" alt="场景中的游戏对象" /></p>
+
+<p>Unity的Hierarchy面板上显示的就是场景当前拥有的游戏对象，当游戏处于运行状态，Hierarchy面板上面的对象也会跟着游戏在实时地刷新。一个新建的游戏场景里面会默认添加一个Main Camera（主相机）对象和一个Directional Light（方向光源）对象。主相机负责将游戏场景投影到屏幕，方向光源负责照亮整个场景。当我们将方向光源从场景里面删除后，由于场景里面没有光源，游戏运行后屏幕上只能看到一个很暗的画面。而如果我们将主相机对象从场景里面移除的话，游戏运行时我们将无法看到任何游戏画面。</p>
+
+<p>在电影里面，角色会有各种信息，比如角色的身份标签、性格，甚至他的职能。同样的，我们的游戏对象也同样可以拥有各种信息，而这些信息都是以“组件”（Component）的方式存在的。游戏对象是由一个到多个组件组成的，我们可以将组件看成是组成一台机器的零部件。Unity游戏是通过组件的方式进行开发的，所以想要操作游戏对象也都是通过操作对应的组件对象。</p>
+
+<p><img src="res/02.jpg" alt="游戏对象的组件信息" /></p>
+
+<p>在Hierarchy面板上面或者Scene视图中随便选择一个游戏对象，然后我们就可以在Inspector面板上面看到对应的组件信息。一般，游戏物体都至少会拥有一个名为“Transform”的组件。它是游戏物体的基本组件，里面包含游戏物体在场景中的基本属性信息。</p>
+
+<h2>二、Transform组件</h2>
+
+<p>Transform有三个重要的属性组成，分别是：“position”、“rotation”和“scale”。</p>
+
+<ul>
+<li>position包含的是游戏对象在场景中的位置信息，其数据类型是“Vector3”（三维向量），由x、y和z三个坐标分量组成。</li>
+<li>rotation表示的是游戏物体在场景中的旋转角度信息，其数据类型是“Quaternion”（四元数），Quaternion.Euler(x, y, z)方法可以将x、y和z三个轴上面的旋转角度分量转换成一个欧拉角（Euler），并返回一个Quaternion对象。所以我们可以看到Transform的Rotation属性同样包含x、y和z三个值。</li>
+<li>scale表示的是游戏物体在场景里面的缩放比例，默认为1。同样，它也分x、y和z三个分量，所以它的值同样是使用Vector3类型来表示。</li>
+</ul>
+
+
+<h2>三、给游戏对象添加组件</h2>
+
+<p><img src="res/03.jpg" alt="添加组件操作" /></p>
+
+<p>当我们需要给游戏物体添加新的组件的时候，我们可以简单的点击Inspector面板最后一个组件下方的“Add Component”按钮来添加。在按钮下面会出现一个组件选择面板，该面板顶部会有一个搜索框，可以直接输入组件名称进行检索。下面的备选列表里面列举了Unity内置的组件，我们也可以通过它们的分类来查找想要的组件。</p>
+
+<p>以下是组件的分类：</p>
+
+<p>1、Mesh：网格组件。</p>
+
+<p>2、Effects：效果组件。</p>
+
+<p>3、Physics：物理组件。</p>
+
+<p>4、Physics 2D：2D物理组件。</p>
+
+<p>5、Navigation：导航组件。</p>
+
+<p>6、Audio：音频组件。</p>
+
+<p>7、Rendering：渲染组件。</p>
+
+<p>8、Layout：布局组件。</p>
+
+<p>9、Miscellaneous：其它组件。</p>
+
+<p>10、Event：事件组件。</p>
+
+<p>11、UI：UI元素组件。</p>
+
+<p>12、Scripts：已创建的脚本组件。</p>
+
+<p>13、New Script：新建一个脚本组件。</p>
+
+<p>每个分类下面基本都包含了多个组件。</p>
+</body>
+</html>

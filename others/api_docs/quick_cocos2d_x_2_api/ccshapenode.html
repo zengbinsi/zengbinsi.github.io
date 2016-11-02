@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ccshapenode</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:ccshapenode</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#ccshapenode">CCShapeNode</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#cccircleshape">CCCircleShape</a></div></li>
+<li class="level2"><div class="li"><a href="#ccrectshape">CCRectShape</a></div></li>
+<li class="level2"><div class="li"><a href="#ccpolygonshape">CCPolygonShape</a></div></li>
+<li class="level2"><div class="li"><a href="#已知的问题">已知的问题</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ccshapenode">CCShapeNode</h1>
+<div class="level1">
+
+<p>
+CCShapeNode 用于描绘一些基本的几何图形，例如圆、矩形、多边形等等。
+</p>
+
+<p>
+~~
+</p>
+
+<p>
+<strong>对象继承关系：</strong> 
+<a href="ccobject.html" class="wikilink1" title="zh_cn:api:ccobject">CCObject</a> -> 
+<a href="ccnode.html" class="wikilink1" title="zh_cn:api:ccnode">CCNode</a> -> CCShapeNode -> CCCircleShape, CCRectShape, CCPolygonShape, CCPointShape
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="cccircleshape">CCCircleShape</h2>
+<div class="level2">
+
+<p>
+CCCircleShape 在屏幕上绘制一个圆。
+</p>
+<pre class="code lua"><span class="kw1">local</span> circle <span class="sy0">=</span> display<span class="sy0">.</span>newCircle<span class="br0">&#40;</span><span class="nu0">100</span><span class="br0">&#41;</span> <span class="co1">-- 半径 100 点</span>
+circle<span class="sy0">:</span>setLineColor<span class="br0">&#40;</span>ccc4f<span class="br0">&#40;</span><span class="nu0">1.0</span><span class="sy0">,</span> <span class="nu0">1.0</span><span class="sy0">,</span> <span class="nu0">1.0</span><span class="sy0">,</span> <span class="nu0">1.0</span><span class="br0">&#41;</span><span class="br0">&#41;</span>  <span class="co1">-- 白色</span>
+circle<span class="sy0">:</span>setSegments<span class="br0">&#40;</span><span class="nu0">128</span><span class="br0">&#41;</span>               <span class="co1">-- 由 128 个线段组成，线段越多圆越平滑但也更慢，默认为 32 段</span>
+circle<span class="sy0">:</span>setScaleY<span class="br0">&#40;</span><span class="nu0">0.8</span><span class="br0">&#41;</span>                 <span class="co1">-- 垂直方向拉伸，可以绘制一个椭圆</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+CCCircleShape 可用的方法有：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>getLineColor()</strong> 返回线段颜色（ccColor4F 类型）</div>
+</li>
+<li class="level1"><div class="li"><strong>setLineColor(ccColor4F 颜色值)</strong></div>
+</li>
+<li class="level1"><div class="li"><strong>getLineWidth()</strong> 返回线段宽度（整数）</div>
+</li>
+<li class="level1"><div class="li"><strong>setLineWidth(线段宽度)</strong></div>
+</li>
+<li class="level1"><div class="li"><strong>getRadius()</strong> 返回半径</div>
+</li>
+<li class="level1"><div class="li"><strong>setRadius(半径)</strong></div>
+</li>
+<li class="level1"><div class="li"><strong>getAngle()</strong> 返回弧度</div>
+</li>
+<li class="level1"><div class="li"><strong>setAngle(弧度)</strong> 设置非完整的弧度，可以绘制一条弧</div>
+</li>
+<li class="level1"><div class="li"><strong>getSegments()</strong> 返回构成圆的线段数量</div>
+</li>
+<li class="level1"><div class="li"><strong>setSegments(线段数量)</strong></div>
+</li>
+<li class="level1"><div class="li"><strong>isDrawLineToCenter()</strong> 确定是否绘制一条到圆心的线</div>
+</li>
+<li class="level1"><div class="li"><strong>setDrawLineToCenter(绘制到圆心的线)</strong></div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="ccrectshape">CCRectShape</h2>
+<div class="level2">
+
+<p>
+CCRectShape 绘制一个矩形。
+</p>
+<pre class="code lua"><span class="kw1">local</span> rect <span class="sy0">=</span> display<span class="sy0">.</span>newRect<span class="br0">&#40;</span><span class="nu0">200</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span> <span class="co1">-- 创建一个宽度 200，高度 100 的矩形</span>
+rect<span class="sy0">:</span>setFill<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 设置为填充</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+CCRectShape 可用的方法有：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>getLineColor()</strong> 返回线段颜色（ccColor4F 类型）</div>
+</li>
+<li class="level1"><div class="li"><strong>setLineColor(ccColor4F 颜色值)</strong></div>
+</li>
+<li class="level1"><div class="li"><strong>getLineWidth()</strong> 返回线段宽度（整数）</div>
+</li>
+<li class="level1"><div class="li"><strong>setLineWidth(线段宽度)</strong></div>
+</li>
+<li class="level1"><div class="li"><strong>setSize(CCSize)</strong> 设置矩形大小</div>
+</li>
+<li class="level1"><div class="li"><strong>isFill()</strong> 确定是否是填充的矩形</div>
+</li>
+<li class="level1"><div class="li"><strong>setFill(是否填充)</strong></div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="ccpolygonshape">CCPolygonShape</h2>
+<div class="level2">
+
+<p>
+CCPolygonShape 绘制一个由多个点组成的多边形。
+</p>
+<pre class="code lua"><span class="co1">-- 构造一个包含 3 个点的 CCPointArray 对象</span>
+<span class="kw1">local</span> points <span class="sy0">=</span> CCPointArray<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="br0">&#41;</span>
+points<span class="sy0">:</span>add<span class="br0">&#40;</span>CCPoint<span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+points<span class="sy0">:</span>add<span class="br0">&#40;</span>CCPoint<span class="br0">&#40;</span><span class="nu0">200</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+points<span class="sy0">:</span>add<span class="br0">&#40;</span>CCPoint<span class="br0">&#40;</span><span class="nu0">300</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 创建 CCPolygonShape 对象</span>
+<span class="kw1">local</span> polygon <span class="sy0">=</span> CCPolygonShape<span class="sy0">:</span>create<span class="br0">&#40;</span>points<span class="br0">&#41;</span>
+polygon<span class="sy0">:</span>setFill<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 填充</span>
+polygon<span class="sy0">:</span>setClose<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 连接第一个点和最后一个点，形成封闭多边形</span></pre>
+
+<p>
+CCPointArray 请参考 
+<a href="ccpointarray.html" class="wikilink1" title="zh_cn:api:ccpointarray">CCPointArray</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="已知的问题">已知的问题</h2>
+<div class="level2">
+
+<p>
+CCShapeNode 及其继承类目前的实现存在一些问题：
+</p>
+<ul>
+<li class="level1"><div class="li">由于 OpenGL ES 的限制，无法绘制平滑线段</div>
+</li>
+<li class="level1"><div class="li">性能较低</div>
+</li>
+<li class="level1"><div class="li">父对象的坐标应该是 0,0</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/ccshapenode.txt · Last modified: 2013/09/23 11:56 by dualface</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

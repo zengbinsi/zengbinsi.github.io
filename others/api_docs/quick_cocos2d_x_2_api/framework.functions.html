@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.functions</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.functions</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworkfunctions">framework.functions</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#tonumber">tonumber</a></div></li>
+<li class="level2"><div class="li"><a href="#toint">toint</a></div></li>
+<li class="level2"><div class="li"><a href="#tobool">tobool</a></div></li>
+<li class="level2"><div class="li"><a href="#totable">totable</a></div></li>
+<li class="level2"><div class="li"><a href="#clone">clone</a></div></li>
+<li class="level2"><div class="li"><a href="#class">class</a></div></li>
+<li class="level2"><div class="li"><a href="#import">import</a></div></li>
+<li class="level2"><div class="li"><a href="#handler">handler</a></div></li>
+<li class="level2"><div class="li"><a href="#mathround">math.round</a></div></li>
+<li class="level2"><div class="li"><a href="#ioexists">io.exists</a></div></li>
+<li class="level2"><div class="li"><a href="#ioreadfile">io.readfile</a></div></li>
+<li class="level2"><div class="li"><a href="#iowritefile">io.writefile</a></div></li>
+<li class="level2"><div class="li"><a href="#iopathinfo">io.pathinfo</a></div></li>
+<li class="level2"><div class="li"><a href="#iofilesize">io.filesize</a></div></li>
+<li class="level2"><div class="li"><a href="#tablenums">table.nums</a></div></li>
+<li class="level2"><div class="li"><a href="#tablekeys">table.keys</a></div></li>
+<li class="level2"><div class="li"><a href="#tablevalues">table.values</a></div></li>
+<li class="level2"><div class="li"><a href="#tablemerge">table.merge</a></div></li>
+<li class="level2"><div class="li"><a href="#stringhtmlspecialchars">string.htmlspecialchars</a></div></li>
+<li class="level2"><div class="li"><a href="#stringnl2br">string.nl2br</a></div></li>
+<li class="level2"><div class="li"><a href="#stringtext2html">string.text2html</a></div></li>
+<li class="level2"><div class="li"><a href="#stringsplit">string.split</a></div></li>
+<li class="level2"><div class="li"><a href="#stringltrim">string.ltrim</a></div></li>
+<li class="level2"><div class="li"><a href="#stringrtrim">string.rtrim</a></div></li>
+<li class="level2"><div class="li"><a href="#stringtrim">string.trim</a></div></li>
+<li class="level2"><div class="li"><a href="#stringucfirst">string.ucfirst</a></div></li>
+<li class="level2"><div class="li"><a href="#stringurlencode">string.urlencode</a></div></li>
+<li class="level2"><div class="li"><a href="#stringutf8len">string.utf8len</a></div></li>
+<li class="level2"><div class="li"><a href="#stringformatnumberthousands">string.formatNumberThousands</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworkfunctions">framework.functions</h1>
+<div class="level1">
+
+<p>
+补充了一些常用函数，并替换了少量内置函数。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="tonumber">tonumber</h2>
+<div class="level2">
+
+<p>
+转换为数值，如果无法转换则返回 0。
+</p>
+
+<p>
+tonumber() 原本是 Lua 内置函数，但内置版本在无法转换时会返回 nil，这样还是需要进行后续判断。quick 替换了内置版本。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">value <span class="sy0">=</span> <span class="kw3">tonumber</span><span class="br0">&#40;</span>值<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="toint">toint</h2>
+<div class="level2">
+
+<p>
+转换为整数，如果无法转换则返回 0。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">value <span class="sy0">=</span> toint<span class="br0">&#40;</span>值<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="tobool">tobool</h2>
+<div class="level2">
+
+<p>
+转换为布尔值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">value <span class="sy0">=</span> tobool<span class="br0">&#40;</span>值<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="totable">totable</h2>
+<div class="level2">
+
+<p>
+转换为表格，如果传入的值不是表格，则返回一个空表格。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">value <span class="sy0">=</span> totable<span class="br0">&#40;</span>值<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="clone">clone</h2>
+<div class="level2">
+
+<p>
+深度克隆一个值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">value <span class="sy0">=</span> clone<span class="br0">&#40;</span>值<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 下面的代码，t2 是 t1 的引用，修改 t2 的属性时，t1 的内容也会发生变化</span>
+<span class="kw1">local</span> t1 <span class="sy0">=</span> <span class="br0">&#123;</span>a <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="nu0">2</span><span class="br0">&#125;</span>
+<span class="kw1">local</span> t2 <span class="sy0">=</span> t1
+t2<span class="sy0">.</span>b <span class="sy0">=</span> <span class="nu0">3</span>    <span class="co1">-- t1 = {a = 1, b = 3} &lt;-- t1.b 发生变化</span>
+&nbsp;
+<span class="co1">-- clone() 返回 t1 的副本，修改 t2 不会影响 t1</span>
+<span class="kw1">local</span> t1 <span class="sy0">=</span> <span class="br0">&#123;</span>a <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="nu0">2</span><span class="br0">&#125;</span>
+<span class="kw1">local</span> t2 <span class="sy0">=</span> clone<span class="br0">&#40;</span>t1<span class="br0">&#41;</span>
+t2<span class="sy0">.</span>b <span class="sy0">=</span> <span class="nu0">3</span>    <span class="co1">-- t1 = {a = 1, b = 2} &lt;-- t1.b 不受影响</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="class">class</h2>
+<div class="level2">
+
+<p>
+创建一个类。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">类 <span class="sy0">=</span> class<span class="br0">&#40;</span>类名<span class="sy0">,</span> <span class="br0">&#91;</span>父类<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 定义名为 Shape 的基础类</span>
+<span class="kw1">local</span> Shape <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;Shape&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- ctor() 是类的构造函数，在调用 Shape.new() 创建 Shape 对象实例时会自动执行</span>
+<span class="kw1">function</span> Shape<span class="sy0">:</span>ctor<span class="br0">&#40;</span>shapeName<span class="br0">&#41;</span>
+    self<span class="sy0">.</span>shapeName <span class="sy0">=</span> shapeName
+    printf<span class="br0">&#40;</span><span class="st0">&quot;Shape:ctor(%s)&quot;</span><span class="sy0">,</span> self<span class="sy0">.</span>shapeName<span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">-- 为 Shape 定义个名为 draw() 的方法</span>
+<span class="kw1">function</span> Shape<span class="sy0">:</span>draw<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    printf<span class="br0">&#40;</span><span class="st0">&quot;draw %s&quot;</span><span class="sy0">,</span> self<span class="sy0">.</span>shapeName<span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">--</span>
+&nbsp;
+<span class="co1">-- Circle 是 Shape 的继承类</span>
+<span class="kw1">local</span> Circle <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;Circle&quot;</span><span class="sy0">,</span> Shape<span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">function</span> Circle<span class="sy0">:</span>ctor<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="co1">-- 如果继承类覆盖了 ctor() 构造函数，那么必须手动调用父类构造函数</span>
+    <span class="co1">-- 类名.super 可以访问指定类的父类</span>
+    Circle<span class="sy0">.</span>super<span class="sy0">.</span>ctor<span class="br0">&#40;</span>self<span class="sy0">,</span> <span class="st0">&quot;circle&quot;</span><span class="br0">&#41;</span>
+    self<span class="sy0">.</span>radius <span class="sy0">=</span> <span class="nu0">100</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">function</span> Circle<span class="sy0">:</span>setRadius<span class="br0">&#40;</span>radius<span class="br0">&#41;</span>
+    self<span class="sy0">.</span>radius <span class="sy0">=</span> radius
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">-- 覆盖父类的同名方法</span>
+<span class="kw1">function</span> Circle<span class="sy0">:</span>draw<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    printf<span class="br0">&#40;</span><span class="st0">&quot;draw %s, raidus = %0.2f&quot;</span><span class="sy0">,</span> self<span class="sy0">.</span>shapeName<span class="sy0">,</span> self<span class="sy0">.</span>raidus<span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">--</span>
+&nbsp;
+<span class="kw1">local</span> Rectangle <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;Rectangle&quot;</span><span class="sy0">,</span> Shape<span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">function</span> Rectangle<span class="sy0">:</span>ctor<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    Rectangle<span class="sy0">.</span>super<span class="sy0">.</span>ctor<span class="br0">&#40;</span>self<span class="sy0">,</span> <span class="st0">&quot;rectangle&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">--</span>
+&nbsp;
+<span class="kw1">local</span> circle <span class="sy0">=</span> Circle<span class="sy0">.</span>new<span class="br0">&#40;</span><span class="br0">&#41;</span>             <span class="co1">-- 输出: Shape:ctor(circle)</span>
+circle<span class="sy0">:</span>setRaidus<span class="br0">&#40;</span><span class="nu0">200</span><span class="br0">&#41;</span>
+circle<span class="sy0">:</span>draw<span class="br0">&#40;</span><span class="br0">&#41;</span>                           <span class="co1">-- 输出: draw circle, radius = 200.00</span>
+&nbsp;
+<span class="kw1">local</span> rectangle <span class="sy0">=</span> Rectangle<span class="sy0">.</span>new<span class="br0">&#40;</span><span class="br0">&#41;</span>       <span class="co1">-- 输出: Shape:ctor(rectangle)</span>
+rectangle<span class="sy0">:</span>draw<span class="br0">&#40;</span><span class="br0">&#41;</span>                        <span class="co1">-- 输出: draw rectangle</span></pre>
+
+<p>
+请参考：
+<a href="framework.functions.class.html" class="wikilink1" title="zh_cn:api:framework.functions:class">class() 高级用法</a>
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="import">import</h2>
+<div class="level2">
+
+<p>
+载入一个模块。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">import<span class="br0">&#40;</span>模块名<span class="br0">&#41;</span></pre>
+
+<p>
+import() 与 require() 功能相同，但具有一定程度的自动化特性。
+</p>
+
+<p>
+假设我们有如下的目录结构：
+</p>
+<ul>
+<li class="level1"><div class="li">app/</div>
+<ul>
+<li class="level2"><div class="li">classes/</div>
+<ul>
+<li class="level3"><div class="li">MyClass.lua</div>
+</li>
+<li class="level3"><div class="li">MyClassBase.lua</div>
+</li>
+<li class="level3"><div class="li">data/</div>
+<ul>
+<li class="level4"><div class="li">Data1.lua</div>
+</li>
+<li class="level4"><div class="li">Data2.lua</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+MyClass 中需要载入 MyClassBase 和 MyClassData。如果用 require()，MyClass 内的代码如下：
+</p>
+<pre class="code lua"><span class="kw1">local</span> MyClassBase <span class="sy0">=</span> <span class="kw3">require</span><span class="br0">&#40;</span><span class="st0">&quot;app.classes.MyClassBase&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> MyClass <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;MyClass&quot;</span><span class="sy0">,</span> MyClassBase<span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">local</span> Data1 <span class="sy0">=</span> <span class="kw3">require</span><span class="br0">&#40;</span><span class="st0">&quot;app.classes.data.Data1&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> Data2 <span class="sy0">=</span> <span class="kw3">require</span><span class="br0">&#40;</span><span class="st0">&quot;app.classes.data.Data2&quot;</span><span class="br0">&#41;</span></pre>
+
+<p>
+假如我们将 MyClass 及其相关文件换一个目录存放，那么就必须修改 MyClass 中的 require() 命令，否则将找不到模块文件。
+</p>
+
+<p>
+而使用 import()，我们只需要如下写：
+</p>
+<pre class="code lua"><span class="kw1">local</span> MyClassBase <span class="sy0">=</span> import<span class="br0">&#40;</span><span class="st0">&quot;.MyClassBase&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> MyClass <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;MyClass&quot;</span><span class="sy0">,</span> MyClassBase<span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">local</span> Data1 <span class="sy0">=</span> import<span class="br0">&#40;</span><span class="st0">&quot;.data.Data1&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> Data2 <span class="sy0">=</span> import<span class="br0">&#40;</span><span class="st0">&quot;.data.Data2&quot;</span><span class="br0">&#41;</span></pre>
+
+<p>
+当在模块名前面有一个“.”时，import() 会从当前模块所在目录中查找其他模块。因此 MyClass 及其相关文件不管存放到什么目录里，我们都不再需要修改 MyClass 中的 import() 命令。这在开发一些重复使用的功能组件时，会非常方便。
+</p>
+
+<p>
+我们可以在模块名前添加多个“.”，这样 import() 会从更上层的目录开始查找模块。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="handler">handler</h2>
+<div class="level2">
+
+<p>
+将 Lua 对象及其方法包装为一个匿名函数。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">函数 <span class="sy0">=</span> handler<span class="br0">&#40;</span>对象<span class="sy0">,</span> 对象<span class="sy0">.</span>方法<span class="br0">&#41;</span></pre>
+
+<p>
+在 quick-cocos2d-x 中，许多功能需要传入一个 Lua 函数做参数，然后在特定事件发生时就会调用传入的函数。例如触摸事件、帧事件等等。
+</p>
+<pre class="code lua"><span class="kw1">local</span> MyScene <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;MyScene&quot;</span><span class="sy0">,</span> <span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="kw1">return</span> display<span class="sy0">.</span>newScene<span class="br0">&#40;</span><span class="st0">&quot;MyScene&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">end</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">function</span> MyScene<span class="sy0">:</span>ctor<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    self<span class="sy0">.</span>frameTimeCount <span class="sy0">=</span> <span class="nu0">0</span>
+    <span class="co1">-- 注册帧事件</span>
+    self<span class="sy0">:</span>scheduleUpdate<span class="br0">&#40;</span>self<span class="sy0">.</span>onEnterFrame<span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">function</span> MyScene<span class="sy0">:</span>onEnterFrame<span class="br0">&#40;</span>dt<span class="br0">&#41;</span>
+    self<span class="sy0">.</span>frameTimeCount <span class="sy0">=</span> self<span class="sy0">.</span>frameTimeCount <span class="sy0">+</span> dt
+<span class="kw1">end</span></pre>
+
+<p>
+上述代码执行时将出错，报告“Invalid self”，这就是因为 C++ 无法识别 Lua 对象方法。因此在调用我们传入的 self.onEnterFrame 方法时没有提供正确的参数。
+</p>
+
+<p>
+要让上述的代码正常工作，就需要使用 handler() 进行一下包装：
+</p>
+<pre class="code lua"><span class="kw1">function</span> MyScene<span class="sy0">:</span>ctor<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    self<span class="sy0">.</span>frameTimeCount <span class="sy0">=</span> <span class="nu0">0</span>
+    <span class="co1">-- 注册帧事件</span>
+    self<span class="sy0">:</span>scheduleUpdate<span class="br0">&#40;</span>handler<span class="br0">&#40;</span>self<span class="sy0">,</span> self<span class="sy0">.</span>onEnterFrame<span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="kw1">end</span></pre>
+
+<p>
+实际上，除了 C++ 回调 Lua 函数之外，在其他所有需要回调的地方都可以使用 handler()。
+</p>
+<hr />
+
+</div>
+
+<h2 class="sectionedit10" id="mathround">math.round</h2>
+<div class="level2">
+
+<p>
+对一个数值四舍五入，如果传入的参数不是数值，则返回 0。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">value <span class="sy0">=</span> <span class="kw3">math</span><span class="sy0">.</span>round<span class="br0">&#40;</span>值<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="ioexists">io.exists</h2>
+<div class="level2">
+
+<p>
+测试文件是否存在，如果存在返回 true。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">io</span><span class="sy0">.</span>exists<span class="br0">&#40;</span>路径<span class="br0">&#41;</span></pre>
+
+<p>
+可以使用 CCFileUtils:fullPathForFilename() 函数查找特定文件的完整路径，例如：
+</p>
+<pre class="code lua"><span class="kw1">local</span> path <span class="sy0">=</span> CCFileUtils<span class="sy0">:</span>sharedFileUtils<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">:</span>fullPathForFilename<span class="br0">&#40;</span><span class="st0">&quot;gamedata.txt&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">if</span> <span class="kw3">io</span><span class="sy0">.</span>exists<span class="br0">&#40;</span>path<span class="br0">&#41;</span> <span class="kw1">then</span>
+    <span class="sy0">....</span>
+<span class="kw1">end</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="ioreadfile">io.readfile</h2>
+<div class="level2">
+
+<p>
+读取文件，并返回文件内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">contents <span class="sy0">=</span> <span class="kw3">io</span><span class="sy0">.</span>readfile<span class="br0">&#40;</span>路径<span class="br0">&#41;</span></pre>
+
+<p>
+io.readfile() 会一次性读取整个文件的内容，并返回一个字符串，因此该函数不适宜读取太大的文件。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="iowritefile">io.writefile</h2>
+<div class="level2">
+
+<p>
+将内容写入文件，成功返回 true。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua"><span class="kw3">io</span><span class="sy0">.</span>writefile<span class="br0">&#40;</span>路径<span class="sy0">,</span> 内容<span class="sy0">,</span> 写入模式<span class="br0">&#41;</span></pre>
+
+<p>
+“写入模式”参数决定 io.writefile() 如何写入内容，可用的值如下：
+</p>
+<ul>
+<li class="level1"><div class="li">“w+”: 覆盖文件已有内容，如果文件不存在则创建新文件</div>
+</li>
+<li class="level1"><div class="li">“a+”: 追加内容到文件尾部，如果文件不存在则创建文件</div>
+</li>
+</ul>
+
+<p>
+此外，还可以在“写入模式”参数最后追加字符“b”，表示以二进制方式写入数据，这样在某些平台上可以避免内容写入不完整。
+</p>
+
+<p>
+io.writefile() 默认的“写入参数”是“w+b”。
+</p>
+
+<p>
+<strong>Android 特别提示：</strong>在 Android 平台上，文件只能写入存储卡所在路径，assets 和 data 等目录都是无法写入的。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="iopathinfo">io.pathinfo</h2>
+<div class="level2">
+
+<p>
+拆分一个路径字符串，返回组成路径的各个部分。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">parts <span class="sy0">=</span> <span class="kw3">io</span><span class="sy0">.</span>pathinfo<span class="br0">&#40;</span>路径<span class="br0">&#41;</span></pre>
+
+<p>
+使用示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> pathinfo  <span class="sy0">=</span> <span class="kw3">io</span><span class="sy0">.</span>pathinfo<span class="br0">&#40;</span><span class="st0">&quot;/var/app/test/abc.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- pathinfo.dirname  = &quot;/var/app/test/&quot;</span>
+<span class="co1">-- pathinfo.filename = &quot;abc.png&quot;</span>
+<span class="co1">-- pathinfo.basename = &quot;abc&quot;</span>
+<span class="co1">-- pathinfo.extname  = &quot;.png&quot;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="iofilesize">io.filesize</h2>
+<div class="level2">
+
+<p>
+返回指定文件的大小，如果失败返回 false。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">size <span class="sy0">=</span> <span class="kw3">io</span><span class="sy0">.</span>filesize<span class="br0">&#40;</span>路径<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="tablenums">table.nums</h2>
+<div class="level2">
+
+<p>
+计算表格包含的字段数量。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">count <span class="sy0">=</span> <span class="kw3">table</span><span class="sy0">.</span>nums<span class="br0">&#40;</span>表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+Lua 的“#”操作可以取得表格的长度，但仅限从 1 开始连续数字为索引的表格。table.nums() 可以计算任何表格的长度。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="tablekeys">table.keys</h2>
+<div class="level2">
+
+<p>
+返回指定表格中的所有键。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">keys <span class="sy0">=</span> <span class="kw3">table</span><span class="sy0">.</span>keys<span class="br0">&#40;</span>表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> t <span class="sy0">=</span> <span class="br0">&#123;</span>a <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">,</span> c <span class="sy0">=</span> <span class="nu0">3</span><span class="br0">&#125;</span>
+<span class="kw1">local</span> keys <span class="sy0">=</span> <span class="kw3">table</span><span class="sy0">.</span>keys<span class="br0">&#40;</span>t<span class="br0">&#41;</span>
+<span class="co1">-- keys = {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;}</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit18" id="tablevalues">table.values</h2>
+<div class="level2">
+
+<p>
+返回指定表格中的所有值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">values <span class="sy0">=</span> <span class="kw3">table</span><span class="sy0">.</span>values<span class="br0">&#40;</span>表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> t <span class="sy0">=</span> <span class="br0">&#123;</span>a <span class="sy0">=</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="st0">&quot;2&quot;</span><span class="sy0">,</span> c <span class="sy0">=</span> <span class="st0">&quot;3&quot;</span><span class="br0">&#125;</span>
+<span class="kw1">local</span> values <span class="sy0">=</span> <span class="kw3">table</span><span class="sy0">.</span>values<span class="br0">&#40;</span>t<span class="br0">&#41;</span>
+<span class="co1">-- values = {1, 2, 3}</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="tablemerge">table.merge</h2>
+<div class="level2">
+
+<p>
+合并两个表格。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua"><span class="kw3">table</span><span class="sy0">.</span>merge<span class="br0">&#40;</span>目标表格对象<span class="sy0">,</span> 来源表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+将来源表格中所有键及其值复制到目标表格对象中，如果存在同名键，则覆盖其值。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> dest <span class="sy0">=</span> <span class="br0">&#123;</span>a <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="nu0">2</span><span class="br0">&#125;</span>
+<span class="kw1">local</span> src  <span class="sy0">=</span> <span class="br0">&#123;</span>c <span class="sy0">=</span> <span class="nu0">3</span><span class="sy0">,</span> d <span class="sy0">=</span> <span class="nu0">4</span><span class="br0">&#125;</span>
+<span class="kw3">table</span><span class="sy0">.</span>merge<span class="br0">&#40;</span>dest<span class="sy0">,</span> src<span class="br0">&#41;</span>
+<span class="co1">-- dest = {a = 1, b = 2, c = 3, d = 4}</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="stringhtmlspecialchars">string.htmlspecialchars</h2>
+<div class="level2">
+
+<p>
+转换特殊的字符为 <abbr title="HyperText Markup Language">HTML</abbr> 编码。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>htmlspecialchars<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+下列字符会被转换：
+</p>
+<ul>
+<li class="level1"><div class="li">&#039;&amp;&#039; (ampersand) 转换为 &#039;&amp;amp;&#039;</div>
+</li>
+<li class="level1"><div class="li">&#039;”&#039; (double quote) 转换为 &#039;&amp;quot;&#039;</div>
+</li>
+<li class="level1"><div class="li">”&#039;” (single quote) 转换为 &#039;&amp;#039;&#039;</div>
+</li>
+<li class="level1"><div class="li">&#039;&lt;&#039; (less than) 转换为 &#039;&amp;lt;&#039;</div>
+</li>
+<li class="level1"><div class="li">&#039;&gt;&#039; (greater than) 转换为 &#039;&amp;gt;&#039;</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit21" id="stringnl2br">string.nl2br</h2>
+<div class="level2">
+
+<p>
+将字符串中的换行符转换为 <abbr title="HyperText Markup Language">HTML</abbr> 换行标记。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>nl2br<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> text <span class="sy0">=</span> <span class="st0">&quot;Hello<span class="es1">\n</span>World.&quot;</span>
+<span class="kw1">local</span> result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>nl2br<span class="br0">&#40;</span>text<span class="br0">&#41;</span>
+<span class="co1">-- result = &quot;Hello&lt;br /&gt;World.&quot;</span></pre>
+
+<p>
+将 string.nl2br() 和 string.htmlspecialchars() 结合使用，可以对字符串进行转换，确保转换结果符合 <abbr title="HyperText Markup Language">HTML</abbr> 要求，并且没有安全问题。
+</p>
+<pre class="code lua"><span class="kw1">local</span> text <span class="sy0">=</span> <span class="st0">&quot;---&gt; Hello<span class="es1">\n</span>World &lt;---&quot;</span>
+<span class="kw1">local</span> result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>nl2br<span class="br0">&#40;</span><span class="kw3">string</span><span class="sy0">.</span>htmlspecialchars<span class="br0">&#40;</span>text<span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="co1">-- result = &quot;---&amp;gt; Hello&lt;br /&gt; &amp;lt;---&quot;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit22" id="stringtext2html">string.text2html</h2>
+<div class="level2">
+
+<p>
+对字符串进行格式化，确保其中的特殊字符都转换为 <abbr title="HyperText Markup Language">HTML</abbr> 标记。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>text2html<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+string.text2html() 除了转换特殊字符和换行符，还会将制表符“\t”替换为空格，再将空格替换为“&amp;nbsp;”。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit23" id="stringsplit">string.split</h2>
+<div class="level2">
+
+<p>
+分割字符串。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>split<span class="br0">&#40;</span>要分割的字符串<span class="sy0">,</span> 分隔符<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>split<span class="br0">&#40;</span><span class="st0">&quot;1,2,3&quot;</span><span class="sy0">,</span> <span class="st0">&quot;,&quot;</span><span class="br0">&#41;</span>
+<span class="co1">-- result = {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;}</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit24" id="stringltrim">string.ltrim</h2>
+<div class="level2">
+
+<p>
+删除字符串前部的空白字符。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>ltrim<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+空白字符包括：空格、制表符“\t”、换行符“\n”和“\r”。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>ltrim<span class="br0">&#40;</span><span class="st0">&quot;   <span class="es1">\n</span><span class="es1">\t</span>Hello&quot;</span><span class="br0">&#41;</span>
+<span class="co1">-- result = &quot;Hello&quot;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit25" id="stringrtrim">string.rtrim</h2>
+<div class="level2">
+
+<p>
+删除字符串尾部的空白字符。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>rtrim<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit26" id="stringtrim">string.trim</h2>
+<div class="level2">
+
+<p>
+删除字符串两端的空白字符。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>trim<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit27" id="stringucfirst">string.ucfirst</h2>
+<div class="level2">
+
+<p>
+返回首字母大写的字符串。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>ucfirst<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit28" id="stringurlencode">string.urlencode</h2>
+<div class="level2">
+
+<p>
+生成符合 <abbr title="Uniform Resource Locator">URL</abbr> 规范的字符串。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>urlencode<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+为了通过 <abbr title="Uniform Resource Locator">URL</abbr> 传递数据，字符串中所有的非字母和数字都会被替换为“%编码”格式，空格会被替换为“+”。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit29" id="stringutf8len">string.utf8len</h2>
+<div class="level2">
+
+<p>
+计算一个 UTF8 字符串包含的字符数量。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">count <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>utf8len<span class="br0">&#40;</span>字符串<span class="br0">&#41;</span></pre>
+
+<p>
+当一个 UTF8 字符串中包含中文时，string.len() 返回的结果是字符串的字节长度。string.utf8len() 会确保始终返回字符串中包含的字符数量。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit30" id="stringformatnumberthousands">string.formatNumberThousands</h2>
+<div class="level2">
+
+<p>
+将数字格式化为千分位格式。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>formatNumberThousands<span class="br0">&#40;</span>数值<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> result <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>formatNumberThousands<span class="br0">&#40;</span><span class="nu0">12345</span><span class="br0">&#41;</span>
+<span class="co1">-- result = &quot;12,345&quot;</span></pre>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.functions.txt · Last modified: 2013/08/20 06:42 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

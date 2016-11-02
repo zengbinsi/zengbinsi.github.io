@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.transition</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.transition</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworktransition">framework.transition</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#transitionexecute">transition.execute</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionrotateto">transition.rotateTo</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionmoveto">transition.moveTo</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionmoveby">transition.moveBy</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionfadein">transition.fadeIn</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionfadeout">transition.fadeOut</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionfadeto">transition.fadeTo</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionscaleto">transition.scaleTo</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionsequence">transition.sequence</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionplayanimationonce">transition.playAnimationOnce</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionplayanimationforever">transition.playAnimationForever</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionremoveaction">transition.removeAction</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionstoptarget">transition.stopTarget</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionpausetarget">transition.pauseTarget</a></div></li>
+<li class="level2"><div class="li"><a href="#transitionresumetarget">transition.resumeTarget</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworktransition">framework.transition</h1>
+<div class="level1">
+
+<p>
+为图像创造效果
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="transitionexecute">transition.execute</h2>
+<div class="level2">
+
+<p>
+执行一个动作效果。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">transition<span class="sy0">.</span><span class="kw3">execute</span><span class="br0">&#40;</span>显示对象<span class="sy0">,</span> CCAction 动作对象<span class="sy0">,</span> 参数表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 等待 1.0 后开始移动对象</span>
+<span class="co1">-- 耗时 1.5 秒，将对象移动到屏幕中央</span>
+<span class="co1">-- 移动使用 backout 缓动效果</span>
+<span class="co1">-- 移动结束后执行函数，显示 move completed</span>
+transition<span class="sy0">.</span><span class="kw3">execute</span><span class="br0">&#40;</span>sprite<span class="sy0">,</span> CCMoveTo<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">1.5</span><span class="sy0">,</span> CCPoint<span class="br0">&#40;</span>display<span class="sy0">.</span>cx<span class="sy0">,</span> display<span class="sy0">.</span>cy<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="br0">&#123;</span>
+    delay <span class="sy0">=</span> <span class="nu0">1.0</span><span class="sy0">,</span>
+    easing <span class="sy0">=</span> <span class="st0">&quot;backout&quot;</span><span class="sy0">,</span>
+    onComplete <span class="sy0">=</span> <span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+        <span class="kw3">print</span><span class="br0">&#40;</span><span class="st0">&quot;move completed&quot;</span><span class="br0">&#41;</span>
+    <span class="kw1">end</span><span class="sy0">,</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+transition.execute() 是一个强大的工具，可以为原本单一的动作添加各种附加特性。
+</p>
+
+<p>
+transition.execute() 的参数表格支持下列参数：
+</p>
+<ul>
+<li class="level1"><div class="li">delay: 等待多长时间后开始执行动作</div>
+</li>
+<li class="level1"><div class="li">easing: 缓动效果的名字及可选的附加参数，效果名字不区分大小写</div>
+</li>
+<li class="level1"><div class="li">onComplete: 动作执行完成后要调用的函数</div>
+</li>
+<li class="level1"><div class="li">time: 执行动作需要的时间</div>
+</li>
+</ul>
+
+<p>
+transition.execute() 支持的缓动效果：
+</p>
+<ul>
+<li class="level1"><div class="li">backIn</div>
+</li>
+<li class="level1"><div class="li">backInOut</div>
+</li>
+<li class="level1"><div class="li">backOut</div>
+</li>
+<li class="level1"><div class="li">bounce</div>
+</li>
+<li class="level1"><div class="li">bounceIn</div>
+</li>
+<li class="level1"><div class="li">bounceInOut</div>
+</li>
+<li class="level1"><div class="li">bounceOut</div>
+</li>
+<li class="level1"><div class="li">elastic, 附加参数默认为 0.3</div>
+</li>
+<li class="level1"><div class="li">elasticIn, 附加参数默认为 0.3</div>
+</li>
+<li class="level1"><div class="li">elasticInOut, 附加参数默认为 0.3</div>
+</li>
+<li class="level1"><div class="li">elasticOut, 附加参数默认为 0.3</div>
+</li>
+<li class="level1"><div class="li">exponentialIn, 附加参数默认为 1.0</div>
+</li>
+<li class="level1"><div class="li">exponentialInOut, 附加参数默认为 1.0</div>
+</li>
+<li class="level1"><div class="li">exponentialOut, 附加参数默认为 1.0</div>
+</li>
+<li class="level1"><div class="li">In, 附加参数默认为 1.0</div>
+</li>
+<li class="level1"><div class="li">InOut, 附加参数默认为 1.0</div>
+</li>
+<li class="level1"><div class="li">Out, 附加参数默认为 1.0</div>
+</li>
+<li class="level1"><div class="li">rateaction, 附加参数默认为 1.0</div>
+</li>
+<li class="level1"><div class="li">sineIn</div>
+</li>
+<li class="level1"><div class="li">sineInOut</div>
+</li>
+<li class="level1"><div class="li">sineOut</div>
+</li>
+</ul>
+
+<p>
+缓动效果的在线演示请参考 <a href="http://wiki.quick-x.com/upload/easing_demo.html" class="urlextern" target="_blank" title="http://wiki.quick-x.com/upload/easing_demo.html"  rel="nofollow">Easing Demo</a>。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="transitionrotateto">transition.rotateTo</h2>
+<div class="level2">
+
+<p>
+将显示对象旋转到指定角度，并返回 CCAction 动作对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">action <span class="sy0">=</span> transition<span class="sy0">.</span>rotateTo<span class="br0">&#40;</span>显示对象<span class="sy0">,</span> 参数表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 耗时 0.5 秒将 sprite 旋转到 180 度</span>
+transition<span class="sy0">.</span>rotateTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>rotate <span class="sy0">=</span> <span class="nu0">180</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">0.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="transitionmoveto">transition.moveTo</h2>
+<div class="level2">
+
+<p>
+将显示对象移动到指定位置，并返回 CCAction 动作对象。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 移动到屏幕中心</span>
+transition<span class="sy0">.</span>moveTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>x <span class="sy0">=</span> display<span class="sy0">.</span>cx<span class="sy0">,</span> y <span class="sy0">=</span> display<span class="sy0">.</span>cy<span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="co1">-- 移动到屏幕左边，不改变 y</span>
+transition<span class="sy0">.</span>moveTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>x <span class="sy0">=</span> display<span class="sy0">.</span>left<span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="co1">-- 移动到屏幕底部，不改变 x</span>
+transition<span class="sy0">.</span>moveTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>y <span class="sy0">=</span> display<span class="sy0">.</span>bottom<span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="transitionmoveby">transition.moveBy</h2>
+<div class="level2">
+
+<p>
+将显示对象移动一定距离，并返回 CCAction 动作对象。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 向右移动 100 点，向上移动 100 点</span>
+transition<span class="sy0">.</span>moveBy<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>x <span class="sy0">=</span> <span class="nu0">100</span><span class="sy0">,</span> y <span class="sy0">=</span> <span class="nu0">100</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="co1">-- 向左移动 100 点，不改变 y</span>
+transition<span class="sy0">.</span>moveBy<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>x <span class="sy0">=</span> <span class="sy0">-</span><span class="nu0">100</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="co1">-- 向下移动 100 点，不改变 x</span>
+transition<span class="sy0">.</span>moveBy<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>y <span class="sy0">=</span> <span class="sy0">-</span><span class="nu0">100</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="transitionfadein">transition.fadeIn</h2>
+<div class="level2">
+
+<p>
+淡入显示对象，并返回 CCAction 动作对象。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua">action <span class="sy0">=</span> transition<span class="sy0">.</span>fadeIn<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span><span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+fadeIn 操作会首先将对象的透明度设置为 0（0%，完全透明），然后再逐步增加为 255（100%，完全不透明）。如果不希望改变对象当前的透明度，应该用 fadeTo()。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="transitionfadeout">transition.fadeOut</h2>
+<div class="level2">
+
+<p>
+淡出显示对象，并返回 CCAction 动作对象。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua">action <span class="sy0">=</span> transition<span class="sy0">.</span>fadeOut<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span><span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+fadeOut 操作会首先将对象的透明度设置为 255（100%，完全不透明），然后再逐步减少为 0（0%，完全透明）。如果不希望改变对象当前的透明度，应该用 fadeTo()。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="transitionfadeto">transition.fadeTo</h2>
+<div class="level2">
+
+<p>
+将显示对象的透明度改变为指定值，并返回 CCAction 动作对象。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 不管显示对象当前的透明度是多少，最终设置为 128</span>
+transition<span class="sy0">.</span>fadeTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>opacity <span class="sy0">=</span> <span class="nu0">128</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="transitionscaleto">transition.scaleTo</h2>
+<div class="level2">
+
+<p>
+将显示对象缩放到指定比例，并返回 CCAction 动作对象。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 整体缩放为 50%</span>
+transition<span class="sy0">.</span>scaleTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>scale <span class="sy0">=</span> <span class="nu0">0.5</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="co1">-- 单独水平缩放</span>
+transition<span class="sy0">.</span>scaleTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>scaleX <span class="sy0">=</span> <span class="nu0">0.5</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="co1">-- 单独垂直缩放</span>
+transition<span class="sy0">.</span>scaleTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span>scaleY <span class="sy0">=</span> <span class="nu0">0.5</span><span class="sy0">,</span> <span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">1.5</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="transitionsequence">transition.sequence</h2>
+<div class="level2">
+
+<p>
+创建一个动作序列对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">action <span class="sy0">=</span> transition<span class="sy0">.</span>sequence<span class="br0">&#40;</span><span class="br0">&#123;</span>动作对象<span class="sy0">,</span> 动作对象<span class="sy0">,</span> <span class="br0">&#91;</span>动作对象 <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> sequence <span class="sy0">=</span> transition<span class="sy0">.</span>sequence<span class="br0">&#40;</span><span class="br0">&#123;</span>
+    CCMoveTo<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.5</span><span class="sy0">,</span> CCPoint<span class="br0">&#40;</span>display<span class="sy0">.</span>cx<span class="sy0">,</span> display<span class="sy0">.</span>cy<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span>
+    CCFadeOut<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.2</span><span class="br0">&#41;</span><span class="sy0">,</span>
+    CCDelayTime<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.5</span><span class="br0">&#41;</span><span class="sy0">,</span>
+    CCFadeIn<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.3</span><span class="br0">&#41;</span><span class="sy0">,</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span>
+sprite<span class="sy0">:</span>runAction<span class="br0">&#40;</span>sequence<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="transitionplayanimationonce">transition.playAnimationOnce</h2>
+<div class="level2">
+
+<p>
+在显示对象上播放一次动画，并返回 CCAction 动作对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">action <span class="sy0">=</span> transition<span class="sy0">.</span>playAnimationOnce<span class="br0">&#40;</span>显示对象<span class="sy0">,</span>
+                                      动画对象<span class="sy0">,</span>
+                                      <span class="br0">&#91;</span>播放完成后删除显示对象<span class="br0">&#93;</span><span class="sy0">,</span>
+                                      <span class="br0">&#91;</span>播放完成后要执行的函数<span class="br0">&#93;</span><span class="sy0">,</span>
+                                      <span class="br0">&#91;</span>播放前等待的时间<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Walk%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">20</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.5</span> <span class="sy0">/</span> <span class="nu0">20</span><span class="br0">&#41;</span> <span class="co1">-- 0.5s play 20 frames</span>
+transition<span class="sy0">.</span>playAnimationOnce<span class="br0">&#40;</span>sprite<span class="sy0">,</span> animation<span class="br0">&#41;</span></pre>
+
+<p>
+还可以用 
+<a href="ccsprite.html" class="wikilink1" title="zh_cn:api:ccsprite">CCSprite</a> 对象的 playAnimationOnce() 方法来直接播放动画：
+</p>
+<pre class="code lua"><span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Walk%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">20</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.5</span> <span class="sy0">/</span> <span class="nu0">20</span><span class="br0">&#41;</span> <span class="co1">-- 0.5s play 20 frames</span>
+sprite<span class="sy0">:</span>playAnimationOnce<span class="br0">&#40;</span>animation<span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+playAnimationOnce() 提供了丰富的功能，例如在动画播放完成后就删除用于播放动画的 CCSprite 对象。例如一个爆炸效果：
+</p>
+<pre class="code lua"><span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Boom%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">8</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> boom <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span>frames<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- playAnimationOnce() 第二个参数为 true 表示动画播放完后删除 boom 这个 CCSprite 对象</span>
+<span class="co1">-- 这样爆炸动画播放完毕，就自动清理了不需要的显示对象</span>
+boom<span class="sy0">:</span>playAnimationOnce<span class="br0">&#40;</span>display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.3</span><span class="sy0">/</span> <span class="nu0">8</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw4">true</span><span class="br0">&#41;</span></pre>
+
+<p>
+此外，playAnimationOnce() 还允许在动画播放完成后执行一个指定的函数，以及播放动画前等待一段时间。合理运用这些功能，可以大大简化我们的游戏代码。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="transitionplayanimationforever">transition.playAnimationForever</h2>
+<div class="level2">
+
+<p>
+在显示对象上循环播放动画，并返回 CCAction 动作对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">action <span class="sy0">=</span> transition<span class="sy0">.</span>playAnimationForever<span class="br0">&#40;</span>显示对象<span class="sy0">,</span> 动画对象<span class="sy0">,</span> <span class="br0">&#91;</span>播放前等待的时间<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Walk%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">20</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.5</span> <span class="sy0">/</span> <span class="nu0">20</span><span class="br0">&#41;</span> <span class="co1">-- 0.5s play 20 frames</span>
+sprite<span class="sy0">:</span>playAnimationForever<span class="br0">&#40;</span>animation<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="transitionremoveaction">transition.removeAction</h2>
+<div class="level2">
+
+<p>
+停止一个正在执行的动作。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">transition<span class="sy0">.</span>removeAction<span class="br0">&#40;</span>CCAction 动作对象<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 开始移动</span>
+<span class="kw1">local</span> action <span class="sy0">=</span> transition<span class="sy0">.</span>moveTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span><span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">2.0</span><span class="sy0">,</span> x <span class="sy0">=</span> <span class="nu0">100</span><span class="sy0">,</span> y <span class="sy0">=</span> <span class="nu0">100</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="sy0">....</span>
+transition<span class="sy0">.</span>removeAction<span class="br0">&#40;</span>action<span class="br0">&#41;</span> <span class="co1">-- 停止移动</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="transitionstoptarget">transition.stopTarget</h2>
+<div class="level2">
+
+<p>
+停止一个显示对象上所有正在执行的动作。
+</p>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua">transition<span class="sy0">.</span>moveTo<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span><span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">2.0</span><span class="sy0">,</span> x <span class="sy0">=</span> <span class="nu0">100</span><span class="sy0">,</span> y <span class="sy0">=</span> <span class="nu0">100</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+transition<span class="sy0">.</span>fadeOut<span class="br0">&#40;</span>sprite<span class="sy0">,</span> <span class="br0">&#123;</span><span class="kw3">time</span> <span class="sy0">=</span> <span class="nu0">2.0</span><span class="br0">&#125;</span><span class="br0">&#41;</span>
+<span class="sy0">....</span>
+transition<span class="sy0">.</span>stopTarget<span class="br0">&#40;</span>sprite<span class="br0">&#41;</span></pre>
+
+<p>
+<strong>注意：</strong> 显示对象的 performWithDelay() 方法是用动作来实现延时回调操作的，所以如果停止显示对象上的所有动作，会清除该对象上的延时回调操作。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="transitionpausetarget">transition.pauseTarget</h2>
+<div class="level2">
+
+<p>
+暂停显示对象上所有正在执行的动作。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">transition<span class="sy0">.</span>pauseTarget<span class="br0">&#40;</span>显示对象<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit16" id="transitionresumetarget">transition.resumeTarget</h2>
+<div class="level2">
+
+<p>
+恢复显示对象上所有暂停的动作。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">transition<span class="sy0">.</span>resumeTarget<span class="br0">&#40;</span>显示对象<span class="br0">&#41;</span></pre>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.transition.txt · Last modified: 2013/09/19 03:27 by dualface</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

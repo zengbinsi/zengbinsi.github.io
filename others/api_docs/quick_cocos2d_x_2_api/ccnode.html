@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ccnode</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:ccnode</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#ccnode">CCNode</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#内容尺寸">内容尺寸</a></div></li>
+<li class="level2"><div class="li"><a href="#坐标和锚点">坐标和锚点</a></div></li>
+<li class="level2"><div class="li"><a href="#坐标变换">坐标变换</a></div></li>
+<li class="level2"><div class="li"><a href="#显示层级">显示层级</a></div></li>
+<li class="level2"><div class="li"><a href="#变形">变形</a></div></li>
+<li class="level2"><div class="li"><a href="#是否可见">是否可见</a></div></li>
+<li class="level2"><div class="li"><a href="#添加和管理子对象">添加和管理子对象</a></div></li>
+<li class="level2"><div class="li"><a href="#事件">事件</a></div></li>
+<li class="level2"><div class="li"><a href="#执行动作">执行动作</a></div></li>
+<li class="level2"><div class="li"><a href="#颜色和透明度">颜色和透明度</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ccnode">CCNode</h1>
+<div class="level1">
+
+<p>
+CCNode 对象是所有显示对象的基础类。
+</p>
+
+<p>
+主要功能：
+</p>
+<ul>
+<li class="level1"><div class="li">提供所有类型显示对象公用的属性，例如位置、尺寸、角度、显示层级等</div>
+</li>
+<li class="level1"><div class="li">作为其他显示对象的容器</div>
+</li>
+<li class="level1"><div class="li">可以执行各种动作</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+<p>
+<strong>对象继承关系：</strong> 
+<a href="ccobject.html" class="wikilink1" title="zh_cn:api:ccobject">CCObject</a> -> CCNode
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="内容尺寸">内容尺寸</h2>
+<div class="level2">
+
+<p>
+如果是 CCSprite 这样的显示对象，其内容尺寸就是图片的尺寸。而其他类型的内容尺寸默认都是 (0,0)，并且不包含子对象。
+</p>
+<pre class="code lua"><span class="kw1">local</span> size <span class="sy0">=</span> node<span class="sy0">:</span>getContentSize<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>size<span class="sy0">.</span>width<span class="sy0">,</span> size<span class="sy0">.</span>height<span class="br0">&#41;</span></pre>
+
+<p>
+如果有需要，也可以明确指定一个内容尺寸：
+</p>
+<pre class="code lua"><span class="co1">-- 设置内容尺寸为 200 个点宽，100 个点高</span>
+node<span class="sy0">:</span>setContentSize<span class="br0">&#40;</span>CCSize<span class="br0">&#40;</span><span class="nu0">200</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+内容尺寸不考虑对象的位置、缩放、旋转等属性。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="坐标和锚点">坐标和锚点</h2>
+<div class="level2">
+
+<p>
+每一个显示对象的位置信息由坐标和锚点两部分组成。
+</p>
+
+<p>
+~
+</p>
+<pre class="code lua"><span class="co1">-- 设置坐标。</span>
+node<span class="sy0">:</span>setPosition<span class="br0">&#40;</span>x<span class="sy0">,</span> y<span class="br0">&#41;</span>
+node<span class="sy0">:</span>setPosition<span class="br0">&#40;</span>CCPoint<span class="br0">&#40;</span>x<span class="sy0">,</span> y<span class="br0">&#41;</span><span class="br0">&#41;</span>
+node<span class="sy0">:</span>setPositionX<span class="br0">&#40;</span>x<span class="br0">&#41;</span> <span class="co1">-- 单独改变 x</span>
+node<span class="sy0">:</span>setPositionY<span class="br0">&#40;</span>y<span class="br0">&#41;</span> <span class="co1">-- 单独改变 y</span>
+&nbsp;
+<span class="co1">-- 读取坐标</span>
+<span class="kw1">local</span> x<span class="sy0">,</span> y <span class="sy0">=</span> node<span class="sy0">:</span>getPosition<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> x <span class="sy0">=</span> node<span class="sy0">:</span>getPositionX<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 仅读取 x</span>
+<span class="kw1">local</span> y <span class="sy0">=</span> node<span class="sy0">:</span>getPositionY<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 仅读取 y</span>
+<span class="kw1">local</span> point <span class="sy0">=</span> node<span class="sy0">:</span>getPositioInCCPoint<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 返回一个 CCPoint 对象</span></pre>
+
+<p>
+在可能的情况下，请尽量使用数值方式，性能比使用 
+<a href="ccpoint.html" class="wikilink1" title="zh_cn:api:ccpoint">CCPoint</a> 对象快很多。
+</p>
+
+<p>
+~
+</p>
+<pre class="code lua"><span class="co1">-- 设置锚点</span>
+node<span class="sy0">:</span>setAnchorPoint<span class="br0">&#40;</span>CCPoint<span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 读取锚点</span>
+<span class="kw1">local</span> anchorPoint <span class="sy0">=</span> node<span class="sy0">:</span>getAnchorPoint<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>anchorPoint<span class="sy0">.</span>x<span class="sy0">,</span> anchorPoint<span class="sy0">.</span>y<span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 读取锚点对应的坐标</span>
+<span class="kw1">local</span> anchorPointInPoints <span class="sy0">=</span> node<span class="sy0">:</span>getAnchorPointInPoints<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>anchorPointInPoints<span class="sy0">.</span>x<span class="sy0">,</span> anchorPointInPoints<span class="sy0">.</span>y<span class="br0">&#41;</span></pre>
+
+<p>
+默认情况下，一个显示对象的锚点（Flash 中称为参考点）在其中央位置。关于锚点请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:basics_coordinate_system" class="wikilink2" title="zh_cn:basics_coordinate_system" rel="nofollow">Coordinate System</a> 。
+</p>
+
+<p>
+~
+</p>
+
+<p>
+CCNode 提供了 getBoundingBox() 方法，用于取得一个显示对象的位置和尺寸信息。
+</p>
+<pre class="code lua"><span class="kw1">local</span> rect <span class="sy0">=</span> node<span class="sy0">:</span>getBoundingBox<span class="br0">&#40;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>rect<span class="sy0">.</span>origin<span class="sy0">.</span>x<span class="sy0">,</span> rect<span class="sy0">.</span>origin<span class="sy0">.</span>y<span class="br0">&#41;</span> <span class="co1">-- 输出对象的左下角坐标（计算了锚点）</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>rect<span class="sy0">.</span>size<span class="sy0">.</span>width<span class="sy0">,</span> rect<span class="sy0">.</span>size<span class="sy0">.</span>height<span class="br0">&#41;</span> <span class="co1">-- 输出对象的宽度和高度（ContentSize）</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="坐标变换">坐标变换</h2>
+<div class="level2">
+
+<p>
+每一个显示对象都具有一个自己的“本地”坐标系，详情参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:basics_coordinate_system" class="wikilink2" title="zh_cn:basics_coordinate_system" rel="nofollow">Coordinate System</a> 。
+</p>
+
+<p>
+CCNode 提供了一组方法用于转换“本地”坐标系和“世界”坐标系：
+</p>
+<pre class="code lua"><span class="co1">-- 将“世界”坐标转换为“本地”坐标</span>
+<span class="kw1">local</span> worldPoint <span class="sy0">=</span> CCPoint<span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> nodePoint <span class="sy0">=</span> node<span class="sy0">:</span>convertToNodeSpace<span class="br0">&#40;</span>worldPoint<span class="br0">&#41;</span>
+<span class="kw1">local</span> nodePointAR <span class="sy0">=</span> node<span class="sy0">:</span>convertToNodeSpaceAR<span class="br0">&#40;</span>worldPoint<span class="br0">&#41;</span> <span class="co1">-- 计算锚点对坐标的影响</span>
+&nbsp;
+<span class="co1">-- 将“本地”坐标转换为“世界”坐标</span>
+<span class="kw1">local</span> nodePoint <span class="sy0">=</span> CCPoint<span class="br0">&#40;</span><span class="nu0">10</span><span class="sy0">,</span> <span class="nu0">10</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> worldPoint <span class="sy0">=</span> node<span class="sy0">:</span>convertToWorldSpace<span class="br0">&#40;</span>nodePoint<span class="br0">&#41;</span>
+<span class="kw1">local</span> worldPointAR <span class="sy0">=</span> node<span class="sy0">:</span>convertToWorldSpaceAR<span class="br0">&#40;</span>nodePoint<span class="br0">&#41;</span> <span class="co1">-- 计算锚点对坐标的影响</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="显示层级">显示层级</h2>
+<div class="level2">
+
+<p>
+当多个显示对象属于同一个父对象时，它们之间的显示层级决定了画面上的互相遮盖关系。例如一个人物角色的显示层级如果比一棵树的层级更高，那么画面上人物角色就会挡住树的一部分，反之亦然。
+</p>
+
+<p>
+在 quick 中，设置显示层次有两种途径：ZOrder 和 OpenGL Z 轴。在大多数情况下，使用 ZOrder 更简单，也更容易理解。显示对象构成的树状结构天然就是层次关系，而 ZOrder 用于调整同级显示对象的前后遮挡关系。
+</p>
+<pre class="code lua"><span class="kw1">local</span> hero <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;Hero.png&quot;</span><span class="br0">&#41;</span> <span class="co1">-- 创建一个人物角色图像</span>
+hero<span class="sy0">:</span>setZOrder<span class="br0">&#40;</span><span class="nu0">1000</span><span class="br0">&#41;</span> <span class="co1">-- 设置人物角色的 ZOrder 为 1000</span>
+&nbsp;
+<span class="kw1">local</span> tree <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;Tree.png&quot;</span><span class="br0">&#41;</span> <span class="co1">-- 创建树的图像</span>
+&nbsp;
+<span class="co1">-- 将两者添加到场景中</span>
+scene<span class="sy0">:</span>addChild<span class="br0">&#40;</span>hero<span class="br0">&#41;</span>
+scene<span class="sy0">:</span>addChild<span class="br0">&#40;</span>tree<span class="br0">&#41;</span></pre>
+
+<p>
+由于默认 ZOrder 为 0，因此 hero 的 ZOrder 大于 tree 的 ZOrder，hero 就会遮盖住 tree。也就是说 ZOrder 越大，显示层级越高。虽然理论上 ZOrder 可以设置为任意整数，但实践中我们发现 ZOrder 的值最好在 -30000 到 +30000 之间，超过此范围的值有时候可能出问题。
+</p>
+
+<p>
+addChild() 支持用第二个参数指定子对象的 ZOrder，因此上面的代码可以写成：
+</p>
+<pre class="code lua">scene<span class="sy0">:</span>addChild<span class="br0">&#40;</span>hero<span class="sy0">,</span> <span class="nu0">1000</span><span class="br0">&#41;</span></pre>
+
+<p>
+此外，还可以在父对象之上调用 reorderChild() 方法来改变对象的 ZOrder（不过显然不如 setZOrder() 方便）：
+</p>
+<pre class="code lua">node<span class="sy0">:</span>getParent<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">:</span>reorderChild<span class="br0">&#40;</span>node<span class="sy0">,</span> <span class="nu0">1000</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+与 ZOrder 不同，OpenGL Z 轴设定完全无视了显示对象的树状层次结构。而是根据 VertexZ 值来决定整个画面中显示对象的前后遮挡关系。VertexZ 的取值范围是 -1.0 到 1.0 的浮点数，数值越大层级越高。
+</p>
+
+<p>
+关于 VertexZ 的使用，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:advanced_batch_node" class="wikilink2" title="zh_cn:advanced_batch_node" rel="nofollow">Batch Node</a> 。
+</p>
+
+<p>
+~
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">node<span class="sy0">:</span>setZOrder<span class="br0">&#40;</span>z<span class="br0">&#41;</span>
+<span class="kw1">local</span> z <span class="sy0">=</span> node<span class="sy0">:</span>getZOrder<span class="br0">&#40;</span><span class="br0">&#41;</span>
+&nbsp;
+node<span class="sy0">:</span>setVertexZ<span class="br0">&#40;</span>z<span class="br0">&#41;</span>
+<span class="kw1">local</span> z <span class="sy0">=</span> node<span class="sy0">:</span>getVertexZ<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="变形">变形</h2>
+<div class="level2">
+
+<p>
+quick 可以指定一个显示对象的变形属性，例如缩放、倾斜等。改变一个对象的变形属性后，这个对象中所有的子对象都会受到影响。
+</p>
+<pre class="code lua">node1<span class="sy0">:</span>setScale<span class="br0">&#40;</span><span class="nu0">2.0</span><span class="br0">&#41;</span> <span class="co1">-- 放大为 2 倍显示</span>
+node2<span class="sy0">:</span>setScaleX<span class="br0">&#40;</span><span class="nu0">1.5</span><span class="br0">&#41;</span> <span class="co1">-- 水平方向拉伸为 1.5 倍</span>
+node3<span class="sy0">:</span>setScaleY<span class="br0">&#40;</span><span class="nu0">3.0</span><span class="br0">&#41;</span> <span class="co1">-- 垂直方向拉伸为 3.0 倍</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node1<span class="sy0">:</span>getScale<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>node2<span class="sy0">:</span>getScaleX<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>node3<span class="sy0">:</span>getScaleY<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+<strong>注意：</strong> 如果 scaleX 和 scaleY 使用了不同的值，那么调用对象的 getScale() 方法会报告错误（因为 getScale() 不知道该返回 scaleX 还是 scaleY 的值）。
+</p>
+
+<p>
+~
+</p>
+<pre class="code lua">node1<span class="sy0">:</span>setSkewX<span class="br0">&#40;</span><span class="nu0">10</span><span class="br0">&#41;</span> <span class="co1">-- 水平倾斜 10 度</span>
+node2<span class="sy0">:</span>setSkewY<span class="br0">&#40;</span><span class="nu0">20</span><span class="br0">&#41;</span> <span class="co1">-- 垂直倾斜 20 度</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node1<span class="sy0">:</span>getSkewX<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>node2<span class="sy0">:</span>getSkewY<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+<pre class="code lua">node1<span class="sy0">:</span>setRotation<span class="br0">&#40;</span><span class="nu0">90</span><span class="br0">&#41;</span> <span class="co1">-- 设置旋转角度</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node1<span class="sy0">:</span>getRotation<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+在 quick 坐标系里面，0 度的矢量指向屏幕右方。
+</p>
+
+<p>
+~
+</p>
+<pre class="code lua">node1<span class="sy0">:</span>setRotationX<span class="br0">&#40;</span><span class="nu0">10</span><span class="br0">&#41;</span> <span class="co1">-- 水平旋转倾斜 10 度</span>
+node2<span class="sy0">:</span>setRotationY<span class="br0">&#40;</span><span class="nu0">20</span><span class="br0">&#41;</span> <span class="co1">-- 垂直旋转倾斜 20 度</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node1<span class="sy0">:</span>getRotationX<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>node2<span class="sy0">:</span>getRotationY<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="是否可见">是否可见</h2>
+<div class="level2">
+
+<p>
+不可见的对象不会渲染，也不会接受触摸事件，除此之外与可见对象没有任何区别，帧事件、延迟调用、动作等都会正常工作。
+</p>
+<pre class="code lua">node<span class="sy0">:</span>setVisible<span class="br0">&#40;</span><span class="kw4">false</span><span class="br0">&#41;</span> <span class="co1">-- 设置对象不可见</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node<span class="sy0">:</span>isVisible<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="添加和管理子对象">添加和管理子对象</h2>
+<div class="level2">
+
+<p>
+CCNode 最强大的功能之一是可以作为其他显示对象的容器。例如我们要制作一个对话框，可以将对话框的所有内容都添加到一个 CCNode 对象里。对这个 CCNode 设定位置、改变大小等操作，就会作用到整个对话框上。
+</p>
+
+<p>
+~
+</p>
+<pre class="code lua">node<span class="sy0">:</span>addChild<span class="br0">&#40;</span>childNode<span class="br0">&#41;</span> <span class="co1">-- 添加子对象</span>
+node<span class="sy0">:</span>addChild<span class="br0">&#40;</span>childNode<span class="sy0">,</span> z<span class="br0">&#41;</span> <span class="co1">-- 同时指定子对象的 ZOrder</span>
+node<span class="sy0">:</span>addChild<span class="br0">&#40;</span>childNode<span class="sy0">,</span> z<span class="sy0">,</span> tag<span class="br0">&#41;</span> <span class="co1">-- 同时指定子对象的 tag</span></pre>
+
+<p>
+子对象可以用多种途径访问：
+</p>
+<pre class="code lua"><span class="kw3">print</span><span class="br0">&#40;</span>node<span class="br0">&#41;</span> <span class="co1">-- 输出 node 值</span>
+<span class="co1">-- 查询指定 tag 的子对象，如果有多个返回第一个，否则返回 nil</span>
+<span class="kw1">local</span> childNode <span class="sy0">=</span> node<span class="sy0">:</span>getChildByTag<span class="br0">&#40;</span>tag<span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 返回子对象的总数（不含子对象的子对象）</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>node<span class="sy0">:</span>getChildrenCount<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 获得一个包含所有子对象的 CCArray 对象，然后遍历其中所有子对象</span>
+<span class="kw1">local</span> array <span class="sy0">=</span> node<span class="sy0">:</span>getChildren<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw1">for</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> array<span class="sy0">:</span>count<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy0">-</span> <span class="nu0">1</span> <span class="kw1">do</span>
+<span class="co1">--</span>
+    <span class="kw1">local</span> childNode <span class="sy0">=</span> tolua<span class="sy0">.</span>cast<span class="br0">&#40;</span>array<span class="sy0">:</span>objectAtIndex<span class="br0">&#40;</span>i<span class="br0">&#41;</span><span class="sy0">,</span> <span class="st0">&quot;CCNode&quot;</span><span class="br0">&#41;</span>
+    <span class="kw3">print</span><span class="br0">&#40;</span>childNode<span class="sy0">:</span>getParent<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 输出子对象的父对象，应该与 node 的值相同</span>
+<span class="kw1">end</span></pre>
+
+<p>
+<strong>注意：</strong>
+</p>
+<ul>
+<li class="level1"><div class="li">在 Lua 中，上述两种方式都存在一些缺点，更好的做法请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:faq" class="wikilink1" title="zh_cn:faq">FAQ</a> 。</div>
+</li>
+<li class="level1"><div class="li">这里用到了 tolua.cast() 函数，请参考 
+<a href="tolua.html" class="wikilink1" title="zh_cn:api:tolua">tolua</a> 。</div>
+</li>
+</ul>
+
+<p>
+~
+</p>
+
+<p>
+要删除子对象也有多种途径：
+</p>
+<pre class="code lua">childNode<span class="sy0">:</span>removeSelf<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 从父对象中删除自己</span>
+&nbsp;
+node<span class="sy0">:</span>removeChild<span class="br0">&#40;</span>childNode<span class="br0">&#41;</span> <span class="co1">-- 删除一个子对象</span>
+&nbsp;
+<span class="co1">-- 删除指定 tag 的子对象，如果有多个 tag 相同的子对象，删除第一个</span>
+childNode<span class="sy0">:</span>setTag<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="co1">-- 设置子对象的 tag 为 1</span>
+node<span class="sy0">:</span>removeChildByTag<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 删除所有子对象</span>
+node<span class="sy0">:</span>removeAllChildren<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="事件">事件</h2>
+<div class="level2">
+
+<p>
+CCNode 提供了两类事件：显示对象事件和帧事件。
+</p>
+
+<p>
+显示对象在被加入父对象和从父对象删除时，会分别触发 onEnter 和 onExit 事件。这和 Flash 里的 Event.ADDED, Event.REMOVED 事件的性质一样。
+</p>
+<pre class="code lua"><span class="kw1">local</span> node <span class="sy0">=</span> display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span>
+&nbsp;
+node<span class="sy0">.</span>onEnter <span class="sy0">=</span> <span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="co1">-- 显示对象加入父对象时调用</span>
+<span class="kw1">end</span>
+&nbsp;
+node<span class="sy0">.</span>onExit <span class="sy0">=</span> <span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="co1">-- 显示对象从父对象删除时调用</span>
+    <span class="co1">-- 利用 onExit 事件，可以做一些清理工作</span>
+<span class="kw1">end</span>
+&nbsp;
+node<span class="sy0">:</span>setNodeEventEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 允许显示对象的事件</span></pre>
+
+<p>
+要禁用显示对象事件：
+</p>
+<pre class="code lua">node<span class="sy0">:</span>setNodeEventEnabled<span class="br0">&#40;</span><span class="kw4">false</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+在开启帧事件后，会在显示对象每一次渲染时调用指定的函数。
+</p>
+<pre class="code lua"><span class="kw1">local</span> node <span class="sy0">=</span> display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">local</span> <span class="kw1">function</span> onEnterFrame<span class="br0">&#40;</span>dt<span class="br0">&#41;</span>
+    <span class="co1">-- dt 是这一帧和上一帧之间的时间间隔，通常为 1/60 秒</span>
+<span class="kw1">end</span>
+&nbsp;
+node<span class="sy0">:</span>scheduleUpdate<span class="br0">&#40;</span>onEnterFrame<span class="br0">&#41;</span></pre>
+
+<p>
+要取消帧事件：
+</p>
+<pre class="code lua">node<span class="sy0">:</span>unscheduleUpdate<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="执行动作">执行动作</h2>
+<div class="level2">
+
+<p>
+动作是 quick 里最强大的功能之一。
+</p>
+
+<p>
+quick 中包含了几十种不同的动作，可以动态改变对象的属性，例如移动、旋转、淡入淡出等。
+</p>
+
+<p>
+有关可用动作的列表，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:basics_action" class="wikilink2" title="zh_cn:basics_action" rel="nofollow">Action</a> 。
+</p>
+
+<p>
+在显示对象上运行一个动作很简单：
+</p>
+<pre class="code lua"><span class="co1">-- 0.3 秒移动到 100, 200</span>
+node<span class="sy0">:</span>runAction<span class="br0">&#40;</span>CCMoveTo<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.3</span><span class="sy0">,</span> CCPoint<span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+如果连续调用多次 runAction()，可以实现并列执行多个动作，例如：
+</p>
+<pre class="code lua"><span class="co1">-- 移动的同时旋转</span>
+node<span class="sy0">:</span>runAction<span class="br0">&#40;</span>CCMoveTo<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.3</span><span class="sy0">,</span> CCPoint<span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+node<span class="sy0">:</span>runAction<span class="br0">&#40;</span>CCRotateBy<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.3</span><span class="sy0">,</span> <span class="nu0">360</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+如果希望依次执行多个动作，应该借助 
+<a href="framework.transition.html#transitionsequence" class="wikilink1" title="zh_cn:api:framework.transition">transition.sequence()</a> ：
+</p>
+<pre class="code lua"><span class="kw1">local</span> sequence <span class="sy0">=</span> transition<span class="sy0">.</span>sequence<span class="br0">&#40;</span><span class="br0">&#123;</span>
+    CCMoveTo<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.5</span><span class="sy0">,</span> CCPoint<span class="br0">&#40;</span>display<span class="sy0">.</span>cx<span class="sy0">,</span> display<span class="sy0">.</span>cy<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">,</span>
+    CCFadeOut<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.2</span><span class="br0">&#41;</span><span class="sy0">,</span>
+    CCDelayTime<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.5</span><span class="br0">&#41;</span><span class="sy0">,</span>
+    CCFadeIn<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.3</span><span class="br0">&#41;</span><span class="sy0">,</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span>
+node<span class="sy0">:</span>runAction<span class="br0">&#40;</span>sequence<span class="br0">&#41;</span></pre>
+
+<p>
+我们可以查询显示对象上当前有多少个动作在执行：
+</p>
+<pre class="code lua"><span class="kw3">print</span><span class="br0">&#40;</span>node<span class="sy0">:</span>getNumberOfRunningActions<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+动作在执行时间结束后，会自动停止。但我们也可以在需要的时候停止正在执行的动作：
+</p>
+<pre class="code lua"><span class="kw1">local</span> action <span class="sy0">=</span> CCMoveTo<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.3</span><span class="sy0">,</span> CCPoint<span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+node<span class="sy0">:</span>runAction<span class="br0">&#40;</span>action<span class="br0">&#41;</span>
+<span class="co1">-- 在需要停止的时候</span>
+action<span class="sy0">:</span>stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="co1">-- 或者写为</span>
+node<span class="sy0">:</span>stopAction<span class="br0">&#40;</span>action<span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 通过 tag 停止指定的动作</span>
+<span class="kw1">local</span> action <span class="sy0">=</span> CCMoveTo<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="nu0">0.3</span><span class="sy0">,</span> CCPoint<span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+action<span class="sy0">:</span>setTag<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>
+node<span class="sy0">:</span>runAction<span class="br0">&#40;</span>action<span class="br0">&#41;</span>
+<span class="co1">-- 在需要停止的时候</span>
+node<span class="sy0">:</span>stopActionByTag<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>
+<span class="co1">-- 或者写为</span>
+<span class="kw1">local</span> action <span class="sy0">=</span> node<span class="sy0">:</span>getActionByTag<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span>
+action<span class="sy0">:</span>stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 停止所有正在执行的动作</span>
+node<span class="sy0">:</span>stopAllActions<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+如果我们需要在一个显示对象上等待一段时间再执行某个函数，可以用 performWithDelay ：
+</p>
+<pre class="code lua">node<span class="sy0">:</span>performWithDelay<span class="br0">&#40;</span><span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="co1">-- 等待 1.5 秒后执行代码</span>
+    node<span class="sy0">:</span>runAction<span class="br0">&#40;</span><span class="sy0">....</span><span class="br0">&#41;</span>
+<span class="kw1">end</span><span class="sy0">,</span> <span class="nu0">1.5</span><span class="br0">&#41;</span></pre>
+
+<p>
+performWithDelay 的优势是如果等待时间到达之前，显示对象就被删除了话，函数也不会再执行，也不用我们去清理。
+</p>
+
+<p>
+~
+</p>
+
+<p>
+前面提到 scheduleUpdate 方法可以注册帧事件，如果我们需要按照指定间隔时间执行函数，就需要用到 schedule() 方法：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onSchedule<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+node<span class="sy0">:</span>schedule<span class="br0">&#40;</span>onSchedule<span class="sy0">,</span> <span class="nu0">0.5</span><span class="br0">&#41;</span> <span class="co1">-- 每隔 0.5 秒执行一次函数</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="颜色和透明度">颜色和透明度</h2>
+<div class="level2">
+
+<p>
+改变显示对象的颜色值和透明度时，可以设置是否传递到子对象。这样在实现一组对象的淡入淡出等操作时很方便。
+</p>
+<pre class="code lua"><span class="kw1">local</span> childNode <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;Hello.png&quot;</span><span class="br0">&#41;</span>
+node<span class="sy0">:</span>addChild<span class="br0">&#40;</span>childNode<span class="br0">&#41;</span>
+node<span class="sy0">:</span>setCascadeOpacityEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 改变透明度时，影响所有的子对象</span>
+node<span class="sy0">:</span>setOpacity<span class="br0">&#40;</span><span class="nu0">128</span><span class="br0">&#41;</span> <span class="co1">-- 透明度可用值为 0 - 255， 128 相当于 50% 透明度</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node<span class="sy0">:</span>getOpacity<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 返回显示对象的透明度</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>childNode<span class="sy0">:</span>getOpacity<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 输出 255，因为我们没有直接改变 childNode 的透明度</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>childNode<span class="sy0">:</span>getDisplayedOpacity<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 输出 128，这个透明度是自身透明度和父对象透明度的综合</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node<span class="sy0">:</span>isCascadeOpacityEnabled<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 检查是否允许传递透明度设置</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+改变一个显示对象的颜色，会在渲染时将指定的颜色值和图像的像素颜色值做运算。也就是说设置颜色值可以导致图像显示时的颜色发生变化。
+</p>
+<pre class="code lua"><span class="kw1">local</span> childNode <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;Hello.png&quot;</span><span class="br0">&#41;</span>
+node<span class="sy0">:</span>addChild<span class="br0">&#40;</span>childNode<span class="br0">&#41;</span>
+node<span class="sy0">:</span>setCascadeColorEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 改变颜色值时，影响所有的子对象</span>
+node<span class="sy0">:</span>setColor<span class="br0">&#40;</span>ccc3<span class="br0">&#40;</span><span class="nu0">64</span><span class="sy0">,</span> <span class="nu0">64</span><span class="sy0">,</span> <span class="nu0">64</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 设置一个灰色，这会让图像看上去变得更黯淡</span>
+&nbsp;
+<span class="kw1">local</span> color <span class="sy0">=</span> node<span class="sy0">:</span>getColor<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 返回显示对象的颜色值</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>color<span class="sy0">.</span>r<span class="sy0">,</span> color<span class="sy0">.</span>g<span class="sy0">,</span> color<span class="sy0">.</span>b<span class="br0">&#41;</span>
+&nbsp;
+<span class="kw1">local</span> displayedColor <span class="sy0">=</span> childNode<span class="sy0">:</span>getDisplayedColor<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 返回实际的显示颜色</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>displayedColor<span class="sy0">.</span>r<span class="sy0">,</span> displayedColor<span class="sy0">.</span>g<span class="sy0">,</span> displayedColor<span class="sy0">.</span>b<span class="br0">&#41;</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>node<span class="sy0">:</span>isCascadeColorEnabled<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 检查是否允许传递颜色值设置</span></pre>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/ccnode.txt · Last modified: 2013/09/19 03:27 by dualface</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

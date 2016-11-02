@@ -1,0 +1,34 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 0,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d", "ccui"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/common/zengbinsi.js",
+        "src/common/BlogPagesPath.js",
+
+        "src/common/cframework/CBoot.js",
+        "src/common/cframework/utils/CConfig.js",
+        "src/common/cframework/utils/CFunction.js",
+        "src/common/cframework/utils/CNetwork.js",
+        "src/common/cframework/utils/CPath.js",
+        "src/common/cframework/utils/CTool.js",
+        "src/common/cframework/utils/CUI.js",
+
+        "src/common/cframework/view/common/CLoaderScene.js",
+        "src/common/cframework/view/common/GameObject.js",
+
+
+        "src/app.js",
+        "src/scene/MainScene/MainScene.js",
+        "src/scene/MainScene/node/ListItemMain.js"
+    ]
+}

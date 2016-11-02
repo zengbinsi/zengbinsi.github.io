@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.debug</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.debug</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworkdebug">framework.debug</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#echo">echo</a></div></li>
+<li class="level2"><div class="li"><a href="#printf">printf</a></div></li>
+<li class="level2"><div class="li"><a href="#echoerror_echoinfo">echoError, echoInfo</a></div></li>
+<li class="level2"><div class="li"><a href="#echolog">echoLog</a></div></li>
+<li class="level2"><div class="li"><a href="#dump">dump</a></div></li>
+<li class="level2"><div class="li"><a href="#vardump">vardump</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworkdebug">framework.debug</h1>
+<div class="level1">
+
+<p>
+调试支持
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="echo">echo</h2>
+<div class="level2">
+
+<p>
+功能同 print。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">echo<span class="br0">&#40;</span>值<span class="sy0">,</span> <span class="br0">&#91;</span>值<span class="sy0">,</span> 值<span class="sy0">,</span> <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="printf">printf</h2>
+<div class="level2">
+
+<p>
+按照特定格式输出。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">printf<span class="br0">&#40;</span>格式字符串<span class="sy0">,</span> <span class="br0">&#91;</span>值<span class="sy0">,</span> 值<span class="sy0">,</span> <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua">printf<span class="br0">&#40;</span><span class="st0">&quot;Value = %0.2f&quot;</span><span class="sy0">,</span> <span class="nu0">3.1415</span><span class="br0">&#41;</span>
+<span class="co1">-- 输出 Value = 3.14</span></pre>
+
+<p>
+关于格式字符串，请参考 <a href="http://www.lua.org/manual/5.1/manual.html#pdf-string.format" class="urlextern" target="_blank" title="http://www.lua.org/manual/5.1/manual.html#pdf-string.format"  rel="nofollow">string.format</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="echoerror_echoinfo">echoError, echoInfo</h2>
+<div class="level2">
+
+<p>
+输出不同前缀的信息，参数格式与 printf 相同。
+</p>
+
+<p>
+echoError 除了输出信息外，还会打印当前的 Lua 调用堆栈。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">echoError<span class="br0">&#40;</span>格式字符串<span class="sy0">,</span> <span class="br0">&#91;</span>值<span class="sy0">,</span> 值<span class="sy0">,</span> <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+echoInfo<span class="br0">&#40;</span>格式字符串<span class="sy0">,</span> <span class="br0">&#91;</span>值<span class="sy0">,</span> 值<span class="sy0">,</span> <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="echolog">echoLog</h2>
+<div class="level2">
+
+<p>
+输出指定前缀的信息，后续参数格式与 printf 相同。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">echoLog<span class="br0">&#40;</span>前缀<span class="sy0">,</span> 格式字符串<span class="sy0">,</span> <span class="br0">&#91;</span>值<span class="sy0">,</span> 值<span class="sy0">,</span> <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="dump">dump</h2>
+<div class="level2">
+
+<p>
+输出一个值及其结构。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">dump<span class="br0">&#40;</span>值<span class="sy0">,</span> <span class="br0">&#91;</span>提示文字<span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#91;</span>是否返回内容<span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#91;</span>最大层级<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> arr <span class="sy0">=</span> <span class="br0">&#123;</span>a <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="nu0">2</span><span class="sy0">,</span> c <span class="sy0">=</span> <span class="nu0">3</span><span class="br0">&#125;</span>
+dump<span class="br0">&#40;</span>arr<span class="sy0">,</span> <span class="st0">&quot;arr&quot;</span><span class="br0">&#41;</span>
+<span class="co1">-- 输出</span>
+<span class="co1">-- arr:</span>
+<span class="co1">-- {</span>
+<span class="co1">--     a = 1,</span>
+<span class="co1">--     b = 2,</span>
+<span class="co1">--     c = 3,</span>
+<span class="co1">-- }</span></pre>
+
+<p>
+dump() 主要的用途是输出一个表格对象及其结构。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="vardump">vardump</h2>
+<div class="level2">
+
+<p>
+输出值的 Lua 代码。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> vardump<span class="br0">&#40;</span>值<span class="br0">&#41;</span></pre>
+
+<p>
+vardump() 返回一段有效的 Lua 代码，该代码是指定值的 Lua 语法格式。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.debug.txt · Last modified: 2013/08/16 11:42 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

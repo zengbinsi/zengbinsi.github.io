@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>cclayer</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:cclayer</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#cclayer">CCLayer</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#触摸事件">触摸事件</a></div></li>
+<li class="level2"><div class="li"><a href="#android_按键事件">Android 按键事件</a></div></li>
+<li class="level2"><div class="li"><a href="#重力感应事件">重力感应事件</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="cclayer">CCLayer</h1>
+<div class="level1">
+
+<p>
+CCLayer 对象是一种特殊的显示对象，主要功能是响应触摸事件、重力感应事件，以及 Android 按键事件。
+</p>
+
+<p>
+~~
+</p>
+
+<p>
+<strong>对象继承关系：</strong> 
+<a href="ccobject.html" class="wikilink1" title="zh_cn:api:ccobject">CCObject</a> -> 
+<a href="ccnode.html" class="wikilink1" title="zh_cn:api:ccnode">CCNode</a> -> CCLayer
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="触摸事件">触摸事件</h2>
+<div class="level2">
+
+<p>
+注册触摸事件。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>addTouchEventListener<span class="br0">&#40;</span>回调函数<span class="sy0">,</span>
+                            <span class="br0">&#91;</span>是否是多点触摸<span class="br0">&#93;</span><span class="sy0">,</span>
+                            <span class="br0">&#91;</span>优先级<span class="br0">&#93;</span><span class="sy0">,</span>
+                            <span class="br0">&#91;</span>是否吞噬触摸事件<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onTouch<span class="br0">&#40;</span>event<span class="sy0">,</span> x<span class="sy0">,</span> y<span class="br0">&#41;</span>
+    <span class="kw3">print</span><span class="br0">&#40;</span>event<span class="sy0">,</span> x<span class="sy0">,</span> y<span class="br0">&#41;</span>
+    <span class="kw1">if</span> event <span class="sy0">==</span> <span class="st0">&quot;began&quot;</span> <span class="kw1">then</span>
+        <span class="kw1">return</span> <span class="kw4">true</span> <span class="co1">-- 在 began 事件里返回 true，表示要接收后续的触摸事件</span>
+    <span class="kw1">end</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">local</span> layer <span class="sy0">=</span> display<span class="sy0">.</span>newLayer<span class="br0">&#40;</span><span class="br0">&#41;</span>
+layer<span class="sy0">:</span>addTouchEventListener<span class="br0">&#40;</span>onTouch<span class="br0">&#41;</span>
+layer<span class="sy0">:</span>setTouchEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 注册后还必须启用触摸</span>
+&nbsp;
+scene<span class="sy0">:</span>addChild<span class="br0">&#40;</span>layer<span class="br0">&#41;</span> <span class="co1">-- 还要将 CCLayer 对象加入场景或其他显示对象中</span></pre>
+
+<p>
+如果第二个参数为 true，那么触摸回调函数接收到的参数会有所不同：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onTouch<span class="br0">&#40;</span>event<span class="sy0">,</span> points<span class="br0">&#41;</span>
+    <span class="co1">-- points 是包含一系列坐标和 id 的表格对象，内容为 {x, y, id, x2, y2, id2, x3, y3, id3 ...}</span>
+    <span class="kw1">for</span> i <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="sy0">#</span>points<span class="sy0">,</span> <span class="nu0">3</span> <span class="kw1">do</span>
+        <span class="kw1">local</span> x <span class="sy0">=</span> points<span class="br0">&#91;</span>i<span class="br0">&#93;</span>
+        <span class="kw1">local</span> y <span class="sy0">=</span> points<span class="br0">&#91;</span>i <span class="sy0">+</span> <span class="nu0">1</span><span class="br0">&#93;</span>
+        <span class="kw1">local</span> id <span class="sy0">=</span> points<span class="br0">&#91;</span>i <span class="sy0">+</span> <span class="nu0">2</span><span class="br0">&#93;</span>
+        <span class="kw3">print</span><span class="br0">&#40;</span>x<span class="sy0">,</span> y<span class="sy0">,</span> id<span class="br0">&#41;</span>
+    <span class="kw1">end</span>
+<span class="kw1">end</span></pre>
+
+<p>
+在多点触摸时，由于一个事件里可能出现多个触摸点的信息。因此每一个触摸点除了 x,y 坐标，还会附带一个 id 值。
+</p>
+
+<p>
+假设开始触摸时，有三个触摸点，那么三个点的 id 值就分别是 1，2，3（假定值，实际值由系统确定）。当三个触摸点中有一个点移动后，下一次触摸事件只会收到一个点的位置信息和 id 值。当然，后续事件也可能同时收到多个触摸点的数据。
+</p>
+
+<p>
+用文字表示多次触摸操作的数据，看上去如下：
+</p>
+<pre class="code">首次触摸事件
+x1, y1, id=1, x2, y2, id=2
+
+后续触摸事件
+x, y, id=?</pre>
+
+<p>
+开发者在处理多点触摸时，需要跟踪事件里的触摸 id，这样才知道是哪一个触摸点的状态发生了变化。
+</p>
+
+<p>
+实际应用时，因为游戏以每秒 60 帧的速度刷新，除非多个触摸事件都在 1/60 秒里发生，否则收到的触摸事件都只有一个点的数据。只有通过触摸 id 来区分不同的触摸点事件。
+</p>
+
+<p>
+<strong>提示：</strong> 在 iOS 上，默认没有启用多点触摸。要启用多点触摸，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:basics_multi_touches" class="wikilink1" title="zh_cn:basics_multi_touches">Multi Touches</a> 。
+</p>
+
+<p>
+~
+</p>
+
+<p>
+注销触摸事件回调。
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>removeTouchEventListener<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+设置是否接受触摸事件：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>setTouchEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 是否允许触摸</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>layer<span class="sy0">:</span>isTouchEnabled<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 确认是否已经允许触摸</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+设置触摸模式：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>setTouchMode<span class="br0">&#40;</span>kCCTouchesAllAtOnce<span class="br0">&#41;</span> <span class="co1">-- 一次性把所有点的数据传入回调函数</span>
+layer<span class="sy0">:</span>setTouchMode<span class="br0">&#40;</span>kCCTouchesOneByOne<span class="br0">&#41;</span> <span class="co1">-- 多个点分成多次传入，也就是说多点触摸时，回调函数会调用多次</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>layer<span class="sy0">:</span>getTouchMode<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 返回多点触摸事件的坐标传递方式</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+设置触摸优先级：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>setTouchPriority<span class="br0">&#40;</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="co1">-- 优先级为任意整数，数值越小优先级越高</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>layer<span class="sy0">:</span>getTouchPriority<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 返回触摸优先级</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="android_按键事件">Android 按键事件</h2>
+<div class="level2">
+
+<p>
+注册键盘事件回调函数。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>addKeypadEventListener<span class="br0">&#40;</span>回调函数<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onKeypad<span class="br0">&#40;</span>event<span class="br0">&#41;</span>
+    <span class="kw1">if</span> event <span class="sy0">==</span> <span class="st0">&quot;back&quot;</span> <span class="kw1">then</span>
+    <span class="kw1">elseif</span> event <span class="sy0">==</span> <span class="st0">&quot;menu&quot;</span> <span class="kw1">then</span>
+    <span class="kw1">end</span>
+<span class="kw1">end</span>
+&nbsp;
+layer<span class="sy0">:</span>addKeypadEventListener<span class="br0">&#40;</span>onKeypad<span class="br0">&#41;</span>
+layer<span class="sy0">:</span>setKeypadEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+注销键盘事件：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>removeKeypadEventListener<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+设置是否允许接受按键事件：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>setKeypadEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 是否允许按键事件</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>layer<span class="sy0">:</span>isKeypadEnabled<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 确认是否已经允许按键事件</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="重力感应事件">重力感应事件</h2>
+<div class="level2">
+
+<p>
+注册重力感应事件。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onAccelerate<span class="br0">&#40;</span>x<span class="sy0">,</span> y<span class="sy0">,</span> z<span class="sy0">,</span> timestamp<span class="br0">&#41;</span>
+    <span class="co1">-- x, y, z 分别是三个轴的重力值，从 -1.0 到 1.0</span>
+    <span class="co1">-- timestamp 是发生事件的时间点（秒）</span>
+<span class="kw1">end</span>
+&nbsp;
+layer<span class="sy0">:</span>addAccelerateEventListener<span class="br0">&#40;</span>onAccelerate<span class="br0">&#41;</span>
+layer<span class="sy0">:</span>setAccelerometerEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+注销重力感应事件：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>removeAccelerateEventListener<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+设置是否允许接受重力感应事件：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>setAccelerometerEnabled<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 是否允许重力感应事件</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>layer<span class="sy0">:</span>isAccelerometerEnabled<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 确认是否已经允许重力感应事件</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+设置重力感应事件的时间间隔：
+</p>
+<pre class="code lua">layer<span class="sy0">:</span>setAccelerometerInterval<span class="br0">&#40;</span><span class="nu0">1.0</span> <span class="sy0">/</span> <span class="nu0">30</span><span class="br0">&#41;</span> <span class="co1">-- 每秒接收 30 次事件</span></pre>
+
+<p>
+<strong>注意：</strong> 间隔时间越短，重力感应越敏感，但也会消耗更多电力。如果没有特别需求，建议不要修改默认值。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/cclayer.txt · Last modified: 2013/09/02 06:38 by dualface</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

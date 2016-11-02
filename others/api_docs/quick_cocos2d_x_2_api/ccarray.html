@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ccarray</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:ccarray</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 class="sectionedit1" id="ccarray">CCArray</h1>
+<div class="level1">
+
+<p>
+CCArray 是 quick 中 C++ 层面大量使用的容器。
+</p>
+
+<p>
+~~
+</p>
+
+<p>
+对象继承关系： 
+<a href="ccobject.html" class="wikilink1" title="zh_cn:api:ccobject">CCObject</a> -> CCArray
+</p>
+
+<p>
+~~
+</p>
+
+<p>
+在 Lua 里使用 CCArray，最大的问题是如何从 CCArray 中访问对象：
+</p>
+<pre class="code lua"><span class="kw1">local</span> tag <span class="sy0">=</span> <span class="nu0">100</span>
+&nbsp;
+<span class="co1">-- 取得包含所有子对象的 CCArray</span>
+<span class="kw1">local</span> children <span class="sy0">=</span> sprite<span class="sy0">:</span>getChildren<span class="br0">&#40;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 遍历所有子对象，设置这些子对象的 tag 为特定值</span>
+<span class="kw1">for</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> children<span class="sy0">:</span>count<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw1">do</span>
+    <span class="kw1">local</span> child <span class="sy0">=</span> children<span class="sy0">:</span>objectAtIndex<span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span>
+    child<span class="sy0">:</span>setTag<span class="br0">&#40;</span>tag<span class="br0">&#41;</span> <span class="co1">-- 这里会出错</span>
+<span class="kw1">end</span></pre>
+
+<p>
+上述代码之所以出错，是因为 CCArray:objectAtIndex() 返回的对象类型不是对象的实际类型。这样就造成我们无法访问 child 对象的方法。解决这个问题需要用到 
+<a href="tolua.html" class="wikilink1" title="zh_cn:api:tolua">tolua</a> 模块中的 cast() 方法。
+</p>
+<pre class="code lua"><span class="co1">-- 遍历所有子对象，设置这些子对象的 tag 为特定值</span>
+<span class="kw1">for</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">,</span> children<span class="sy0">:</span>count<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw1">do</span>
+    <span class="kw1">local</span> child <span class="sy0">=</span> tolua<span class="sy0">.</span>cast<span class="br0">&#40;</span>children<span class="sy0">:</span>objectAtIndex<span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st0">&quot;CCNode&quot;</span><span class="br0">&#41;</span>
+    child<span class="sy0">:</span>setTag<span class="br0">&#40;</span>tag<span class="br0">&#41;</span> <span class="co1">-- 这里会出错</span>
+<span class="kw1">end</span></pre>
+
+<p>
+cast() 方法强制转换对象类型，以便让我们访问对象方法。但这个方法相当危险，如果我们进行了错误的类型转换，那么接下来调用对象方法就有可能导致整个游戏崩溃。
+</p>
+
+<p>
+所以在 Lua 里，使用 CCArray 一定要非常小心。
+</p>
+
+<p>
+~
+</p>
+
+<p>
+常用方法：
+</p>
+<pre class="code lua"><span class="kw1">local</span> array <span class="sy0">=</span> CCArray<span class="sy0">:</span>create<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 创建一个 CCArray 对象</span>
+&nbsp;
+array<span class="sy0">:</span>addObject<span class="br0">&#40;</span>display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 添加一个对象到 CCArray 中</span>
+array<span class="sy0">:</span>insertObject<span class="br0">&#40;</span>display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="co1">-- 在指定位置（0 开始的索引）插入一个对象</span>
+&nbsp;
+<span class="kw3">print</span><span class="br0">&#40;</span>array<span class="sy0">:</span>count<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 输出数组中的对象总数</span>
+&nbsp;
+<span class="co1">-- 取得指定对象，并用 tolua.cast() 强制转换类型</span>
+<span class="kw1">local</span> node <span class="sy0">=</span> tolua<span class="sy0">.</span>cast<span class="br0">&#40;</span>array<span class="sy0">:</span>objectAtIndex<span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="st0">&quot;CCNode&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 删除最后一个对象</span>
+array<span class="sy0">:</span>removeLastObject<span class="br0">&#40;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 删除指定位置的对象</span>
+array<span class="sy0">:</span>removeObjectAtIndex<span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 删除所有对象</span>
+array<span class="sy0">:</span>removeAllObjects<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/ccarray.txt · Last modified: 2013/08/19 16:19 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

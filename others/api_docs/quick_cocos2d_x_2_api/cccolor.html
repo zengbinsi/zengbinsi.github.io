@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>cccolor</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:cccolor</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 class="sectionedit1" id="cccolor3b_cccolor4b_cccolor4f_颜色">ccColor3B, ccColor4B, ccColor4F 颜色</h1>
+<div class="level1">
+
+<p>
+quick 中表示颜色有三种对象：
+</p>
+<ul>
+<li class="level1"><div class="li">ccColor3B 用三个 0-255 的整数描述颜色，不带透明度</div>
+</li>
+<li class="level1"><div class="li">ccColor4B 用四个 0-255 的整数描述颜色，带透明度</div>
+</li>
+<li class="level1"><div class="li">ccColor4F 用四个 0.0 - 1.0 的浮点数描述颜色，带透明度</div>
+</li>
+</ul>
+
+<p>
+三种颜色对象的创建方式：
+</p>
+<pre class="code lua"><span class="kw1">local</span> color1 <span class="sy0">=</span> ccc3<span class="br0">&#40;</span><span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span> <span class="co1">-- 纯红色，三个参数分别是 Red（红）、Green（绿）、Blue（蓝）</span>
+&nbsp;
+<span class="kw1">local</span> color2 <span class="sy0">=</span> ccc4<span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">128</span><span class="br0">&#41;</span> <span class="co1">-- 50% 透明度的绿色，最后一个参数是透明度</span>
+&nbsp;
+<span class="kw1">local</span> color3 <span class="sy0">=</span> ccc4f<span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">1.0</span><span class="sy0">,</span> <span class="nu0">0.3</span><span class="br0">&#41;</span> <span class="co1">-- 30% 透明度的蓝色</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+下列函数提供三种颜色对象的互相转换：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>ccc4FFromccc3B</strong> ccColor3B 转换为 ccColor4F</div>
+</li>
+<li class="level1"><div class="li"><strong>ccc4FFromccc4B</strong> ccColor4B 转换为 ccColor4F</div>
+</li>
+<li class="level1"><div class="li"><strong>ccc4BFromccc4F</strong> ccColor4F 转换为 ccColor4B
+</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/cccolor.txt · Last modified: 2013/08/19 15:30 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

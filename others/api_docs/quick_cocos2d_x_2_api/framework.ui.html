@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.ui</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.ui</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworkui">framework.ui</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#uineweditbox">ui.newEditBox</a></div></li>
+<li class="level2"><div class="li"><a href="#uinewimagemenuitem">ui.newImageMenuItem</a></div></li>
+<li class="level2"><div class="li"><a href="#uinewttflabelmenuitem">ui.newTTFLabelMenuItem</a></div></li>
+<li class="level2"><div class="li"><a href="#uinewmenu">ui.newMenu</a></div></li>
+<li class="level2"><div class="li"><a href="#uinewbmfontlabel">ui.newBMFontLabel</a></div></li>
+<li class="level2"><div class="li"><a href="#uinewttflabel">ui.newTTFLabel</a></div></li>
+<li class="level2"><div class="li"><a href="#uinewttflabelwithshadow">ui.newTTFLabelWithShadow</a></div></li>
+<li class="level2"><div class="li"><a href="#uinewttflabelwithoutline">ui.newTTFLabelWithOutline</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworkui">framework.ui</h1>
+<div class="level1">
+
+<p>
+创建和管理用户界面
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="uineweditbox">ui.newEditBox</h2>
+<div class="level2">
+
+<p>
+创建一个文字输入框，并返回 CCEditBox 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">editbox <span class="sy0">=</span> ui<span class="sy0">.</span>newEditBox<span class="br0">&#40;</span>参数表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+可用参数：
+</p>
+<ul>
+<li class="level1"><div class="li">image: 输入框的图像，可以是图像名或者是 CCSprite9Scale 显示对象。用 display.newScale9Sprite() 创建 CCSprite9Scale 显示对象。</div>
+</li>
+<li class="level1"><div class="li">imagePressed: 输入状态时输入框显示的图像（可选）</div>
+</li>
+<li class="level1"><div class="li">imageDisabled: 禁止状态时输入框显示的图像（可选）</div>
+</li>
+<li class="level1"><div class="li">listener: 回调函数</div>
+</li>
+<li class="level1"><div class="li">size: 输入框的尺寸，用 CCSize(宽度, 高度) 创建</div>
+</li>
+<li class="level1"><div class="li">x, y: 坐标（可选）</div>
+</li>
+</ul>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onEdit<span class="br0">&#40;</span>event<span class="sy0">,</span> editbox<span class="br0">&#41;</span>
+    <span class="kw1">if</span> event <span class="sy0">==</span> <span class="st0">&quot;began&quot;</span> <span class="kw1">then</span>
+        <span class="co1">-- 开始输入</span>
+    <span class="kw1">elseif</span> event <span class="sy0">==</span> <span class="st0">&quot;changed&quot;</span> <span class="kw1">then</span>
+        <span class="co1">-- 输入框内容发生变化</span>
+    <span class="kw1">elseif</span> event <span class="sy0">==</span> <span class="st0">&quot;ended&quot;</span> <span class="kw1">then</span>
+        <span class="co1">-- 输入结束</span>
+    <span class="kw1">elseif</span> event <span class="sy0">==</span> <span class="st0">&quot;return&quot;</span> <span class="kw1">then</span>
+        <span class="co1">-- 从输入框返回</span>
+    <span class="kw1">end</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">local</span> editbox <span class="sy0">=</span> ui<span class="sy0">.</span>newEditBox<span class="br0">&#40;</span><span class="br0">&#123;</span>
+    image <span class="sy0">=</span> <span class="st0">&quot;EditBox.png&quot;</span><span class="sy0">,</span>
+    listener <span class="sy0">=</span> onEdit<span class="sy0">,</span>
+    size <span class="sy0">=</span> CCSize<span class="br0">&#40;</span><span class="nu0">200</span><span class="sy0">,</span> <span class="nu0">40</span><span class="br0">&#41;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+note：构造输入框时，请使用setPlaceHolder来设定初始文本显示。setText为出现输入法后的默认文本。
+</p>
+
+<p>
+note：事件触发机制，player模拟器上与真机不同，请使用真机实测(不同ios版本貌似也略有不同)。
+</p>
+
+<p>
+note：changed事件中，需要条件性使用setText（如trim或转化大小写等），否则在某些ios版本中会造成死循环。
+</p>
+<pre class="code lua"><span class="co1">--错误，会造成死循环</span>
+editbox<span class="sy0">:</span>setText<span class="br0">&#40;</span><span class="kw3">string</span><span class="sy0">.</span>trim<span class="br0">&#40;</span>editbox<span class="sy0">:</span>getText<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre>
+<pre class="code lua"><span class="co1">--正确，不会造成死循环</span>
+<span class="kw1">local</span> _text <span class="sy0">=</span> editbox<span class="sy0">:</span>getText<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> _trimed <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>trim<span class="br0">&#40;</span>_text<span class="br0">&#41;</span>
+<span class="kw1">if</span> _trimed <span class="sy0">~=</span> _text <span class="kw1">then</span>
+    editbox<span class="sy0">:</span>setText<span class="br0">&#40;</span>_trimed<span class="br0">&#41;</span>
+<span class="kw1">end</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="uinewimagemenuitem">ui.newImageMenuItem</h2>
+<div class="level2">
+
+<p>
+创建一个图像菜单项，并返回 CCMenuItemSprite 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">item <span class="sy0">=</span> ui<span class="sy0">.</span>newImageMenuItem<span class="br0">&#40;</span>参数表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+可用参数：
+</p>
+<ul>
+<li class="level1"><div class="li">image: 正常状态的按钮图像</div>
+</li>
+<li class="level1"><div class="li">imageSelected: 按钮按下时的图像（可选）</div>
+</li>
+<li class="level1"><div class="li">imageDisabled: 按钮被禁用时的图像（可选）</div>
+</li>
+<li class="level1"><div class="li">listener: 回调函数</div>
+</li>
+<li class="level1"><div class="li">tag: 按钮的 Tag，会传入回调函数。多个按钮使用同一个回调函数时，可根据 Tag 区分哪一个按钮被按下（可选）</div>
+</li>
+<li class="level1"><div class="li">x, y: 坐标（可选）</div>
+</li>
+<li class="level1"><div class="li">sound: 按钮按下时播放什么音效（可选）</div>
+</li>
+</ul>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onButtonClicked<span class="br0">&#40;</span>tag<span class="br0">&#41;</span>
+    <span class="co1">-- 按钮被按下</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="kw1">local</span> item <span class="sy0">=</span> ui<span class="sy0">.</span>newImageMenuItem<span class="br0">&#40;</span><span class="br0">&#123;</span>
+    image <span class="sy0">=</span> <span class="st0">&quot;Button.png&quot;</span><span class="sy0">,</span>
+    imageSelected <span class="sy0">=</span> <span class="st0">&quot;ButtonSelected.png&quot;</span><span class="sy0">,</span>
+    listener <span class="sy0">=</span> onButtonClicked
+<span class="br0">&#125;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 创建菜单并加入场景，否则菜单项不会工作</span>
+<span class="kw1">local</span> menu <span class="sy0">=</span> ui<span class="sy0">.</span>newMenu<span class="br0">&#40;</span><span class="br0">&#123;</span>item<span class="br0">&#125;</span><span class="br0">&#41;</span>
+scene<span class="sy0">:</span>addChild<span class="br0">&#40;</span>menu<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="uinewttflabelmenuitem">ui.newTTFLabelMenuItem</h2>
+<div class="level2">
+
+<p>
+创建一个文字标签菜单项，并返回 CCMenuItemLabel 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">item <span class="sy0">=</span> ui<span class="sy0">.</span>newTTFLabelMenuItem<span class="br0">&#40;</span>参数表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+可用参数：
+</p>
+<ul>
+<li class="level1"><div class="li">listener: 回调函数</div>
+</li>
+<li class="level1"><div class="li">tag: 按钮的 Tag，会传入回调函数。多个按钮使用同一个回调函数时，可根据 Tag 区分哪一个按钮被按下（可选）</div>
+</li>
+<li class="level1"><div class="li">x, y: 坐标（可选）</div>
+</li>
+<li class="level1"><div class="li">sound: 按钮按下时播放什么音效（可选）</div>
+</li>
+</ul>
+
+<p>
+以及所有可以用于 ui.newTTFLabel() 的参数。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="uinewmenu">ui.newMenu</h2>
+<div class="level2">
+
+<p>
+创建菜单，并返回 CCMenu 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">menu <span class="sy0">=</span> ui<span class="sy0">.</span>newMenu<span class="br0">&#40;</span><span class="br0">&#123;</span>菜单项对象<span class="sy0">,</span> <span class="br0">&#91;</span>菜单项对象 <span class="sy0">...</span><span class="br0">&#93;</span><span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="uinewbmfontlabel">ui.newBMFontLabel</h2>
+<div class="level2">
+
+<p>
+用位图字体创建文本显示对象，并返回 CCLabelBMFont 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">label <span class="sy0">=</span> ui<span class="sy0">.</span>newBMFontLabel<span class="br0">&#40;</span>参数表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+可用参数：
+</p>
+<ul>
+<li class="level1"><div class="li">text: 要显示的文本</div>
+</li>
+<li class="level1"><div class="li">font: 字体文件名</div>
+</li>
+<li class="level1"><div class="li">align: 文字的水平对齐方式（可选）</div>
+</li>
+<li class="level1"><div class="li">x, y: 坐标（可选）</div>
+</li>
+</ul>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> label <span class="sy0">=</span> ui<span class="sy0">.</span>newBMFontLabel<span class="br0">&#40;</span><span class="br0">&#123;</span>
+    text <span class="sy0">=</span> <span class="st0">&quot;Hello&quot;</span><span class="sy0">,</span>
+    font <span class="sy0">=</span> <span class="st0">&quot;UIFont.fnt&quot;</span><span class="sy0">,</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+BMFont 的原理是用包含多个字母的位图字体来创建文字内容，因此需要用专门的工具来创建 BMFont 字体：
+</p>
+<ul>
+<li class="level1"><div class="li"><a href="http://www.angelcode.com/products/bmfont/" class="urlextern" target="_blank" title="http://www.angelcode.com/products/bmfont/"  rel="nofollow">Bitmap Font Generator</a> 免费工具，Windows 版</div>
+</li>
+<li class="level1"><div class="li"><a href="http://www.71squared.com/en/glyphdesigner" class="urlextern" target="_blank" title="http://www.71squared.com/en/glyphdesigner"  rel="nofollow">Glyph Designer</a> 收费工具，Mac 版</div>
+</li>
+</ul>
+
+<p>
+BMFont 通常用于显示英文内容，因为英文字母加数字和常用符号也不多，生成的 BMFont 文件较小。如果是中文，应该用 TTFLabel。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="uinewttflabel">ui.newTTFLabel</h2>
+<div class="level2">
+
+<p>
+使用 TTF 字体创建文字显示对象，并返回 CCLabelTTF 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">label <span class="sy0">=</span> ui<span class="sy0">.</span>newTTFLabel<span class="br0">&#40;</span>参数表格对象<span class="br0">&#41;</span></pre>
+
+<p>
+可用参数：
+</p>
+<ul>
+<li class="level1"><div class="li">text: 要显示的文本</div>
+</li>
+<li class="level1"><div class="li">font: 字体名，如果是非系统自带的 TTF 字体，那么指定为字体文件名</div>
+</li>
+<li class="level1"><div class="li">size: 文字尺寸，因为是 TTF 字体，所以可以任意指定尺寸</div>
+</li>
+<li class="level1"><div class="li">color: 文字颜色（可选），用 ccc3() 指定，默认为白色</div>
+</li>
+<li class="level1"><div class="li">align: 文字的水平对齐方式（可选）</div>
+</li>
+<li class="level1"><div class="li">valign: 文字的垂直对齐方式（可选），仅在指定了 dimensions 参数时有效</div>
+</li>
+<li class="level1"><div class="li">dimensions: 文字显示对象的尺寸（可选），使用 CCSize() 指定</div>
+</li>
+<li class="level1"><div class="li">x, y: 坐标（可选）</div>
+</li>
+</ul>
+
+<p>
+align 和 valign 参数可用的值：
+</p>
+<ul>
+<li class="level1"><div class="li">ui.TEXT_ALIGN_LEFT 左对齐</div>
+</li>
+<li class="level1"><div class="li">ui.TEXT_ALIGN_CENTER 水平居中对齐</div>
+</li>
+<li class="level1"><div class="li">ui.TEXT_ALIGN_RIGHT 右对齐</div>
+</li>
+<li class="level1"><div class="li">ui.TEXT_VALIGN_TOP 垂直顶部对齐</div>
+</li>
+<li class="level1"><div class="li">ui.TEXT_VALIGN_CENTER 垂直居中对齐</div>
+</li>
+<li class="level1"><div class="li">ui.TEXT_VALIGN_BOTTOM 垂直底部对齐</div>
+</li>
+</ul>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 创建一个居中对齐的文字显示对象</span>
+<span class="kw1">local</span> label <span class="sy0">=</span> ui<span class="sy0">.</span>newTTFLabel<span class="br0">&#40;</span><span class="br0">&#123;</span>
+    text <span class="sy0">=</span> <span class="st0">&quot;Hello, World&quot;</span><span class="sy0">,</span>
+    font <span class="sy0">=</span> <span class="st0">&quot;Marker Felt&quot;</span><span class="sy0">,</span>
+    size <span class="sy0">=</span> <span class="nu0">64</span><span class="sy0">,</span>
+    align <span class="sy0">=</span> ui<span class="sy0">.</span>TEXT_ALIGN_CENTER <span class="co1">-- 文字内部居中对齐</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 左对齐，并且多行文字顶部对齐</span>
+<span class="kw1">local</span> label <span class="sy0">=</span> ui<span class="sy0">.</span>newTTFLabel<span class="br0">&#40;</span><span class="br0">&#123;</span>
+    text <span class="sy0">=</span> <span class="st0">&quot;Hello, World<span class="es1">\n</span>您好，世界&quot;</span><span class="sy0">,</span>
+    font <span class="sy0">=</span> <span class="st0">&quot;Arial&quot;</span><span class="sy0">,</span>
+    size <span class="sy0">=</span> <span class="nu0">64</span><span class="sy0">,</span>
+    color <span class="sy0">=</span> ccc3<span class="br0">&#40;</span><span class="nu0">255</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="co1">-- 使用纯红色</span>
+    align <span class="sy0">=</span> ui<span class="sy0">.</span>TEXT_ALIGN_LEFT<span class="sy0">,</span>
+    valign <span class="sy0">=</span> ui<span class="sy0">.</span>TEXT_VALIGN_TOP<span class="sy0">,</span>
+    dimensions <span class="sy0">=</span> CCSize<span class="br0">&#40;</span><span class="nu0">400</span><span class="sy0">,</span> <span class="nu0">200</span><span class="br0">&#41;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="uinewttflabelwithshadow">ui.newTTFLabelWithShadow</h2>
+<div class="level2">
+
+<p>
+创建带阴影的 TTF 文字显示对象，并返回 CCLabelTTF 对象。
+</p>
+
+<p>
+相比 ui.newTTFLabel() 增加一个参数：
+</p>
+<ul>
+<li class="level1"><div class="li">shadowColor: 阴影颜色（可选），用 ccc3() 指定，默认为黑色</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="uinewttflabelwithoutline">ui.newTTFLabelWithOutline</h2>
+<div class="level2">
+
+<p>
+创建带描边效果的 TTF 文字显示对象，并返回 CCLabelTTF 对象。
+</p>
+
+<p>
+相比 ui.newTTFLabel() 增加一个参数：
+</p>
+<ul>
+<li class="level1"><div class="li">outlineColor: 描边颜色（可选），用 ccc3() 指定，默认为黑色
+</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.ui.txt · Last modified: 2013/09/06 13:16 by Aaron Teng</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

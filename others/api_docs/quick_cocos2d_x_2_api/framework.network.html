@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.network</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.network</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworknetwork">framework.network</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#networkislocalwifiavailable">network.isLocalWiFiAvailable</a></div></li>
+<li class="level2"><div class="li"><a href="#networkisinternetconnectionavailable">network.isInternetConnectionAvailable</a></div></li>
+<li class="level2"><div class="li"><a href="#networkishostnamereachable">network.isHostNameReachable</a></div></li>
+<li class="level2"><div class="li"><a href="#networkgetinternetconnectionstatus">network.getInternetConnectionStatus</a></div></li>
+<li class="level2"><div class="li"><a href="#networkcreatehttprequest">network.createHTTPRequest</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworknetwork">framework.network</h1>
+<div class="level1">
+
+<p>
+网络服务
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="networkislocalwifiavailable">network.isLocalWiFiAvailable</h2>
+<div class="level2">
+
+<p>
+检查地 WIFI 网络是否可用。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> network<span class="sy0">.</span>isLocalWiFiAvailable<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+<strong>提示：</strong> WIFI 网络可用不代表可以访问互联网。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="networkisinternetconnectionavailable">network.isInternetConnectionAvailable</h2>
+<div class="level2">
+
+<p>
+检查互联网连接是否可用。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> network<span class="sy0">.</span>isInternetConnectionAvailable<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+通常，这里接口返回 3G 网络的状态，具体情况与设备和操作系统有关。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="networkishostnamereachable">network.isHostNameReachable</h2>
+<div class="level2">
+
+<p>
+检查是否可以解析指定的主机名。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> network<span class="sy0">.</span>isHostNameReachable<span class="br0">&#40;</span>主机名<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">if</span> network<span class="sy0">.</span>isHostNameReachable<span class="br0">&#40;</span><span class="st0">&quot;www.google.com&quot;</span><span class="br0">&#41;</span> <span class="kw1">then</span>
+    <span class="co1">-- 域名可以解析</span>
+<span class="kw1">end</span></pre>
+
+<p>
+<strong>注意：</strong> 该接口会阻塞程序，因此在调用该接口时应该提醒用户应用程序在一段时间内会失去响应。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="networkgetinternetconnectionstatus">network.getInternetConnectionStatus</h2>
+<div class="level2">
+
+<p>
+返回互联网连接状态值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">code <span class="sy0">=</span> network<span class="sy0">.</span>getInternetConnectionStatus<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+状态值有三种：
+</p>
+<ul>
+<li class="level1"><div class="li">kCCNetworkStatusNotReachable: 无法访问互联网</div>
+</li>
+<li class="level1"><div class="li">kCCNetworkStatusReachableViaWiFi: 通过 WIFI</div>
+</li>
+<li class="level1"><div class="li">kCCNetworkStatusReachableViaWWAN: 通过 3G 网络</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="networkcreatehttprequest">network.createHTTPRequest</h2>
+<div class="level2">
+
+<p>
+创建异步 HTTP 请求，并返回 CCHTTPRequest 对象。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">request <span class="sy0">=</span> network<span class="sy0">.</span>createHTTPRequest<span class="br0">&#40;</span>回调函数<span class="sy0">,</span> URL<span class="sy0">,</span> 请求方法<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">function</span> onRequestFinished<span class="br0">&#40;</span>event<span class="br0">&#41;</span>
+    <span class="kw1">local</span> ok <span class="sy0">=</span> <span class="br0">&#40;</span>event<span class="sy0">.</span>name <span class="sy0">==</span> <span class="st0">&quot;completed&quot;</span><span class="br0">&#41;</span>
+    <span class="kw1">local</span> request <span class="sy0">=</span> event<span class="sy0">.</span>request
+&nbsp;
+    <span class="kw1">if</span> <span class="kw2">not</span> ok <span class="kw1">then</span>
+        <span class="co1">-- 请求失败，显示错误代码和错误消息</span>
+        <span class="kw3">print</span><span class="br0">&#40;</span>request<span class="sy0">:</span>getErrorCode<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> request<span class="sy0">:</span>getErrorMessage<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+        <span class="kw1">return</span>
+    <span class="kw1">end</span>
+&nbsp;
+    <span class="kw1">local</span> code <span class="sy0">=</span> request<span class="sy0">:</span>getResponseStatusCode<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="kw1">if</span> code <span class="sy0">~=</span> <span class="nu0">200</span> <span class="kw1">then</span>
+        <span class="co1">-- 请求结束，但没有返回 200 响应代码</span>
+        <span class="kw3">print</span><span class="br0">&#40;</span>code<span class="br0">&#41;</span>
+        <span class="kw1">return</span>
+    <span class="kw1">end</span>
+&nbsp;
+    <span class="co1">-- 请求成功，显示服务端返回的内容</span>
+    <span class="kw1">local</span> response <span class="sy0">=</span> request<span class="sy0">:</span>getResponseString<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="kw3">print</span><span class="br0">&#40;</span>response<span class="br0">&#41;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">-- 创建一个请求，并以 POST 方式发送数据到服务端</span>
+<span class="kw1">local</span> url <span class="sy0">=</span> <span class="st0">&quot;http://www.mycompany.com/request.php&quot;</span>
+<span class="kw1">local</span> request <span class="sy0">=</span> network<span class="sy0">.</span>createHTTPRequest<span class="br0">&#40;</span>onRequestFinished<span class="sy0">,</span> url<span class="sy0">,</span> <span class="st0">&quot;POST&quot;</span><span class="br0">&#41;</span>
+request<span class="sy0">:</span>addPOSTValue<span class="br0">&#40;</span><span class="st0">&quot;KEY&quot;</span><span class="sy0">,</span> <span class="st0">&quot;VALUE&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 开始请求。当请求完成时会调用 callback() 函数</span>
+request<span class="sy0">:</span>start<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+CCHTTPRequest 提供了完善的异步 HTTP 请求解决办法。更多用法，请参阅 
+
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:api:cchttprequest" class="wikilink2" title="zh_cn:api:cchttprequest" rel="nofollow">CCHTTPRequest 对象</a> 。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.network.txt · Last modified: 2013/08/16 14:40 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

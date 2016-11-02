@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+*{margin:0;padding:0;}
+body {
+	font:13.34px helvetica,arial,freesans,clean,sans-serif;
+	color:black;
+	line-height:1.4em;
+	background-color: #F8F8F8;
+	padding: 0.7em;
+}
+p {
+	margin:1em 0;
+	line-height:1.5em;
+}
+table {
+	font-size:inherit;
+	font:100%;
+	margin:1em;
+}
+table th{border-bottom:1px solid #bbb;padding:.2em 1em;}
+table td{border-bottom:1px solid #ddd;padding:.2em 1em;}
+input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}
+select,option{padding:0 .25em;}
+optgroup{margin-top:.5em;}
+pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+pre {
+	margin:1em 0;
+	font-size:12px;
+	background-color:#eee;
+	border:1px solid #ddd;
+	padding:5px;
+	line-height:1.5em;
+	color:#444;
+	overflow:auto;
+	-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;border-radius:3px;
+}
+pre code {
+	padding:0;
+	font-size:12px;
+	background-color:#eee;
+	border:none;
+}
+code {
+	font-size:12px;
+	background-color:#f8f8ff;
+	color:#444;
+	padding:0 .2em;
+	border:1px solid #dedede;
+}
+img{border:0;max-width:100%;}
+abbr{border-bottom:none;}
+a{color:#4183c4;text-decoration:none;}
+a:hover{text-decoration:underline;}
+a code,a:link code,a:visited code{color:#4183c4;}
+h2,h3{margin:1em 0;}
+h1,h2,h3,h4,h5,h6{border:0;}
+h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em;}
+h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}
+h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;}
+h3{margin-top:1em;}
+hr{border:1px solid #ddd;}
+ul{margin:1em 0 1em 2em;}
+ol{margin:1em 0 1em 2em;}
+ul li,ol li{margin-top:.5em;margin-bottom:.5em;}
+ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}
+blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}
+dt{font-weight:bold;margin-left:1em;}
+dd{margin-left:2em;margin-bottom:1em;}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>Cocos2d-JS 获取当前页面的URL参数</title>
+
+</head>
+<body>
+<h1>Cocos2d-JS 获取当前页面的URL参数</h1>
+
+<p><em>这两天做一个小项目，里面有个需求需要从Cocos2d-JS的游戏场景中跳转到一个外部html页面（<strong>跳转可以通过window.open(URL)实现新建窗口打开页面，或者直接设置window.location.href=URL在当前窗口打开新页面</strong>），在那边填写用户的获奖信息，提交服务端后，再跳转回游戏。但是，跳回来的时候肯定不能和第一次打开游戏一样进入初始场景，所以那边跳转到游戏需要携带参数，然后游戏中如果获取到参数就要根据参数打开不同的场景（比如进入游戏结束的界面）。</em></p>
+
+<p>在Cocos2d-JS中我们可以通过<strong>window.location.href</strong>得到当前游戏的URL，但是有时候要从这个URL里面获取数据显得有点麻烦，什么字符串截取或者自己使用正则表达式处理什么的，这里提供一个现成的函数，代码如下：</p>
+
+<pre><code>    /**
+     * 获取当前页面URL中的参数
+     * @param name：URL中携带的数据参数名
+     * @returns {*}
+     */
+    var getQueryString = function (name) {
+        var reg = new RegExp("(^|&amp;)" + name + "=([^&amp;]*)(&amp;|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+
+        if (r !== null) {
+            return unescape(r[2]);
+        }
+        return null;
+    };
+
+    // 【以下是测试代码】
+    // 假设当前游戏URL是：http://www.zengbinsi.com/cocos/index.html?tag=1&amp;user=admin
+    cc.log(getQueryString("tag"));  // 控制台输出：1
+    cc.log(getQueryString("user"));  // 控制台输出：admin
+</code></pre>
+
+<p>其实使用的也是<strong>正则表达式</strong>，亲测可用，在这里记录下，省的以后每次都要去写一个正则式，我懒 - -！。</p>
+
+<p><strong>把这段代码随便放在Cocos2d-JS项目代码的某个位置，只有保证调用的时候已经定义过且可以访问到即可。</strong></p>
+</body>
+</html>

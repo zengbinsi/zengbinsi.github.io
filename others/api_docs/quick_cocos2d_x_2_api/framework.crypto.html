@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.crypto</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.crypto</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworkcrypto">framework.crypto</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#cryptoencryptaes256">crypto.encryptAES256</a></div></li>
+<li class="level2"><div class="li"><a href="#cryptodecryptaes256">crypto.decryptAES256</a></div></li>
+<li class="level2"><div class="li"><a href="#cryptoencryptxxtea">crypto.encryptXXTEA</a></div></li>
+<li class="level2"><div class="li"><a href="#cryptodecryptxxtea">crypto.decryptXXTEA</a></div></li>
+<li class="level2"><div class="li"><a href="#cryptoencodebase64">crypto.encodeBase64</a></div></li>
+<li class="level2"><div class="li"><a href="#cryptodecodebase64">crypto.decodeBase64</a></div></li>
+<li class="level2"><div class="li"><a href="#cryptomd5">crypto.md5</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworkcrypto">framework.crypto</h1>
+<div class="level1">
+
+<p>
+加解密、数据编码
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="cryptoencryptaes256">crypto.encryptAES256</h2>
+<div class="level2">
+
+<p>
+使用 AES256 算法加密内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">ciphertext <span class="sy0">=</span> crypto<span class="sy0">.</span>encryptAES256<span class="br0">&#40;</span>明文字符串<span class="sy0">,</span> 密钥字符串<span class="br0">&#41;</span></pre>
+
+<p>
+<strong>提示：</strong> AES256 仅在 iOS 和 Mac 平台可用。加解密尽量选择跨平台的 XXTEA 接口。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="cryptodecryptaes256">crypto.decryptAES256</h2>
+<div class="level2">
+
+<p>
+使用 AES256 算法解密内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">plaintext <span class="sy0">=</span> crypto<span class="sy0">.</span>decryptAES256<span class="br0">&#40;</span>加密后的字符串<span class="sy0">,</span> 密钥字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="cryptoencryptxxtea">crypto.encryptXXTEA</h2>
+<div class="level2">
+
+<p>
+使用 XXTEA 算法加密内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">ciphertext <span class="sy0">=</span> crypto<span class="sy0">.</span>encryptXXTEA<span class="br0">&#40;</span>明文字符串<span class="sy0">,</span> 密钥字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="cryptodecryptxxtea">crypto.decryptXXTEA</h2>
+<div class="level2">
+
+<p>
+使用 XXTEA 算法解密内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">plaintext <span class="sy0">=</span> crypto<span class="sy0">.</span>decryptXXTEA<span class="br0">&#40;</span>加密后的字符串<span class="sy0">,</span> 密钥字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="cryptoencodebase64">crypto.encodeBase64</h2>
+<div class="level2">
+
+<p>
+使用 BASE64 算法编码内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">encoded <span class="sy0">=</span> crypto<span class="sy0">.</span>encodeBase64<span class="br0">&#40;</span>原文字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="cryptodecodebase64">crypto.decodeBase64</h2>
+<div class="level2">
+
+<p>
+使用 BASE64 算法解码内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">decoded <span class="sy0">=</span> crypto<span class="sy0">.</span>decodeBase64<span class="br0">&#40;</span>编码后的字符串<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="cryptomd5">crypto.md5</h2>
+<div class="level2">
+
+<p>
+计算内容的 MD5 码。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">md5code <span class="sy0">=</span> crypto<span class="sy0">.</span>md5<span class="br0">&#40;</span>内容字符串<span class="sy0">,</span> <span class="br0">&#91;</span>是否返回二进制 MD5 码<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+默认情况下，md5() 计算 MD5 码，并以十六进制字符串的形式返回。如果第二个参数为 true，则返回 MD5 码的二进制内容。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.crypto.txt · Last modified: 2013/08/16 14:25 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

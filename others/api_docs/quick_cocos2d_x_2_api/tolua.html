@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>tolua</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:tolua</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#tolua">tolua</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#toluatype">tolua.type</a></div></li>
+<li class="level2"><div class="li"><a href="#toluacast">tolua.cast</a></div></li>
+<li class="level2"><div class="li"><a href="#toluaisnull">tolua.isnull</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="tolua">tolua</h1>
+<div class="level1">
+
+<p>
+提供几个 C++ 与 Lua 进行数据交换的工具函数。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="toluatype">tolua.type</h2>
+<div class="level2">
+
+<p>
+返回一个 C++ 对象的类型描述字符串。
+</p>
+<pre class="code lua"><span class="kw1">local</span> node <span class="sy0">=</span> display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>tolua<span class="sy0">.</span><span class="kw3">type</span><span class="br0">&#40;</span>node<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 输出 CCNode</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="toluacast">tolua.cast</h2>
+<div class="level2">
+
+<p>
+强制转换对象类型，用途请参考 
+<a href="ccarray.html" class="wikilink1" title="zh_cn:api:ccarray">CCArray</a>。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">tolua<span class="sy0">.</span>cast<span class="br0">&#40;</span>对象<span class="sy0">,</span> 类型名称<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="toluaisnull">tolua.isnull</h2>
+<div class="level2">
+
+<p>
+检查指定 Lua 值中保存的 C++ 对象是否已经被删除。
+</p>
+
+<p>
+我们在将 C++ 对象保存到 Lua 值后。只要还有 Lua 代码在使用这些值，那么即使 C++ 对象已经被删除了，但 Lua 值仍然会存在。如果此时调用 Lua 值的方法就会出错。
+</p>
+
+<p>
+因此可以用 tolua.isnull() 检查 Lua 值中的 C++ 对象是否已经被删除。
+</p>
+
+<p>
+关于 C++ 对象如何在 Lua 中存储的问题，请参考 
+<a target="_blank" href="http://wiki.quick-x.com/doku.php?id=zh_cn:faq" class="wikilink1" title="zh_cn:faq">FAQ</a> 。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/tolua.txt · Last modified: 2013/08/19 17:11 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

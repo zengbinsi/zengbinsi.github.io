@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ccsprite</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:ccsprite</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#ccsprite">CCSprite</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#修改显示内容">修改显示内容</a></div></li>
+<li class="level2"><div class="li"><a href="#播放动画">播放动画</a></div></li>
+<li class="level2"><div class="li"><a href="#设置渲染混合模式">设置渲染混合模式</a></div></li>
+<li class="level2"><div class="li"><a href="#翻转图像">翻转图像</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="ccsprite">CCSprite</h1>
+<div class="level1">
+
+<p>
+CCSprite 在 CCNode 基础上添加了图像渲染能力。
+</p>
+
+<p>
+如何创建 CCSprite 请参考 
+<a href="framework.display.html#displaynewsprite" class="wikilink1" title="zh_cn:api:framework.display">display.newSprite()</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+<p>
+<strong>对象继承关系：</strong> 
+<a href="ccobject.html" class="wikilink1" title="zh_cn:api:ccobject">CCObject</a> -> 
+<a href="ccnode.html" class="wikilink1" title="zh_cn:api:ccnode">CCNode</a> -> CCSprite
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="修改显示内容">修改显示内容</h2>
+<div class="level2">
+<pre class="code lua"><span class="co1">-- 用 Yes.png 做显示内容</span>
+<span class="kw1">local</span> sprite <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span><span class="st0">&quot;Yes.png&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 换成 No.png</span>
+<span class="kw1">local</span> spriteFrame <span class="sy0">=</span> display<span class="sy0">.</span>newSpriteFrame<span class="br0">&#40;</span><span class="st0">&quot;No.png&quot;</span><span class="br0">&#41;</span>
+sprite<span class="sy0">:</span>setDisplayFrame<span class="br0">&#40;</span>spriteFrame<span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 检查当前的显示内容是不是指定的 CCSpriteFrame 对象</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>sprite<span class="sy0">:</span>isFrameDisplayed<span class="br0">&#40;</span>spriteFrame<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 输出 true，因为当前的显示内容是 No.png</span>
+&nbsp;
+<span class="co1">-- 返回当前的显示内容 CCSpriteFrame 对象</span>
+<span class="kw1">local</span> currentSpriteFrame <span class="sy0">=</span> sprite<span class="sy0">:</span>getDisplayFrame<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~
+</p>
+
+<p>
+有时候我们可以创建由一组图片组成的动画，然后直接设置 sprite 显示这个动画的第几帧，这和 Flash 中 MovieClip.setFrameIndex() 功能一样。
+</p>
+<pre class="code lua"><span class="co1">-- 创建一个跑步的动画</span>
+<span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Run%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">8</span><span class="br0">&#41;</span> <span class="co1">-- Run0001.png 到 Run0008.png</span>
+<span class="kw1">local</span> animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.5</span> <span class="sy0">/</span> <span class="nu0">8</span><span class="br0">&#41;</span> <span class="co1">-- 0.5 秒播放 8 帧</span>
+display<span class="sy0">.</span>setAnimationCache<span class="br0">&#40;</span><span class="st0">&quot;Run&quot;</span><span class="sy0">,</span> animation<span class="br0">&#41;</span> <span class="co1">-- 用 Run 这个名字将动画缓存起来</span>
+&nbsp;
+<span class="co1">-- 创建 sprite</span>
+<span class="kw1">local</span> sprite <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span>frames<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 在需要的时候，设置显示内容为 Run 动画的第 5 帧</span>
+sprite<span class="sy0">:</span>setDisplayFrameWithAnimationName<span class="br0">&#40;</span><span class="st0">&quot;Run&quot;</span><span class="sy0">,</span> <span class="nu0">4</span><span class="br0">&#41;</span> <span class="co1">-- 动画是 C++ 对象，所以索引从 0 开始</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="播放动画">播放动画</h2>
+<div class="level2">
+
+<p>
+既然可以随时修改一个 CCSprite 对象的显示内容，那自然就可以播放一个动画。
+</p>
+
+<p>
+借用刚刚的代码：
+</p>
+<pre class="code lua"><span class="kw1">local</span> frames <span class="sy0">=</span> display<span class="sy0">.</span>newFrames<span class="br0">&#40;</span><span class="st0">&quot;Run%04d.png&quot;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">8</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> animation <span class="sy0">=</span> display<span class="sy0">.</span>newAnimation<span class="br0">&#40;</span>frames<span class="sy0">,</span> <span class="nu0">0.5</span> <span class="sy0">/</span> <span class="nu0">8</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> sprite <span class="sy0">=</span> display<span class="sy0">.</span>newSprite<span class="br0">&#40;</span>frames<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 播放一次动画</span>
+sprite<span class="sy0">:</span>playAnimationOnce<span class="br0">&#40;</span>animation<span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 循环播放动画</span>
+sprite<span class="sy0">:</span>playAnimationForever<span class="br0">&#40;</span>animation<span class="br0">&#41;</span></pre>
+
+<p>
+关于两种动画播放函数的详细用法，请参考 
+<a href="framework.transition.html#transitionplayanimationonce" class="wikilink1" title="zh_cn:api:framework.transition">transition.playAnimationOnce</a> 。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="设置渲染混合模式">设置渲染混合模式</h2>
+<div class="level2">
+
+<p>
+混合模式可以让当前图像在场景中渲染时和重叠的图像进行色彩变化。
+</p>
+<pre class="code lua"><span class="kw1">local</span> f <span class="sy0">=</span> ccBlendFunc<span class="br0">&#40;</span><span class="br0">&#41;</span>
+f<span class="sy0">.</span>src <span class="sy0">=</span> GL_SRC_ALPHA
+f<span class="sy0">.</span>dst <span class="sy0">=</span> GL_ONE_MINUS_SRC_ALPHA
+&nbsp;
+sprite<span class="sy0">:</span>setBlendFunc<span class="br0">&#40;</span>f<span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="翻转图像">翻转图像</h2>
+<div class="level2">
+
+<p>
+CCSprite 支持水平翻转和垂直翻转。
+</p>
+<pre class="code lua">sprite<span class="sy0">:</span>setFlipX<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 启用水平翻转</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>sprite<span class="sy0">:</span>isFlipX<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 返回是否启用了水平翻转</span>
+&nbsp;
+sprite<span class="sy0">:</span>setFlipY<span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span> <span class="co1">-- 启用垂直翻转</span>
+<span class="kw3">print</span><span class="br0">&#40;</span>sprite<span class="sy0">:</span>isFlipY<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="co1">-- 返回是否启用了垂直翻转</span></pre>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/ccsprite.txt · Last modified: 2013/08/22 08:11 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

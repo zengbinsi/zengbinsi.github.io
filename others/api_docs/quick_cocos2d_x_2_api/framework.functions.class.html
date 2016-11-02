@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.functions.class</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.functions:class</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 class="sectionedit1" id="class_高级用法">class() 高级用法</h1>
+<div class="level1">
+
+<p>
+class() 除了定义纯 Lua 类之外，还可以从 C++ 对象继承类。
+</p>
+
+<p>
+比如需要创建一个工具栏，并在添加按钮时自动排列已有的按钮，那么我们可以使用如下的代码：
+</p>
+<pre class="code lua"><span class="co1">-- 从 CCNode 对象派生 Toolbar 类，该类具有 CCNode 的所有属性和行为</span>
+<span class="kw1">local</span> Toolbar <span class="sy0">=</span> class<span class="br0">&#40;</span><span class="st0">&quot;Toolbar&quot;</span><span class="sy0">,</span> <span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+    <span class="kw1">return</span> display<span class="sy0">.</span>newNode<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="co1">-- 返回一个 CCNode 对象</span>
+<span class="kw1">end</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 构造函数</span>
+<span class="kw1">function</span> Toolbar<span class="sy0">:</span>ctor<span class="br0">&#40;</span><span class="br0">&#41;</span>
+    self<span class="sy0">.</span>buttons <span class="sy0">=</span> <span class="br0">&#123;</span><span class="br0">&#125;</span> <span class="co1">-- 用一个 table 来记录所有的按钮</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1">-- 添加一个按钮，并且自动设置按钮位置</span>
+<span class="kw1">function</span> Toolbar<span class="sy0">:</span>addButton<span class="br0">&#40;</span>button<span class="br0">&#41;</span>
+    <span class="co1">-- 将按钮对象加入 table</span>
+    self<span class="sy0">.</span>buttons<span class="br0">&#91;</span><span class="sy0">#</span>self<span class="sy0">.</span>buttons <span class="sy0">+</span> <span class="nu0">1</span><span class="br0">&#93;</span> <span class="sy0">=</span> button
+&nbsp;
+    <span class="co1">-- 添加按钮对象到 CCNode 中，以便显示该按钮</span>
+    <span class="co1">-- 因为 Toolbar 是从 CCNode 继承的，所以可以使用 addChild() 方法</span>
+    self<span class="sy0">:</span>addChild<span class="br0">&#40;</span>button<span class="br0">&#41;</span>
+&nbsp;
+    <span class="co1">-- 按照按钮数量，调整所有按钮的位置</span>
+    <span class="kw1">local</span> x <span class="sy0">=</span> <span class="nu0">0</span>
+    <span class="kw1">for</span> _<span class="sy0">,</span> button <span class="kw2">in</span> <span class="kw3">ipairs</span><span class="br0">&#40;</span>self<span class="sy0">.</span>buttons<span class="br0">&#41;</span> <span class="kw1">do</span>
+        button<span class="sy0">:</span>setPosition<span class="br0">&#40;</span>x<span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span>
+        <span class="co1">-- 依次排列按钮，每个按钮之间间隔 10 点</span>
+        x <span class="sy0">=</span> x <span class="sy0">+</span> button<span class="sy0">:</span>getContentSize<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">.</span>width <span class="sy0">+</span> <span class="nu0">10</span>
+    <span class="kw1">end</span>
+<span class="kw1">end</span></pre>
+
+<p>
+class() 的这种用法让我们可以在 C++ 对象基础上任意扩展行为。
+</p>
+
+<p>
+~
+</p>
+
+<p>
+既然是继承，自然就可以覆盖 C++ 对象的方法：
+</p>
+<pre class="code lua">&nbsp;
+<span class="kw1">function</span> Toolbar<span class="sy0">:</span>setPosition<span class="br0">&#40;</span>x<span class="sy0">,</span> y<span class="br0">&#41;</span>
+    <span class="co1">-- 由于在 Toolbar 继承类中覆盖了 CCNode 对象的 setPosition() 方法</span>
+    <span class="co1">-- 所以我们要用以下形式才能调用到 CCNode 原本的 setPosition() 方法</span>
+    <span class="kw3">getmetatable</span><span class="br0">&#40;</span>self<span class="br0">&#41;</span><span class="sy0">.</span>setPosition<span class="br0">&#40;</span>self<span class="sy0">,</span> x<span class="sy0">,</span> y<span class="br0">&#41;</span>
+&nbsp;
+    printf<span class="br0">&#40;</span><span class="st0">&quot;x = %0.2f, y = %0.2f&quot;</span><span class="sy0">,</span> x<span class="sy0">,</span> y<span class="br0">&#41;</span>
+<span class="kw1">end</span></pre>
+
+<p>
+<strong>注意：</strong> Lua 继承类覆盖的方法并不能从 C++ 调用到。也就是说通过 C++ 代码调用这个 CCNode 对象的 setPosition() 方法时，并不会执行我们在 Lua 中定义的 Toolbar:setPosition() 方法。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.functions/class.txt · Last modified: 2013/08/16 02:41 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

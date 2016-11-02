@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>framework.device</title>
+    <script>
+    (function(H) {
+        H.className = H.className.replace(/\bno-js\b/, 'js')
+    })(document.documentElement)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" charset="utf-8" src="js.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]-->
+    <!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class="dokuwiki site mode_show  ">            
+            <!-- ********** HEADER ********** -->
+            <div id="dokuwiki__header">
+                <div class="pad group">
+                    <hr class="a11y">
+                </div>
+            </div>
+            <!-- /header -->
+            <div class="wrapper group">
+                <!-- ********** CONTENT ********** -->
+                
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>zh_cn:api:framework.device</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#frameworkdevice">framework.device</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#deviceshowactivityindicator">device.showActivityIndicator</a></div></li>
+<li class="level2"><div class="li"><a href="#devicehideactivityindicator">device.hideActivityIndicator</a></div></li>
+<li class="level2"><div class="li"><a href="#deviceshowalert">device.showAlert</a></div></li>
+<li class="level2"><div class="li"><a href="#devicecancelalert">device.cancelAlert</a></div></li>
+<li class="level2"><div class="li"><a href="#devicegetopenudid">device.getOpenUDID</a></div></li>
+<li class="level2"><div class="li"><a href="#deviceopenurl">device.openURL</a></div></li>
+<li class="level2"><div class="li"><a href="#deviceshowinputbox">device.showInputBox</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="frameworkdevice">framework.device</h1>
+<div class="level1">
+
+<p>
+提供设备相关属性的查询，以及设备功能的访问
+</p>
+
+<p>
+当框架初始完成后，device 模块提供下列属性：
+</p>
+<ul>
+<li class="level1"><div class="li"><strong>device.platform</strong> 返回当前运行平台的名字，可用值： ios, android, mac, windows.</div>
+</li>
+<li class="level1"><div class="li"><strong>device.model</strong> 返回设备型号，可用值： unknown, iphone, ipad</div>
+</li>
+<li class="level1"><div class="li"><strong>device.language</strong> 返回设备当前使用的语言，可用值：</div>
+<ul>
+<li class="level2"><div class="li">cn：中文</div>
+</li>
+<li class="level2"><div class="li">fr：法语</div>
+</li>
+<li class="level2"><div class="li">it：意大利语</div>
+</li>
+<li class="level2"><div class="li">gr：德语</div>
+</li>
+<li class="level2"><div class="li">sp：西班牙语</div>
+</li>
+<li class="level2"><div class="li">ru：俄语</div>
+</li>
+<li class="level2"><div class="li">jp：日语</div>
+</li>
+<li class="level2"><div class="li">en：英语</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><strong>device.writablePath</strong> 返回设备上可以写入数据的首选路径：</div>
+<ul>
+<li class="level3"><div class="li">iOS 上返回应用程序所在的 Documents 目录</div>
+</li>
+<li class="level3"><div class="li">Android 上返回存储卡的根目录</div>
+</li>
+<li class="level3"><div class="li">其他平台的返回值由 quick-x-player 决定</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"><strong>device.cachePath</strong> 返回设备上可以写入数据的缓存目录：</div>
+<ul>
+<li class="level3"><div class="li">iOS 上返回应用程序所在的 Library/Caches 目录</div>
+</li>
+<li class="level3"><div class="li">其他平台的返回值同 device.writablePath</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> <strong>device.directorySeparator</strong> 目录分隔符，在 Windows 平台上是 “\”，其他平台都是 “/”</div>
+</li>
+<li class="level1"><div class="li"> <strong>device.pathSeparator</strong> 路径分隔符，在 Windows 平台上是 “;”，其他平台都是 “:”</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="deviceshowactivityindicator">device.showActivityIndicator</h2>
+<div class="level2">
+
+<p>
+显示活动指示器。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">device<span class="sy0">.</span>showActivityIndicator<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+在 iOS 和 Android 设备上显示系统的活动指示器，可以用于阻塞操作时通知用户需要等待。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="devicehideactivityindicator">device.hideActivityIndicator</h2>
+<div class="level2">
+
+<p>
+隐藏正在显示的活动指示器。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="deviceshowalert">device.showAlert</h2>
+<div class="level2">
+
+<p>
+显示一个包含按钮的弹出对话框。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">device<span class="sy0">.</span>showAlert<span class="br0">&#40;</span>对话框标题<span class="sy0">,</span> 内容<span class="sy0">,</span> <span class="br0">&#91;</span>包含多个按钮标题的表格对象<span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#91;</span>回调函数<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="kw1">local</span> <span class="kw1">function</span> onButtonClicked<span class="br0">&#40;</span>event<span class="br0">&#41;</span>
+    <span class="kw1">if</span> event<span class="sy0">.</span>buttonIndex <span class="sy0">==</span> <span class="nu0">1</span> <span class="kw1">then</span>
+        <span class="sy0">....</span> 玩家选择了 YES 按钮
+    <span class="kw1">else</span>
+        <span class="sy0">....</span> 玩家选择了 NO 按钮
+    <span class="kw1">end</span>
+<span class="kw1">end</span>
+&nbsp;
+device<span class="sy0">.</span>showAlert<span class="br0">&#40;</span><span class="st0">&quot;Confirm Exit&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Are you sure exit game ?&quot;</span><span class="sy0">,</span> <span class="br0">&#123;</span><span class="st0">&quot;YES&quot;</span><span class="sy0">,</span> <span class="st0">&quot;NO&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span> onButtonClicked<span class="br0">&#41;</span></pre>
+
+<p>
+当没有指定按钮标题时，对话框会默认显示一个“OK”按钮。回调函数获得的表格对象中，buttonIndex 指示玩家选择了哪一个按钮，其值是按钮的显示顺序。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="devicecancelalert">device.cancelAlert</h2>
+<div class="level2">
+
+<p>
+取消正在显示的对话框。
+</p>
+
+<p>
+提示：取消对话框，不会执行显示对话框时指定的回调函数。
+</p>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="devicegetopenudid">device.getOpenUDID</h2>
+<div class="level2">
+
+<p>
+返回设备的 OpenUDID 值。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">value <span class="sy0">=</span> device<span class="sy0">.</span>getOpenUDID<span class="br0">&#40;</span><span class="br0">&#41;</span></pre>
+
+<p>
+<a href="https://github.com/ylechelle/OpenUDID" class="urlextern" target="_blank" title="https://github.com/ylechelle/OpenUDID"  rel="nofollow">OpenUDID</a> 是为设备仿造的 UDID（唯一设备识别码），可以用来识别用户的设备。
+</p>
+
+<p>
+但 OpenUDID 存在下列问题：
+</p>
+<ul>
+<li class="level1"><div class="li">如果删除了应用再重新安装，获得的 OpenUDID 会发生变化</div>
+</li>
+<li class="level1"><div class="li">iOS 7 不支持 OpenUDID</div>
+</li>
+</ul>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="deviceopenurl">device.openURL</h2>
+<div class="level2">
+
+<p>
+用浏览器打开指定的网址。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">device<span class="sy0">.</span>openURL<span class="br0">&#40;</span>网址<span class="br0">&#41;</span></pre>
+
+<p>
+用法示例：
+</p>
+<pre class="code lua"><span class="co1">-- 打开网页</span>
+device<span class="sy0">.</span>openURL<span class="br0">&#40;</span><span class="st0">&quot;http://dualface.github.com/quick-cocos2d-x/&quot;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 打开设备上的邮件程序，并创建新邮件，填入收件人地址</span>
+device<span class="sy0">.</span>openURL<span class="br0">&#40;</span><span class="st0">&quot;mailto:nobody@mycompany.com&quot;</span><span class="br0">&#41;</span>
+<span class="co1">-- 增加主题和内容</span>
+<span class="kw1">local</span> subject <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>urlencode<span class="br0">&#40;</span><span class="st0">&quot;Hello&quot;</span><span class="br0">&#41;</span>
+<span class="kw1">local</span> body <span class="sy0">=</span> <span class="kw3">string</span><span class="sy0">.</span>urlencode<span class="br0">&#40;</span><span class="st0">&quot;How are you ?&quot;</span><span class="br0">&#41;</span>
+device<span class="sy0">.</span>openURL<span class="br0">&#40;</span><span class="kw3">string.format</span><span class="br0">&#40;</span><span class="st0">&quot;mailto:nobody@mycompany.com?subject=%s&amp;body=%s&quot;</span><span class="sy0">,</span> subject<span class="sy0">,</span> body<span class="br0">&#41;</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1">-- 打开设备上的拨号程序</span>
+device<span class="sy0">.</span>openURL<span class="br0">&#40;</span><span class="st0">&quot;tel:123-456-7890&quot;</span><span class="br0">&#41;</span></pre>
+
+<p>
+~~
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="deviceshowinputbox">device.showInputBox</h2>
+<div class="level2">
+
+<p>
+显示一个输入框，并返回用户输入的内容。
+</p>
+
+<p>
+格式：
+</p>
+<pre class="code lua">result <span class="sy0">=</span> device<span class="sy0">.</span>showInputBox<span class="br0">&#40;</span>对话框标题<span class="sy0">,</span> <span class="br0">&#91;</span>提示信息<span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#91;</span>输入框默认值<span class="br0">&#93;</span><span class="br0">&#41;</span></pre>
+
+<p>
+当用户点击取消按钮时，showInputBox() 函数返回空字符串。
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo">zh_cn/api/framework.device.txt · Last modified: 2013/08/20 02:42 by Yu Lei Liao</div>
+
+                            </div></div>
+                <!-- /content -->
+                <hr class="a11y">
+                <!-- PAGE ACTIONS -->
+                <div id="dokuwiki__pagetools">
+                    <h3 class="a11y">Page Tools</h3>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="action backlink" rel="nofollow" title="home">
+                                    <span>home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">
+                                    <span>Back to top</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /wrapper -->
+        </div>
+    </div>
+    <!-- /site -->
+    <div class="no">
+        <img src="zh_cn_api%20%5Bquick-cocos2d-x%20docs%5D_files/indexer.gif" alt="" height="1" width="2">
+    </div>
+    <div id="screen__mode" class="no"></div>
+    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>
