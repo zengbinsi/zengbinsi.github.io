@@ -124,9 +124,10 @@ git add .
 echo "添加修改成功，正在提交..." 
 git commit -m "【更新日志】1、更新博客。" 
 
+git remote add origin https://github.com/zengbinsi/zengbinsi.github.io.git
+
 echo "提交成功，正在推送至远端分支..."
 git push -u origin master
-
 
 
 echo "========================================================="
