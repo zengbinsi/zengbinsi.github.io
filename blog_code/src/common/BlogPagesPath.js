@@ -64,8 +64,8 @@ var BlogPagesPath = [
         path : "res/BlogPages/IT/16_SQL/02_SQL数据库基础002/20160324_214500_SQL数据库基础002.html"
     },
     {
-        name : "ElectronAPIMainProcessApp",
-        path : ""
+        name : "20161102_221303_ElectronAPIMainProcessApp",
+        path : "res/BlogPages/IT/17_Electron/01_API/MainProcess/01_app/20161102_221303_ElectronAPIMainProcessApp.html"
     },
     {
         name : "20161019_193149_组件化编程",
