@@ -11,6 +11,7 @@
 
 【 [六出飘零-博客首页](http://zengbinsi.github.io/blog)】  
 【 [我的Github主页](https://github.com/zengbinsi)】  
+【[Electron中文文档](https://github.com/electron/electron/tree/master/docs-translations/zh-CN)】  
 【 [quick-cocos2d-x 2.x 版本API首页](http://zengbinsi.github.io/others/api_docs/quick_cocos2d_x_2_api)】  
 【 [Quick-Cocos2dx-Community 社区版本API首页](http://zengbinsi.github.io/others/api_docs/quick_cocos2d_x_3_api)】  
 【 [在线文本编辑器](http://zengbinsi.github.io/others/web_tools/web_edit.html)】  
