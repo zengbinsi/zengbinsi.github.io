@@ -48,6 +48,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/06_bbframework组件化/20160725_2222240_bbframework组件化.html"
     },
     {
+        name : "20161111_131238_在mac上使用LDoc生成Lua文档",
+        path : "/blogs/IT/02_Cocos2D/07_在mac上使用LDoc生成Lua文档/20161111_131238_在mac上使用LDoc生成Lua文档.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },
