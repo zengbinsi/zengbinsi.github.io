@@ -9,7 +9,7 @@
 
 
 
-【 [六出飘零-博客首页](http://zengbinsi.github.io/blog)】  
+【 [六出飘零-博客首页](https://zengbinsi.github.io/blog_site/)】  
 【 [我的Github主页](https://github.com/zengbinsi)】  
 【 [Electron中文文档](https://github.com/electron/electron/tree/master/docs-translations/zh-CN)】    
 【 [node.js菜鸟教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)】  
