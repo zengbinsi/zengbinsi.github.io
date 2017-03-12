@@ -52,6 +52,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/07_在mac上使用LDoc生成Lua文档/20161111_131238_在mac上使用LDoc生成Lua文档.html"
     },
     {
+        name : "20170312_115900_CocosCreator操作DragonBones的骨头进行旋转",
+        path : "/blogs/IT/02_Cocos2D/08_CocosCreator操作DragonBones的骨头进行旋转/20170312_115900_CocosCreator操作DragonBones的骨头进行旋转.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },
@@ -62,6 +66,10 @@ var BlogPagesPath = [
     {
         name : "20160422_130900_Box2D物理引擎入门003",
         path : "/blogs/IT/05_Box2D/03_Box2D物理引擎入门003/20160422_130900_Box2D物理引擎入门003.html"
+    },
+    {
+        name : "20170312_114719_AndroidStudio的JNI编程",
+        path : "/blogs/IT/12_android/01_AndroidStudio的JNI/20170312_114719_AndroidStudio的JNI编程.html"
     },
     {
         name : "20160324_214500_SQL数据库基础002",
