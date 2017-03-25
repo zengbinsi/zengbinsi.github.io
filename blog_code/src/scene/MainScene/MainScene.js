@@ -72,16 +72,17 @@
          */
         self.bindTouchBtn = function (btn, url) {
             var listener = cc.EventListener.create({
-                event: cc.EventListener.MOUSE,
+                event: cc.EventListener.TOUCH_ONE_BY_ONE,
                 target: btn,
-                onMouseDown: function (event) {
+                onTouchBegan: function (event) {
                     var point = event.getLocation();
 
                     if (!c.fn.isPointAtViewArea(btn, point)) {
                         return;
                     }
+                    return true;
                 },
-                onMouseUp : function (event) {
+                onTouchEnded : function (event) {
                     c.net.openURL(url, true);
                 }
             });
