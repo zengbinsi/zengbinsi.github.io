@@ -1,0 +1,5 @@
+var ResumeEditor = {
+	init: function() {
+		
+	}
+};

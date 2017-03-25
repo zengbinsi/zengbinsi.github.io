@@ -58,6 +58,35 @@
             btn.setAnchorPoint(0, 0);
             btn.setPosition(70, 50);
             zbsPanel.addChild(btn);
+            self.bindTouchBtn(btn, "others/resume/曾彬思的简历.html");
+
+            var resume = new cc.LabelTTF("简历", null, 24);
+            resume.setPosition(60, 20);
+            btn.addChild(resume, 100);
+        };
+
+        /**
+         * 打开URL
+         * @param subtitle
+         * @param url
+         */
+        self.bindTouchBtn = function (btn, url) {
+            var listener = cc.EventListener.create({
+                event: cc.EventListener.MOUSE,
+                target: btn,
+                onMouseDown: function (event) {
+                    var point = event.getLocation();
+
+                    if (!c.fn.isPointAtViewArea(btn, point)) {
+                        return;
+                    }
+                },
+                onMouseUp : function (event) {
+                    c.net.openURL(url, true);
+                }
+            });
+
+            cc.eventManager.addListener(listener, btn);
         };
 
         /**
