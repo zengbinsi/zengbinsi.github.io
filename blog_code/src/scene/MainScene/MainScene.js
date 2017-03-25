@@ -58,7 +58,7 @@
             btn.setAnchorPoint(0, 0);
             btn.setPosition(70, 50);
             zbsPanel.addChild(btn);
-            self.bindTouchBtn(btn, "others/resume/曾彬思的简历.html");
+            self.bindTouchBtn(btn, "/../others/resume/曾彬思的简历.html");
 
             var resume = new cc.LabelTTF("简历", null, 24);
             resume.setPosition(60, 20);
