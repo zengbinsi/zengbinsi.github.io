@@ -56,6 +56,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/08_CocosCreator操作DragonBones的骨头进行旋转/20170312_115900_CocosCreator操作DragonBones的骨头进行旋转.html"
     },
     {
+        name : "20170410_204628_Quick-Cocos2dx-Community事件",
+        path : "/blogs/IT/02_Cocos2D/09_Quick-Cocos2dx-Community事件/20170410_204628_Quick-Cocos2dx-Community事件.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },
