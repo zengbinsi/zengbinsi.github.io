@@ -64,6 +64,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/10_CocosCreator使用重力感应/20170412_172801_CocosCreator使用重力感应.html"
     },
     {
+        name : "20170413_104129_CocosCreator屏幕适配",
+        path : "/blogs/IT/02_Cocos2D/11_CocosCreator屏幕适配/20170413_104129_CocosCreator屏幕适配.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },
