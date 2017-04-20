@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="utf-8">
-<title>20170413_104129_CocosCreator屏幕适配</title>
+<title>20170420_105327_CocosCreator使用Box2D物理引擎</title>
 
 
 <style type="text/css">
@@ -527,106 +527,112 @@ div.prism-show-language > div.prism-show-language-label {
 
 <body>
 
-<h1 id="toc_0">Cocos Creator屏幕适配</h1>
+<h1 id="toc_0">Cocos Creator使用Box2D物理引擎</h1>
 
-<p>本文主要讨论如果在Cocos Creator上实现不同的屏幕适配方案，补充官方文档的说明。  </p>
+<p><strong>【原创博文，转载请注明出处！】</strong>  </p>
 
-<h2 id="toc_1">Cocos2d-JS屏幕适配</h2>
+<p>Cocos Creator从1.5版本开始支持Box2D物理游戏引擎，Box2D是一个优秀的刚体模拟框架，关于Box2D的知识可以去网络上自行了解。本文仅仅探讨如果使用Creator创建一个简单的Demo（Creator版本：1.5beta）。</p>
 
-<p>在Cocos2d-JS中，设计分辨率到设备分辨率的适配方案有5种，分别是：</p>
+<h2 id="toc_1">添加RigidBody组件</h2>
 
-<ul>
-<li>cc.ResolutionPolicy.EXACT_FIT<br></li>
-<li>cc.ResolutionPolicy.SHOW_ALL<br></li>
-<li>cc.ResolutionPolicy.NO_BORDER<br></li>
-<li>cc.ResolutionPolicy.FIXED_HEIGHT</li>
-<li>cc.ResolutionPolicy.FIXED_WIDTH<br></li>
-</ul>
+<p>首先需要在节点上添加一个RigidBody刚体组件。RigidBody组件位置是“组件/物理/Rigid Body”菜单。</p>
 
-<p>关于这五种设计模式的具体效果网络上已经有非常多的博客介绍了，甚至自己写个代码测试下就知道了，这里就不再赘述。  </p>
+<p><img src="res/01.png" alt="添加物理组件">  </p>
 
-<p>在Cocos2d-JS中设置适配方案的API是：</p>
+<h2 id="toc_2">RigidBody组件</h2>
 
-<div><pre class="line-numbers"><code class="language-javascript">// 设置适配模式
-cc.view.setResolutionPolicy(cc.ResolutionPolicy.FIXED_HEIGHT);
+<p><img src="res/02.png" alt="添加物理组件">  </p>
 
-// 设置设计分辨率尺寸和适配模式
-cc.view,setSesignReolutionSize(960, 540, cc.ResolutionPolicy.FIXED_HEIGHT);
-
-// 设置资源分辨率到设计分辨率的缩放比例
-cc.director.setContentScaleFactor(1);</code></pre></div>
-
-<h2 id="toc_2">Cocos Creator屏幕适配</h2>
-
-<h3 id="toc_3">实现方式</h3>
-
-<p><strong>Creator的屏幕适配主要是放在Canvas组件上实现的</strong>，所以每当创建一个新的场景时，默认都会有个一个Canvas对象在层级管理器上，<strong>游戏内其它的节点都应该放在Canvas节点下</strong>，这样才能有效的在web浏览器上进行适配。  </p>
-
-<p><img src="res/01.png" alt="Canvas节点">  </p>
-
-<h3 id="toc_4">Canvas组件</h3>
-
-<p>鼠标点选层级管理器上的Canvas对象，在属性检查器面板上会对应显示对象的组件信息。我们可以看到它默认添加了一个Canvas组件，并且勾选了“Fix Height”选项。</p>
-
-<p><img src="res/02.png" alt="Canvas组件">  </p>
-
-<p>关于Canvas组件，主要有三个属性：  </p>
+<p>刚体组件可以编辑的属性有以下几项：</p>
 
 <ul>
-<li><strong>Design Resolution</strong>：主要设置游戏设计分辨率的尺寸，默认设置宽度960(W)高度640(H)。<br></li>
-<li><strong>Fit Height</strong>：固定高度。<br></li>
-<li><strong>Fit Width</strong>：固定宽度。<br></li>
+<li>Enabled Contact Listener: 是否开启刚体接触监听器。<br></li>
+<li>Bullet: 设置是否设置为子弹类型的刚体。<br></li>
+<li>Type: 刚体的类型。<br></li>
+<li>Allow Sleep: 是否启用自动休眠。<br></li>
+<li>Gravity Scale: 刚体受重力加速度影响的缩放倍数。<br></li>
+<li>Linear Damping: 线性阻尼。<br></li>
+<li>Angular Damping: 角度阻尼。<br></li>
+<li>Linear Velocity: 线速度矢量。<br></li>
+<li>Angular Velocity: 角速度。<br></li>
+<li>Fixed Rotation: 是否固定选择角度。<br></li>
+<li>Awake: 是否唤醒。<br></li>
 </ul>
 
-<h3 id="toc_5">EXACT_FIT（非等比拉伸至全屏）</h3>
-
-<p>由于EXACT_FIT适配方案是将游戏内容非等比拉伸或缩放至全屏，实际效果通常都无法接受，所以在Creator中被废弃了，无法通过编辑器进行设置。如果非要使用，可以通过代码设置：</p>
-
-<div><pre class="line-numbers"><code class="language-javascript">// 设置适配模式
-cc.view.setResolutionPolicy(cc.ResolutionPolicy.EXACT_FIT);</code></pre></div>
-
-<p>但是可能会和Canvas冲突，所以可以试试禁用Canvas组件。这样处理后在web平台上可能会有问题，native上应该是可行的。  </p>
-
-<h3 id="toc_6">SHOW_ALL（等比显示整个场景内容）</h3>
-
-<p><img src="res/03.png" alt="showAll"></p>
-
-<p>在Creator上同时勾选“Fit Height”和“Fit Width”即可开启showAll适配模式。  </p>
-
-<p>这个适配方案其实也不是非常常见，我们公司早期都是使用这个方案。它的好处是不管屏幕比例如何，保证整个场景都是可见的，而且等比适配。但是总是在左右两边或者上下两边出现黑边。  </p>
-
-<h3 id="toc_7">NO_BORDER（等比拉伸到全屏）</h3>
-
-<p><img src="res/04.png" alt="NO_BORDER">  </p>
-
-<p>和SHOW_ALL相反，在Creator上同时去除“Fit Height”和“Fit Width”的勾选即可开启noBorder适配模式。  </p>
-
-<p>这个适配模式是根据屏幕比例等比拉伸画面，有两种结果：  </p>
+<p><strong>【详细说明】</strong>  </p>
 
 <ul>
-<li>当高度拉满，宽度超出屏幕的时候，裁切宽度。<br></li>
-<li>当宽度拉满，高度超出屏幕的时候，裁切高度。<br></li>
+<li>Bullet：<br></li>
 </ul>
 
-<p>它的好处是没有黑边，缺点是在不同的屏幕比例上，不能缺点到底是宽度裁切还是高度裁切。所以进行场景设计的时候有挺大局限性。  </p>
+<p>由于box2D进行物理模拟的时候经常会发生形状穿透的问题，对于高速运动的刚体，穿透现象更为普遍。开启Bullet之后，物理引擎将耗费更多的运算在该刚体上，以保证能够正确的进行碰撞等物理模拟。  </p>
 
-<h3 id="toc_8">FIXED_HEIGHT（等比拉伸高度到全屏）</h3>
+<ul>
+<li>Type：<br></li>
+</ul>
 
-<p><img src="res/05.png" alt="FIXED_HEIGHT">  </p>
+<p>box2D内置了3种刚体类型，分别是：Static(静态刚体)、Kinematic(运动学刚体)和Dynamic(动态刚体)。Creator添加了一个Animated(动画刚体)类型。  </p>
 
-<p>由于手机屏幕的局限性，通常游戏设置为横屏的，在横屏模式下，通常设置适配方案为固定高度，所以这也是Creator默认的视频方案。  </p>
+<ul>
+<li>Allow Sleep：</li>
+</ul>
 
-<p>在Creator中，只勾选Canvas组件的“Fit Height”即可开启fixedHeight适配模式。  </p>
+<p>物理运算需要耗费大量的性能，所以对于那些没有物理属性变化的刚体，应该使其休眠，不参与部分物理运算，以此提高box2D的性能。  </p>
 
-<p>它的好处是可以实现全屏，拉伸或者缩放高度为屏幕高度，宽度进行裁切。</p>
+<ul>
+<li>Gravity Scale：</li>
+</ul>
 
-<h3 id="toc_9">FIXED_WIDTH（等比拉伸宽度到全屏）</h3>
+<p>通过修改这个属性，可用控制某些物体受重力影响的大小。  </p>
 
-<p><img src="res/06.png" alt="FIXED_WIDTH">  </p>
+<ul>
+<li>Linear Damping：</li>
+</ul>
 
-<p>在Creator中，只勾选Canvas组件的“Fit Width”即可开启fixedWidth适配模式。  </p>
+<p>影响刚体线性运动的物理参数，让刚体移动时，没有摩擦也能慢慢减速。  </p>
 
-<p>它的好处是可以实现全屏，拉伸或者缩放宽度为屏幕宽度，高度进行裁切。在竖屏模式下，通常设置适配方案为固定宽度。  </p>
+<ul>
+<li>Angular Damping：</li>
+</ul>
+
+<p>和线性阻尼类似，让刚体旋转时，没有摩擦也能慢慢减速。  </p>
+
+<ul>
+<li>Linear Velocity：</li>
+</ul>
+
+<p>刚体的初始线速度，在下一次物理更新时将被物理运算所改变。  </p>
+
+<ul>
+<li>Angular Velocity：</li>
+</ul>
+
+<p>刚体的初始旋转角速度，在下一次物理更新时将被物理运算所改变。  </p>
+
+<ul>
+<li>Fixed Rotation：</li>
+</ul>
+
+<p>启用固定旋转后，刚体不参与旋转的物理模拟，刚体将一直以一个初始角度存在，直到整个属性被禁用后才能旋转。  </p>
+
+<ul>
+<li>Awake：</li>
+</ul>
+
+<p>是否默认唤醒刚体。  </p>
+
+<h2 id="toc_3">启用物理相关的功能</h2>
+
+<p>编写一个脚本组件，在组件的onLoad方法中添加以下代码：  </p>
+
+<div><pre class="line-numbers"><code class="language-javascript">// 启用物理引擎相关功能  
+cc.director.getPhysicsManager().enabled = true;  </code></pre></div>
+
+<p>然后将组件添加到场景的Canvas节点上，运行游戏，即可看到添加了RigidBody组件的节点开始做自由落体运动。  </p>
+
+<p><img src="res/03.png" alt="运行效果截图"></p>
+
+<p>【更多详细的介绍请期待Cocos官方的文档：<a href="http://www.cocos.com/docs/creator/">http://www.cocos.com/docs/creator/</a>】  </p>
 
 
 
