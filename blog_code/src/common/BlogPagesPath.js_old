@@ -68,6 +68,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/11_CocosCreator屏幕适配/20170413_104129_CocosCreator屏幕适配.html"
     },
     {
+        name : "20170420_105327_CocosCreator使用Box2D物理引擎",
+        path : "/blogs/IT/02_Cocos2D/12_CocosCreator使用Box2D物理引擎/20170420_105327_CocosCreator使用Box2D物理引擎.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },
