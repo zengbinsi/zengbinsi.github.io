@@ -109,7 +109,7 @@ var BlogPagesPath = [
     },
     {
         name : "20160716_215238_Mac系统使用技巧",
-        path : "/blogs/IT/50_ToolsAndEdit/02_显示mac的隐藏文件目录/20160716_215238_Mac系统使用技巧.html"
+        path : "/blogs/IT/50_ToolsAndEdit/02_Mac系统使用技巧/20160716_215238_Mac系统使用技巧.html"
     },
     {
         name : "20170421_090403_PhysicsEditor试用期破解",
