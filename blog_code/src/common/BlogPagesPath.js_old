@@ -72,6 +72,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/12_CocosCreator使用Box2D物理引擎/20170420_105327_CocosCreator使用Box2D物理引擎.html"
     },
     {
+        name : "20170427_155400_DragonBones旧版本动画文件转新版动画",
+        path : "/blogs/IT/02_Cocos2D/13_DragonBones旧版本动画文件转新版动画/20170427_155400_DragonBones旧版本动画文件转新版动画.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },
