@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<project name="Javascript compress project" basedir="/Users/zengbinsi/workspace/00_git/zengbinsi.github.io/blog_code" default="compile">
+<project name="Javascript compress project" basedir="/Users/zengbinsi/Documents/02_zengbinsi/zengbinsi.github.io/blog_code" default="compile">
 
     <taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask"
-             classpath="/Users/zengbinsi/workspace/cocos/cocos2d-x-3.8/tools/cocos2d-console/plugins/project_compile/build_web/bin/compiler-1.7.jar"/>
+             classpath="/Applications/CocosCreator.app/Contents/Resources/cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_web/bin/compiler-1.7.jar"/>
 
     <target name="compile">
         <jscomp compilationLevel="simple" 
                 warning="quiet"
                 debug="false" 
-                output="/Users/zengbinsi/workspace/00_git/zengbinsi.github.io/blog_code/publish/html5/game.min.js"
+                output="/Users/zengbinsi/Documents/02_zengbinsi/zengbinsi.github.io/blog_code/publish/html5/game.min.js"
                 languagein="ECMASCRIPT5"
                 
                 >
-            <sources dir="/Users/zengbinsi/workspace/00_git/zengbinsi.github.io/blog_code/frameworks/cocos2d-html5">
+            <sources dir="/Users/zengbinsi/Documents/02_zengbinsi/zengbinsi.github.io/blog_code/frameworks/cocos2d-html5">
                 <file name="CCBoot.js"/>
                 <file name="CCDebugger.js"/>
                 <file name="cocos2d/core/utils/BinaryLoader.js"/>
