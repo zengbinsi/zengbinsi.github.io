@@ -2,7 +2,7 @@
 <project name="Javascript compress project" basedir="/Users/zengbinsi/Documents/02_zengbinsi/zengbinsi.github.io/blog_code" default="compile">
 
     <taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask"
-             classpath="/Applications/CocosCreator.app/Contents/Resources/cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_web/bin/compiler-1.7.jar"/>
+             classpath="/Users/zengbinsi/Documents/01_workspace/00_env/03_Cocos2D/cocos2d-x-3.13/tools/cocos2d-console/plugins/plugin_compile/build_web/bin/compiler-1.7.jar"/>
 
     <target name="compile">
         <jscomp compilationLevel="simple" 
