@@ -96,6 +96,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/12_android/01_AndroidStudio的JNI/20170312_124719_AndroidStudio的JNI编程.html"
     },
     {
+        name : "20170630_002909_AndroidStudio环境搭建",
+        path : "/blogs/IT/12_android/02_AndroidStudio环境搭建/20170630_002909_AndroidStudio环境搭建.html"
+    },
+    {
         name : "20160324_214500_SQL数据库基础002",
         path : "/blogs/IT/16_SQL/02_SQL数据库基础002/20160324_214500_SQL数据库基础002.html"
     },

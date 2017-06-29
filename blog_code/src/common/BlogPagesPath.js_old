@@ -124,6 +124,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/50_ToolsAndEdit/03_PhysicsEditor简单破解/20170421_090403_PhysicsEditor试用期破解.html"
     },
     {
+        name : "20170621_234227_Git工程迁移",
+        path : "/blogs/IT/50_ToolsAndEdit/04_Git工程迁移/20170621_234227_Git工程迁移.html"
+    },
+    {
         name : "20170107_231952_我的2016",
         path : "/blogs/Life/01_总结类/01_关于2016的总结/20170107_231952_我的2016.html"
     },
