@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="utf-8">
-<title>AndroidStudio环境搭建</title>
+<title>20170630_002909_AndroidStudio环境搭建</title>
 
 
 <style type="text/css">
@@ -540,21 +540,25 @@ div.prism-show-language > div.prism-show-language-label {
 
 <h1 id="toc_0">Android Studio 环境搭建</h1>
 
-<h2 id="toc_1">下载安装Android Studio</h2>
+<h2 id="toc_1">前提</h2>
+
+<p>电脑上已经安装JDK、SDK等Android环境，具体可以上网搜索“android环境搭建”，有很多博客教程。</p>
+
+<h2 id="toc_2">下载安装Android Studio</h2>
 
 <ul>
 <li>Android Studio下载地址：<a href="https://developer.android.google.cn/studio/index.html">https://developer.android.google.cn/studio/index.html</a><br></li>
 </ul>
 
-<h3 id="toc_2">Windows</h3>
+<h3 id="toc_3">Windows</h3>
 
 <p>在win上安装Android Studio(简称：AS)可以参考<a href="http://www.cnblogs.com/xdp-gacl/p/4329469.html?utm_source=tuicool">这篇博客</a>。如果连接无法打开，上<a href="http://www.baidu.com">百度</a>随便搜索下即可。</p>
 
-<h3 id="toc_3">Mac OSX</h3>
+<h3 id="toc_4">Mac OSX</h3>
 
 <p>在mac上安装AS，直接双击打开，然后将AS图标拖放到“Application”应用程序文件夹，等拷贝完成即可。</p>
 
-<h2 id="toc_4">离线Gradle</h2>
+<h2 id="toc_5">离线Gradle</h2>
 
 <p>在新建AS工程后，发现程序一直显示“Build XXX gradle project info”，而且无法取消，只能通过杀进程的方式关闭AS。</p>
 
@@ -592,6 +596,21 @@ zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 #distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 distributionUrl=/Applications/Android\ Studio.app/Contents/gradle/gradle-3.3-all</code></pre></div>
+
+<h2 id="toc_6">环境变量</h2>
+
+<p>如果还是不行，可以尝试将解压的离线gradle目录配置成环境变量GRADLE<em>HOME，win上的环境变量参照jdk或者android sdk的方式，百度下就有。mac上将下面几行写入“.bash</em>profile”（是一个隐藏文件），然后再终端运行“source .bash_profile”使其生效。</p>
+
+<div><pre class="line-numbers"><code class="language-bash"># Add gradle environment for Android studio by zengbinsi
+GRADLE_HOME=/Applications/Android\ Studio.app/Contents/gradle/gradle-3.3
+export GRADLE_HOME
+export PATH=$PATH:$GRADLE_HOME/bin</code></pre></div>
+
+<h2 id="toc_7">补充</h2>
+
+<p><img src="res/01.png" alt="项目gradle设置"></p>
+
+<p>如果有需要，在打开项目后，可以进入AS的设置界面，找到“Build, Execution, Deployment”-“Build Tools”-“Gradle”在“Linked Gradle projects”里面选中当前项目，然后再下面的“Use local gradle distribution”文本框里面也设置成刚刚解压的离线gradle目录“/Applications/Android\ Studio.app/Contents/gradle/gradle-3.3-all”，然后重启AS。</p>
 
 
 
