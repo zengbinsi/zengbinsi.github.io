@@ -80,6 +80,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/14_MacOSX搭建HTTP文件共享服务器/20170621_173506_MacOSX搭建HTTP文件共享服务器.html"
     },
     {
+        name : "20170706_190913_CocosCreator使用Shader",
+        path : "/blogs/IT/02_Cocos2D/15_CocosCreator使用Shader/20170706_190913_CocosCreator使用Shader.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },
