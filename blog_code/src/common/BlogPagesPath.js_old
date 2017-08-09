@@ -116,6 +116,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/18_NodeJS/01_使用gulp进行简单自动化/20170411_192531_使用gulp进行简单的自动化.html"
     },
     {
+        name : "20170728_221052_初识Pomelo",
+        path : "/blogs/IT/18_NodeJS/02_初识Pomelo/20170728_221052_初识Pomelo.html"
+    },
+    {
         name : "20161019_193149_组件化编程",
         path : "/blogs/IT/21_CStudio/01_组件化编程/20161019_193149_组件化编程.html"
     },
