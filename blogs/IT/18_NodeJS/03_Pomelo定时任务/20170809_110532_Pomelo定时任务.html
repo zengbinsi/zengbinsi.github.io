@@ -560,8 +560,8 @@ var Cron = function(app) {
 /**
  * 清空每日任务数据
  */
-Cron.prototype.clrearEveryDayTaskDatas = function() {  
-    console.log(&#39;clrearEveryDayTaskDatas:&#39; + new Date());
+Cron.prototype.clearEveryDayTaskDatas = function() {  
+    console.log(&#39;clearEveryDayTaskDatas:&#39; + new Date());
 };  </code></pre></div>
 
 <h2 id="toc_2">添加定时任务服务器配置</h2>
@@ -590,12 +590,12 @@ Cron.prototype.clrearEveryDayTaskDatas = function() {
 <div><pre class="line-numbers"><code class="language-none">{  
     &quot;development&quot;:{  
          &quot;servertask&quot;: [  
-          {&quot;id&quot;: 1, &quot;time&quot;: &quot;0 0/1 * * * *&quot;, &quot;action&quot;: &quot;servertaskCron.clrearEveryDayTaskDatas&quot;}  
+          {&quot;id&quot;: 1, &quot;time&quot;: &quot;0 0/1 * * * *&quot;, &quot;action&quot;: &quot;servertaskCron.clearEveryDayTaskDatas&quot;}  
           ]  
     },  
     &quot;production&quot;:{  
           &quot;servertask&quot;: [  
-          {&quot;id&quot;: 1, &quot;time&quot;: &quot;0 0/1 * * * *&quot;, &quot;action&quot;: &quot;servertaskCron.clrearEveryDayTaskDatas&quot;}  
+          {&quot;id&quot;: 1, &quot;time&quot;: &quot;0 0/1 * * * *&quot;, &quot;action&quot;: &quot;servertaskCron.clearEveryDayTaskDatas&quot;}  
           ]  
     }  
 }  </code></pre></div>
@@ -605,7 +605,7 @@ time是定时任务执行的具体时间，时间的定义跟linux的定时任�
 
 <p>&quot;* * * * * * [command]&quot;</p>
 
-<p>action是具体执行任务方法，servertaskCron.clrearEveryDayTaskDatas则代表执行game-server/app/servers/servertask/cron/servertaskCron.js中的clrearEveryDayTaskDatas方法。  </p>
+<p>action是具体执行任务方法，servertaskCron.clrearEveryDayTaskDatas则代表执行game-server/app/servers/servertask/cron/servertaskCron.js中的clearEveryDayTaskDatas方法。  </p>
 
 <h2 id="toc_5">定时任务时间定义格式</h2>
 

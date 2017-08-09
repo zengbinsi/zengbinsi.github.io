@@ -120,6 +120,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/18_NodeJS/02_初识Pomelo/20170728_221052_初识Pomelo.html"
     },
     {
+        name : "20170809_110532_Pomelo定时任务",
+        path : "/blogs/IT/18_NodeJS/03_Pomelo定时任务/20170809_110532_Pomelo定时任务.html"
+    },
+    {
         name : "20161019_193149_组件化编程",
         path : "/blogs/IT/21_CStudio/01_组件化编程/20161019_193149_组件化编程.html"
     },
