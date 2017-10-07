@@ -84,6 +84,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/02_Cocos2D/15_CocosCreator使用Shader/20170706_190913_CocosCreator使用Shader.html"
     },
     {
+        name : "20170815_123122_CocosCreator游戏事件",
+        path : "/blogs/IT/02_Cocos2D/16_CocosCreator游戏事件/20170815_123122_CocosCreator游戏事件.html"
+    },
+    {
         name : "20160317_130400_Box2D物理引擎入门001",
         path : "/blogs/IT/05_Box2D/01_Box2D物理引擎入门001/20160317_130400_Box2D物理引擎入门001.html"
     },

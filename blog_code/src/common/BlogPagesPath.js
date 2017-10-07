@@ -128,6 +128,10 @@ var BlogPagesPath = [
         path : "/blogs/IT/18_NodeJS/03_Pomelo定时任务/20170809_110532_Pomelo定时任务.html"
     },
     {
+        name : "20171008_003629_NodeJS使用Sequelize操作MySQL",
+        path : "/blogs/IT/18_NodeJS/04_NodeJS使用Sequelize操作MySQL/20171008_003629_NodeJS使用Sequelize操作MySQL.html"
+    },
+    {
         name : "20161019_193149_组件化编程",
         path : "/blogs/IT/21_CStudio/01_组件化编程/20161019_193149_组件化编程.html"
     },
