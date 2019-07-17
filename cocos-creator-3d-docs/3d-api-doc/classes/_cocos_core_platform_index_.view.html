@@ -1,0 +1,2430 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>View | Creator3dAPI</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Creator3dAPI</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_cocos_core_platform_index_.html">index</a>
+				</li>
+				<li>
+					<a href="_cocos_core_platform_index_.view.html">View</a>
+				</li>
+			</ul>
+			<h1>Class View</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>cc.view is the singleton object which represents the game window.<br/>
+						It&#39;s main task include: <br/></p>
+						<ul>
+							<li>Apply the design resolution policy<br/></li>
+							<li>Provide interaction with the window, like resize event on web, retina display support, etc...<br/></li>
+							<li>Manage the game view port which can be different with the window<br/></li>
+							<li>Manage the content scale and translation<br/><br/>
+								Since the cc.view is a singleton, you don't need to call any constructor or create functions,<br/>
+							the standard way to use it is by calling:<br/></li>
+							<li>cc.view.methodName(); <br/></li>
+						</ul>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>class</dt>
+						<dd><p>View</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="_cocos_core_event_event_target_.eventtarget.html" class="tsd-signature-type">EventTarget</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">View</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_antialiasenabled" class="tsd-kind-icon">_anti<wbr>Alias<wbr>Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_autofullscreen" class="tsd-kind-icon">_auto<wbr>Full<wbr>Screen</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_callbacktable" class="tsd-kind-icon">_callback<wbr>Table</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_designresolutionsize" class="tsd-kind-icon">_design<wbr>Resolution<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_devicepixelratio" class="tsd-kind-icon">_device<wbr>Pixel<wbr>Ratio</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_framesize" class="tsd-kind-icon">_frame<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_isadjustviewport" class="tsd-kind-icon">_is<wbr>Adjust<wbr>Viewport</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_isrotated" class="tsd-kind-icon">_is<wbr>Rotated</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_orientation" class="tsd-kind-icon">_orientation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_orientationchanging" class="tsd-kind-icon">_orientation<wbr>Changing</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_originaldesignresolutionsize" class="tsd-kind-icon">_original<wbr>Design<wbr>Resolution<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_resizecallback" class="tsd-kind-icon">_resize<wbr>Callback</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_resizewithbrowsersize" class="tsd-kind-icon">_resize<wbr>With<wbr>Browser<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_resizing" class="tsd-kind-icon">_resizing</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_resolutionpolicy" class="tsd-kind-icon">_resolution<wbr>Policy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_retinaenabled" class="tsd-kind-icon">_retina<wbr>Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_rpexactfit" class="tsd-kind-icon">_rp<wbr>Exact<wbr>Fit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_rpfixedheight" class="tsd-kind-icon">_rp<wbr>Fixed<wbr>Height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_rpfixedwidth" class="tsd-kind-icon">_rp<wbr>Fixed<wbr>Width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_rpnoborder" class="tsd-kind-icon">_rp<wbr>NoBorder</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_rpshowall" class="tsd-kind-icon">_rp<wbr>Show<wbr>All</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_scalex" class="tsd-kind-icon">_scaleX</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_scaley" class="tsd-kind-icon">_scaleY</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_viewportrect" class="tsd-kind-icon">_viewport<wbr>Rect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_visiblerect" class="tsd-kind-icon">_visible<wbr>Rect</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_adjustsizekeepcanvassize" class="tsd-kind-icon">adjust<wbr>Size<wbr>Keep<wbr>Canvas<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_adjustviewportmeta" class="tsd-kind-icon">adjust<wbr>Viewport<wbr>Meta</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_convertmousetolocation" class="tsd-kind-icon">convert<wbr>Mouse<wbr>ToLocation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_convertpointwithscale" class="tsd-kind-icon">convert<wbr>Point<wbr>With<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_converttouchwidthscale" class="tsd-kind-icon">convert<wbr>Touch<wbr>Width<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_converttoucheswithscale" class="tsd-kind-icon">convert<wbr>Touches<wbr>With<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_initframesize" class="tsd-kind-icon">init<wbr>Frame<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_orientationchange" class="tsd-kind-icon">orientation<wbr>Change</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_resizeevent" class="tsd-kind-icon">resize<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#_setviewportmeta" class="tsd-kind-icon">set<wbr>Viewport<wbr>Meta</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#adjustviewportmeta" class="tsd-kind-icon">adjust<wbr>Viewport<wbr>Meta</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#converttolocationinview" class="tsd-kind-icon">convert<wbr>ToLocation<wbr>InView</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#enableantialias" class="tsd-kind-icon">enable<wbr>Anti<wbr>Alias</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#enableautofullscreen" class="tsd-kind-icon">enable<wbr>Auto<wbr>Full<wbr>Screen</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#enableretina" class="tsd-kind-icon">enable<wbr>Retina</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getcanvassize" class="tsd-kind-icon">get<wbr>Canvas<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getdesignresolutionsize" class="tsd-kind-icon">get<wbr>Design<wbr>Resolution<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getdevicepixelratio" class="tsd-kind-icon">get<wbr>Device<wbr>Pixel<wbr>Ratio</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getframesize" class="tsd-kind-icon">get<wbr>Frame<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getresolutionpolicy" class="tsd-kind-icon">get<wbr>Resolution<wbr>Policy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getscalex" class="tsd-kind-icon">get<wbr>ScaleX</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getscaley" class="tsd-kind-icon">get<wbr>ScaleY</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getscissorrect" class="tsd-kind-icon">get<wbr>Scissor<wbr>Rect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getviewportrect" class="tsd-kind-icon">get<wbr>Viewport<wbr>Rect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getvisibleorigin" class="tsd-kind-icon">get<wbr>Visible<wbr>Origin</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getvisibleorigininpixel" class="tsd-kind-icon">get<wbr>Visible<wbr>Origin<wbr>InPixel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getvisiblesize" class="tsd-kind-icon">get<wbr>Visible<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#getvisiblesizeinpixel" class="tsd-kind-icon">get<wbr>Visible<wbr>Size<wbr>InPixel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#init" class="tsd-kind-icon">init</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#isantialiasenabled" class="tsd-kind-icon">is<wbr>Anti<wbr>Alias<wbr>Enabled</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#isautofullscreenenabled" class="tsd-kind-icon">is<wbr>Auto<wbr>Full<wbr>Screen<wbr>Enabled</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#isretinaenabled" class="tsd-kind-icon">is<wbr>Retina<wbr>Enabled</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#isscissorenabled" class="tsd-kind-icon">is<wbr>Scissor<wbr>Enabled</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#removeall" class="tsd-kind-icon">remove<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#resizewithbrowsersize" class="tsd-kind-icon">resize<wbr>With<wbr>Browser<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setcanvassize" class="tsd-kind-icon">set<wbr>Canvas<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setdesignresolutionsize" class="tsd-kind-icon">set<wbr>Design<wbr>Resolution<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setframesize" class="tsd-kind-icon">set<wbr>Frame<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setorientation" class="tsd-kind-icon">set<wbr>Orientation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setrealpixelresolution" class="tsd-kind-icon">set<wbr>Real<wbr>Pixel<wbr>Resolution</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setresizecallback" class="tsd-kind-icon">set<wbr>Resize<wbr>Callback</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setresolutionpolicy" class="tsd-kind-icon">set<wbr>Resolution<wbr>Policy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setscissorinpoints" class="tsd-kind-icon">set<wbr>Scissor<wbr>InPoints</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#setviewportinpoints" class="tsd-kind-icon">set<wbr>Viewport<wbr>InPoints</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported"><a href="_cocos_core_platform_index_.view.html#targetoff" class="tsd-kind-icon">target<wbr>Off</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>View<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_cocos_core_platform_index_.view.html" class="tsd-signature-type">View</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L154">cocos/core/platform/CCView.ts:154</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_cocos_core_platform_index_.view.html" class="tsd-signature-type">View</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_antialiasenabled" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _anti<wbr>Alias<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">_anti<wbr>Alias<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L148">cocos/core/platform/CCView.ts:148</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_autofullscreen" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _auto<wbr>Full<wbr>Screen</h3>
+					<div class="tsd-signature tsd-kind-icon">_auto<wbr>Full<wbr>Screen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L138">cocos/core/platform/CCView.ts:138</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="_callbacktable" class="tsd-anchor"></a>
+					<h3>_callback<wbr>Table</h3>
+					<div class="tsd-signature tsd-kind-icon">_callback<wbr>Table<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_cocos_core_event_callbacks_invoker_.icallbacktable.html" class="tsd-signature-type">ICallbackTable</a><span class="tsd-signature-symbol"> =&nbsp;createMap(true)</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html">CallbacksInvoker</a>.<a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html#_callbacktable">_callbackTable</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/callbacks-invoker.ts#L160">cocos/core/event/callbacks-invoker.ts:160</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_designresolutionsize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _design<wbr>Resolution<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">_design<wbr>Resolution<wbr>Size<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_value_types_size_.size.html" class="tsd-signature-type">Size</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L132">cocos/core/platform/CCView.ts:132</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_devicepixelratio" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _device<wbr>Pixel<wbr>Ratio</h3>
+					<div class="tsd-signature tsd-kind-icon">_device<wbr>Pixel<wbr>Ratio<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L139">cocos/core/platform/CCView.ts:139</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_framesize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _frame<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">_frame<wbr>Size<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_value_types_size_.size.html" class="tsd-signature-type">Size</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L131">cocos/core/platform/CCView.ts:131</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_isadjustviewport" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Adjust<wbr>Viewport</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Adjust<wbr>Viewport<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L147">cocos/core/platform/CCView.ts:147</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_isrotated" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Rotated</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Rotated<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L145">cocos/core/platform/CCView.ts:145</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_orientation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _orientation</h3>
+					<div class="tsd-signature tsd-kind-icon">_orientation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L146">cocos/core/platform/CCView.ts:146</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_orientationchanging" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _orientation<wbr>Changing</h3>
+					<div class="tsd-signature tsd-kind-icon">_orientation<wbr>Changing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L144">cocos/core/platform/CCView.ts:144</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_originaldesignresolutionsize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _original<wbr>Design<wbr>Resolution<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">_original<wbr>Design<wbr>Resolution<wbr>Size<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_value_types_size_.size.html" class="tsd-signature-type">Size</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L133">cocos/core/platform/CCView.ts:133</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_resizecallback" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _resize<wbr>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">_resize<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L141">cocos/core/platform/CCView.ts:141</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_resizewithbrowsersize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _resize<wbr>With<wbr>Browser<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">_resize<wbr>With<wbr>Browser<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L143">cocos/core/platform/CCView.ts:143</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_resizing" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _resizing</h3>
+					<div class="tsd-signature tsd-kind-icon">_resizing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L142">cocos/core/platform/CCView.ts:142</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_resolutionpolicy" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _resolution<wbr>Policy</h3>
+					<div class="tsd-signature tsd-kind-icon">_resolution<wbr>Policy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L149">cocos/core/platform/CCView.ts:149</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_retinaenabled" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _retina<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">_retina<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L140">cocos/core/platform/CCView.ts:140</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_rpexactfit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _rp<wbr>Exact<wbr>Fit</h3>
+					<div class="tsd-signature tsd-kind-icon">_rp<wbr>Exact<wbr>Fit<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_platform_ccview_.resolutionpolicy.html" class="tsd-signature-type">ResolutionPolicy</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L150">cocos/core/platform/CCView.ts:150</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_rpfixedheight" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _rp<wbr>Fixed<wbr>Height</h3>
+					<div class="tsd-signature tsd-kind-icon">_rp<wbr>Fixed<wbr>Height<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_platform_ccview_.resolutionpolicy.html" class="tsd-signature-type">ResolutionPolicy</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L153">cocos/core/platform/CCView.ts:153</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_rpfixedwidth" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _rp<wbr>Fixed<wbr>Width</h3>
+					<div class="tsd-signature tsd-kind-icon">_rp<wbr>Fixed<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_platform_ccview_.resolutionpolicy.html" class="tsd-signature-type">ResolutionPolicy</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L154">cocos/core/platform/CCView.ts:154</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_rpnoborder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _rp<wbr>NoBorder</h3>
+					<div class="tsd-signature tsd-kind-icon">_rp<wbr>NoBorder<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_platform_ccview_.resolutionpolicy.html" class="tsd-signature-type">ResolutionPolicy</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L152">cocos/core/platform/CCView.ts:152</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_rpshowall" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _rp<wbr>Show<wbr>All</h3>
+					<div class="tsd-signature tsd-kind-icon">_rp<wbr>Show<wbr>All<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_platform_ccview_.resolutionpolicy.html" class="tsd-signature-type">ResolutionPolicy</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L151">cocos/core/platform/CCView.ts:151</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_scalex" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _scaleX</h3>
+					<div class="tsd-signature tsd-kind-icon">_scaleX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L134">cocos/core/platform/CCView.ts:134</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_scaley" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _scaleY</h3>
+					<div class="tsd-signature tsd-kind-icon">_scaleY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L135">cocos/core/platform/CCView.ts:135</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_viewportrect" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _viewport<wbr>Rect</h3>
+					<div class="tsd-signature tsd-kind-icon">_viewport<wbr>Rect<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_value_types_rect_.rect.html" class="tsd-signature-type">Rect</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L136">cocos/core/platform/CCView.ts:136</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_visiblerect" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _visible<wbr>Rect</h3>
+					<div class="tsd-signature tsd-kind-icon">_visible<wbr>Rect<span class="tsd-signature-symbol">:</span> <a href="_cocos_core_value_types_rect_.rect.html" class="tsd-signature-type">Rect</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L137">cocos/core/platform/CCView.ts:137</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_adjustsizekeepcanvassize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> adjust<wbr>Size<wbr>Keep<wbr>Canvas<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_adjust<wbr>Size<wbr>Keep<wbr>Canvas<wbr>Size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L999">cocos/core/platform/CCView.ts:999</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_adjustviewportmeta" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> adjust<wbr>Viewport<wbr>Meta</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_adjust<wbr>Viewport<wbr>Meta<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L1047">cocos/core/platform/CCView.ts:1047</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_convertmousetolocation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> convert<wbr>Mouse<wbr>ToLocation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">convert<wbr>Mouse<wbr>ToLocation<span class="tsd-signature-symbol">(</span>in_out_point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, relatedPos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L1054">cocos/core/platform/CCView.ts:1054</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>in_out_point: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>relatedPos: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_convertpointwithscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> convert<wbr>Point<wbr>With<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">convert<wbr>Point<wbr>With<wbr>Scale<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L1065">cocos/core/platform/CCView.ts:1065</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_converttouchwidthscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> convert<wbr>Touch<wbr>Width<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">convert<wbr>Touch<wbr>Width<wbr>Scale<span class="tsd-signature-symbol">(</span>selTouch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L1071">cocos/core/platform/CCView.ts:1071</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>selTouch: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_converttoucheswithscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> convert<wbr>Touches<wbr>With<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">convert<wbr>Touches<wbr>With<wbr>Scale<span class="tsd-signature-symbol">(</span>touches<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L1082">cocos/core/platform/CCView.ts:1082</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>touches: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_initframesize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> init<wbr>Frame<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_init<wbr>Frame<wbr>Size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L958">cocos/core/platform/CCView.ts:958</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_orientationchange" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> orientation<wbr>Change</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_orientation<wbr>Change<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L953">cocos/core/platform/CCView.ts:953</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_resizeevent" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> resize<wbr>Event</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_resize<wbr>Event<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L901">cocos/core/platform/CCView.ts:901</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+					<a name="_setviewportmeta" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> set<wbr>Viewport<wbr>Meta</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Viewport<wbr>Meta<span class="tsd-signature-symbol">(</span>metas<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, overwrite<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L1007">cocos/core/platform/CCView.ts:1007</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>metas: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>overwrite: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="adjustviewportmeta" class="tsd-anchor"></a>
+					<h3>adjust<wbr>Viewport<wbr>Meta</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">adjust<wbr>Viewport<wbr>Meta<span class="tsd-signature-symbol">(</span>enabled<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L330">cocos/core/platform/CCView.ts:330</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置引擎是否调整 viewport meta 来配合屏幕适配。
+										默认设置为启动，我们强烈建议你不要将它设置为关闭。
+										即使当它启动时，你仍然能够设置你的 viewport meta，它不会被覆盖。
+									仅在 Web 模式下有效</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>adjustViewportMeta</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>enabled: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Enable automatic modification to &quot;viewport&quot; meta</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="converttolocationinview" class="tsd-anchor"></a>
+					<h3>convert<wbr>ToLocation<wbr>InView</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">convert<wbr>ToLocation<wbr>InView<span class="tsd-signature-symbol">(</span>tx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, ty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, relatedPos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, out<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L885">cocos/core/platform/CCView.ts:885</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>将屏幕坐标转换为游戏视图下的坐标。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>convertToLocationInView</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tx: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The X axis translation</p>
+									</div>
+								</li>
+								<li>
+									<h5>ty: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Y axis translation</p>
+									</div>
+								</li>
+								<li>
+									<h5>relatedPos: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The related position object including &quot;left&quot;, &quot;top&quot;, &quot;width&quot;, &quot;height&quot; informations</p>
+									</div>
+								</li>
+								<li>
+									<h5>out: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="emit" class="tsd-anchor"></a>
+					<h3>emit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html">CallbacksInvoker</a>.<a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html#emit">emit</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/callbacks-invoker.ts#L306">cocos/core/event/callbacks-invoker.ts:306</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>事件派发</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>一个监听事件类型的字符串</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="enableantialias" class="tsd-anchor"></a>
+					<h3>enable<wbr>Anti<wbr>Alias</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">enable<wbr>Anti<wbr>Alias<span class="tsd-signature-symbol">(</span>enabled<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L368">cocos/core/platform/CCView.ts:368</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>控制抗锯齿是否开启</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>enableAntiAlias</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>enabled: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Enable or not anti-alias</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="enableautofullscreen" class="tsd-anchor"></a>
+					<h3>enable<wbr>Auto<wbr>Full<wbr>Screen</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">enable<wbr>Auto<wbr>Full<wbr>Screen<span class="tsd-signature-symbol">(</span>enabled<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L416">cocos/core/platform/CCView.ts:416</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>启动时，移动端游戏会在移动端自动尝试进入全屏模式。
+									你能够传入 true 为参数去启动它，用 false 参数来关闭它。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>enableAutoFullScreen</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>enabled: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Enable or disable auto full screen on mobile devices</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="enableretina" class="tsd-anchor"></a>
+					<h3>enable<wbr>Retina</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">enable<wbr>Retina<span class="tsd-signature-symbol">(</span>enabled<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L345">cocos/core/platform/CCView.ts:345</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>对于 Apple 这种支持 Retina 显示的设备上默认进行优化而其他类型设备默认不进行优化，
+										它仅会在你调用 setDesignResolutionPolicy 方法时有影响。
+									仅在 Web 模式下有效。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>enableRetina</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>enabled: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Enable or disable retina display</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getcanvassize" class="tsd-anchor"></a>
+					<h3>get<wbr>Canvas<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Canvas<wbr>Size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L481">cocos/core/platform/CCView.ts:481</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视图中 canvas 的尺寸。
+										在 native 平台下，它返回全屏视图下屏幕的尺寸。
+									在 Web 平台下，它返回 canvas 元素尺寸。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getCanvasSize</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getdesignresolutionsize" class="tsd-anchor"></a>
+					<h3>get<wbr>Design<wbr>Resolution<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Design<wbr>Resolution<wbr>Size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L703">cocos/core/platform/CCView.ts:703</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视图的设计分辨率。
+									默认下分辨率尺寸同 <code>getFrameSize</code> 方法相同</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getDesignResolutionSize</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getdevicepixelratio" class="tsd-anchor"></a>
+					<h3>get<wbr>Device<wbr>Pixel<wbr>Ratio</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Device<wbr>Pixel<wbr>Ratio<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L871">cocos/core/platform/CCView.ts:871</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回设备或浏览器像素比例。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getDevicePixelRatio</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getframesize" class="tsd-anchor"></a>
+					<h3>get<wbr>Frame<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Frame<wbr>Size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L496">cocos/core/platform/CCView.ts:496</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视图中边框尺寸。
+										在 native 平台下，它返回全屏视图下屏幕的尺寸。
+									在 web 平台下，它返回 canvas 元素的外层 DOM 元素尺寸。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getFrameSize</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getresolutionpolicy" class="tsd-anchor"></a>
+					<h3>get<wbr>Resolution<wbr>Policy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Resolution<wbr>Policy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L572">cocos/core/platform/CCView.ts:572</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回当前分辨率方案</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>ResolutionPolicy</p>
+									</dd>
+									<dt>method</dt>
+									<dd><p>getResolutionPolicy</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getscalex" class="tsd-anchor"></a>
+					<h3>get<wbr>ScaleX</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ScaleX<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L849">cocos/core/platform/CCView.ts:849</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回横轴的缩放比，这个缩放比是将画布像素分辨率放到设计分辨率的比例。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getScaleX</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getscaley" class="tsd-anchor"></a>
+					<h3>get<wbr>ScaleY</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ScaleY<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L860">cocos/core/platform/CCView.ts:860</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回纵轴的缩放比，这个缩放比是将画布像素分辨率缩放到设计分辨率的比例。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getScaleY</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getscissorrect" class="tsd-anchor"></a>
+					<h3>get<wbr>Scissor<wbr>Rect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Scissor<wbr>Rect<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_cocos_core_value_types_rect_.rect.html" class="tsd-signature-type">Rect</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L815">cocos/core/platform/CCView.ts:815</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回当前的 scissor 剪裁区域。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getScissorRect</p>
+									</dd>
+									<dt>deprecated</dt>
+									<dd><p>since v2.0</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_cocos_core_value_types_rect_.rect.html" class="tsd-signature-type">Rect</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getviewportrect" class="tsd-anchor"></a>
+					<h3>get<wbr>Viewport<wbr>Rect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Viewport<wbr>Rect<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_cocos_core_value_types_rect_.rect.html" class="tsd-signature-type">Rect</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L838">cocos/core/platform/CCView.ts:838</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视窗剪裁区域。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getViewportRect</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_cocos_core_value_types_rect_.rect.html" class="tsd-signature-type">Rect</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getvisibleorigin" class="tsd-anchor"></a>
+					<h3>get<wbr>Visible<wbr>Origin</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Visible<wbr>Origin<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L548">cocos/core/platform/CCView.ts:548</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视图窗口可见区域原点。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getVisibleOrigin</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getvisibleorigininpixel" class="tsd-anchor"></a>
+					<h3>get<wbr>Visible<wbr>Origin<wbr>InPixel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Visible<wbr>Origin<wbr>InPixel<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L559">cocos/core/platform/CCView.ts:559</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视图窗口可见区域像素原点。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getVisibleOriginInPixel</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getvisiblesize" class="tsd-anchor"></a>
+					<h3>get<wbr>Visible<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Visible<wbr>Size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L525">cocos/core/platform/CCView.ts:525</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视图窗口可见区域尺寸。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getVisibleSize</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="getvisiblesizeinpixel" class="tsd-anchor"></a>
+					<h3>get<wbr>Visible<wbr>Size<wbr>InPixel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Visible<wbr>Size<wbr>InPixel<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L536">cocos/core/platform/CCView.ts:536</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回视图窗口可见区域像素尺寸。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getVisibleSizeInPixel</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="haseventlistener" class="tsd-anchor"></a>
+					<h3>has<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span>, target<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html">CallbacksInvoker</a>.<a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html#haseventlistener">hasEventListener</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/callbacks-invoker.ts#L190">cocos/core/event/callbacks-invoker.ts:190</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>检查指定事件是否已注册回调。</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>一个监听事件类型的字符串。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>事件分派时将被调用的回调函数。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> target: <span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>调用回调的目标。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<ul>
+								<li>指定事件是否已注册回调。</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="init" class="tsd-anchor"></a>
+					<h3>init</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L202">cocos/core/platform/CCView.ts:202</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="isantialiasenabled" class="tsd-anchor"></a>
+					<h3>is<wbr>Anti<wbr>Alias<wbr>Enabled</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Anti<wbr>Alias<wbr>Enabled<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L403">cocos/core/platform/CCView.ts:403</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>返回当前是否抗锯齿</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>isAntiAliasEnabled</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="isautofullscreenenabled" class="tsd-anchor"></a>
+					<h3>is<wbr>Auto<wbr>Full<wbr>Screen<wbr>Enabled</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Auto<wbr>Full<wbr>Screen<wbr>Enabled<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L439">cocos/core/platform/CCView.ts:439</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>检查自动进入全屏模式是否启动。
+									仅在 Web 模式下有效。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>isAutoFullScreenEnabled</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>Auto full screen enabled or not</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="isretinaenabled" class="tsd-anchor"></a>
+					<h3>is<wbr>Retina<wbr>Enabled</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Retina<wbr>Enabled<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L358">cocos/core/platform/CCView.ts:358</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>检查是否对 Retina 显示设备进行优化。
+									仅在 Web 模式下有效。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>isRetinaEnabled</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="isscissorenabled" class="tsd-anchor"></a>
+					<h3>is<wbr>Scissor<wbr>Enabled</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Scissor<wbr>Enabled<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L802">cocos/core/platform/CCView.ts:802</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>检查 scissor 是否生效。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>isScissorEnabled</p>
+									</dd>
+									<dt>deprecated</dt>
+									<dd><p>since v2.0</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="off" class="tsd-anchor"></a>
+					<h3>off</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span>, target<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_cocos_core_event_event_target_.itargetimpl.html#object" class="tsd-signature-type">Object</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_cocos_core_event_event_target_.eventtarget.html">EventTarget</a>.<a href="_cocos_core_event_event_target_.eventtarget.html#off">off</a></p>
+								<p>Overrides <a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html">CallbacksInvoker</a>.<a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/event-target.ts#L106">cocos/core/event/event-target.ts:106</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>删除之前用同类型，回调，目标或 useCapture 注册的事件监听器，如果只传递 type，将会删除 type 类型的所有事件监听器。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-comment">// register fire eventListener</span>
+<span class="hljs-keyword">var</span> callback = eventTarget.on(<span class="hljs-string">'fire'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    cc.log(<span class="hljs-string">"fire in the hole"</span>);
+}, target);
+<span class="hljs-comment">// remove fire event listener</span>
+eventTarget.off(<span class="hljs-string">'fire'</span>, callback, target);
+<span class="hljs-comment">// remove all fire event listeners</span>
+eventTarget.off(<span class="hljs-string">'fire'</span>);</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>一个监听事件类型的字符串。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>事件分派时将被调用的回调函数。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> target: <a href="../interfaces/_cocos_core_event_event_target_.itargetimpl.html#object" class="tsd-signature-type">Object</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>调用回调的目标。如果为空, 只有没有目标的事件会被移除。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="on" class="tsd-anchor"></a>
+					<h3>on</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span>, target<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_cocos_core_event_event_target_.itargetimpl.html#object" class="tsd-signature-type">Object</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_cocos_core_event_event_target_.eventtarget.html">EventTarget</a>.<a href="_cocos_core_event_event_target_.eventtarget.html#on">on</a></p>
+								<p>Overrides <a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html">CallbacksInvoker</a>.<a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html#on">on</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/event-target.ts#L65">cocos/core/event/event-target.ts:65</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>注册事件目标的特定事件类型回调。这种类型的事件应该被 <code>emit</code> 触发。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">eventTarget.on(<span class="hljs-string">'fire'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    cc.log(<span class="hljs-string">"fire in the hole"</span>);
+}, node);</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>一个监听事件类型的字符串.</p>
+									</div>
+								</li>
+								<li>
+									<h5>callback: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>事件分派时将被调用的回调函数。如果该回调存在则不会重复添加.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> target: <a href="../interfaces/_cocos_core_event_event_target_.itargetimpl.html#object" class="tsd-signature-type">Object</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>回调的目标。可以为空。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">Function</span>
+							</h4>
+							<ul>
+								<li>返回监听回调函数自身。</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="once" class="tsd-anchor"></a>
+					<h3>once</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span>, target<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_cocos_core_event_event_target_.itargetimpl.html#object" class="tsd-signature-type">Object</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_cocos_core_event_event_target_.eventtarget.html">EventTarget</a>.<a href="_cocos_core_event_event_target_.eventtarget.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/event-target.ts#L156">cocos/core/event/event-target.ts:156</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>注册事件目标的特定事件类型回调，回调会在第一时间被触发后删除自身。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">eventTarget.once(<span class="hljs-string">'fire'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    cc.log(<span class="hljs-string">"this is the callback and will be invoked only once"</span>);
+}, node);</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>一个监听事件类型的字符串。</p>
+									</div>
+								</li>
+								<li>
+									<h5>callback: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>事件分派时将被调用的回调函数。如果该回调存在则不会重复添加。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> target: <a href="../interfaces/_cocos_core_event_event_target_.itargetimpl.html#object" class="tsd-signature-type">Object</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>调用回调的目标。可以为空。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">Function</span>
+							</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="removeall" class="tsd-anchor"></a>
+					<h3>remove<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<span class="tsd-signature-symbol">(</span>keyOrTarget<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html">CallbacksInvoker</a>.<a href="_cocos_core_event_callbacks_invoker_.callbacksinvoker.html#removeall">removeAll</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/callbacks-invoker.ts#L227">cocos/core/event/callbacks-invoker.ts:227</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>移除在特定事件类型中注册的所有回调或在某个目标中注册的所有回调。</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> keyOrTarget: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>要删除的事件键或要删除的目标。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="resizewithbrowsersize" class="tsd-anchor"></a>
+					<h3>resize<wbr>With<wbr>Browser<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">resize<wbr>With<wbr>Browser<wbr>Size<span class="tsd-signature-symbol">(</span>enabled<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L259">cocos/core/platform/CCView.ts:259</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置当发现浏览器的尺寸改变时，是否自动调整 canvas 尺寸大小。
+									仅在 Web 模式下有效。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>resizeWithBrowserSize</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>enabled: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether enable automatic resize with browser&#39;s resize event</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setcanvassize" class="tsd-anchor"></a>
+					<h3>set<wbr>Canvas<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Canvas<wbr>Size<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L451">cocos/core/platform/CCView.ts:451</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setdesignresolutionsize" class="tsd-anchor"></a>
+					<h3>set<wbr>Design<wbr>Resolution<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Design<wbr>Resolution<wbr>Size<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, resolutionPolicy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L627">cocos/core/platform/CCView.ts:627</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>通过设置设计分辨率和匹配模式来进行游戏画面的屏幕适配。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>setDesignResolutionSize</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Design resolution width.</p>
+									</div>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Design resolution height.</p>
+									</div>
+								</li>
+								<li>
+									<h5>resolutionPolicy: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The resolution policy desired</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setframesize" class="tsd-anchor"></a>
+					<h3>set<wbr>Frame<wbr>Size</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Frame<wbr>Size<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L510">cocos/core/platform/CCView.ts:510</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>在 native 平台下，设置视图框架尺寸。
+									在 web 平台下，设置 canvas 外层 DOM 元素尺寸。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>setFrameSize</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setorientation" class="tsd-anchor"></a>
+					<h3>set<wbr>Orientation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Orientation<span class="tsd-signature-symbol">(</span>orientation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L310">cocos/core/platform/CCView.ts:310</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置游戏屏幕朝向，它能够是横版，竖版或自动。
+										当设置为横版或竖版，并且屏幕的宽高比例不匹配时，
+										cc.view 会自动用 CSS 旋转游戏场景的 canvas，
+									这个方法不会对 native 部分产生任何影响，对于 native 而言，你需要在应用设置中的设置排版。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>setOrientation</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>orientation: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Possible values: macro.ORIENTATION_LANDSCAPE | macro.ORIENTATION_PORTRAIT | macro.ORIENTATION_AUTO</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setrealpixelresolution" class="tsd-anchor"></a>
+					<h3>set<wbr>Real<wbr>Pixel<wbr>Resolution</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Real<wbr>Pixel<wbr>Resolution<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, resolutionPolicy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L724">cocos/core/platform/CCView.ts:724</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置容器（container）需要的像素分辨率并且适配相应分辨率的游戏内容。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>setRealPixelResolution</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Design resolution width.</p>
+									</div>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Design resolution height.</p>
+									</div>
+								</li>
+								<li>
+									<h5>resolutionPolicy: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The resolution policy desired</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setresizecallback" class="tsd-anchor"></a>
+					<h3>set<wbr>Resize<wbr>Callback</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Resize<wbr>Callback<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L290">cocos/core/platform/CCView.ts:290</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置 cc.view 调整视窗尺寸行为的回调函数，
+										这个回调函数会在应用适配模式之前被调用，
+										因此你可以在这个回调函数内添加任意附加改变，
+									仅在 Web 平台下有效。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>setResizeCallback</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback function</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setresolutionpolicy" class="tsd-anchor"></a>
+					<h3>set<wbr>Resolution<wbr>Policy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Resolution<wbr>Policy<span class="tsd-signature-symbol">(</span>resolutionPolicy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L584">cocos/core/platform/CCView.ts:584</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置当前分辨率模式</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>ResolutionPolicy</p>
+									</dd>
+									<dt>method</dt>
+									<dd><p>setResolutionPolicy</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>resolutionPolicy: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setscissorinpoints" class="tsd-anchor"></a>
+					<h3>set<wbr>Scissor<wbr>InPoints</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Scissor<wbr>InPoints<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, w<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, h<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L771">cocos/core/platform/CCView.ts:771</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>用设计分辨率下的点的尺寸来设置 scissor 剪裁区域。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>setScissorInPoints</p>
+									</dd>
+									<dt>deprecated</dt>
+									<dd><p>since v2.0</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>w: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>h: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+					<a name="setviewportinpoints" class="tsd-anchor"></a>
+					<h3>set<wbr>Viewport<wbr>InPoints</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Viewport<wbr>InPoints<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, w<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, h<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/platform/CCView.ts#L751">cocos/core/platform/CCView.ts:751</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>用设计分辨率下的点尺寸来设置视窗。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>setViewportInPoints</p>
+									</dd>
+									<dt>deprecated</dt>
+									<dd><p>since v2.0</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>w: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>width</p>
+									</div>
+								</li>
+								<li>
+									<h5>h: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>height</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+					<a name="targetoff" class="tsd-anchor"></a>
+					<h3>target<wbr>Off</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">target<wbr>Off<span class="tsd-signature-symbol">(</span>keyOrTarget<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_cocos_core_event_event_target_.eventtarget.html">EventTarget</a>.<a href="_cocos_core_event_event_target_.eventtarget.html#targetoff">targetOff</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/cocos-creator/engine/blob/688d2afc2/cocos/core/event/event-target.ts#L132">cocos/core/event/event-target.ts:132</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>在当前 EventTarget 上删除指定目标（target 参数）注册的所有事件监听器。
+										这个函数无法删除当前 EventTarget 的所有事件监听器，也无法删除 target 参数所注册的所有事件监听器。
+									这个函数只能删除 target 参数在当前 EventTarget 上注册的所有事件监听器。</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> keyOrTarget: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_cocos_core_platform_index_.html">"cocos/core/platform/index"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="_cocos_core_platform_index_.view.html" class="tsd-kind-icon">View</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_antialiasenabled" class="tsd-kind-icon">_anti<wbr>Alias<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_autofullscreen" class="tsd-kind-icon">_auto<wbr>Full<wbr>Screen</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_callbacktable" class="tsd-kind-icon">_callback<wbr>Table</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_designresolutionsize" class="tsd-kind-icon">_design<wbr>Resolution<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_devicepixelratio" class="tsd-kind-icon">_device<wbr>Pixel<wbr>Ratio</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_framesize" class="tsd-kind-icon">_frame<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_isadjustviewport" class="tsd-kind-icon">_is<wbr>Adjust<wbr>Viewport</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_isrotated" class="tsd-kind-icon">_is<wbr>Rotated</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_orientation" class="tsd-kind-icon">_orientation</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_orientationchanging" class="tsd-kind-icon">_orientation<wbr>Changing</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_originaldesignresolutionsize" class="tsd-kind-icon">_original<wbr>Design<wbr>Resolution<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_resizecallback" class="tsd-kind-icon">_resize<wbr>Callback</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_resizewithbrowsersize" class="tsd-kind-icon">_resize<wbr>With<wbr>Browser<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_resizing" class="tsd-kind-icon">_resizing</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_resolutionpolicy" class="tsd-kind-icon">_resolution<wbr>Policy</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_retinaenabled" class="tsd-kind-icon">_retina<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_rpexactfit" class="tsd-kind-icon">_rp<wbr>Exact<wbr>Fit</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_rpfixedheight" class="tsd-kind-icon">_rp<wbr>Fixed<wbr>Height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_rpfixedwidth" class="tsd-kind-icon">_rp<wbr>Fixed<wbr>Width</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_rpnoborder" class="tsd-kind-icon">_rp<wbr>NoBorder</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_rpshowall" class="tsd-kind-icon">_rp<wbr>Show<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_scalex" class="tsd-kind-icon">_scaleX</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_scaley" class="tsd-kind-icon">_scaleY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_viewportrect" class="tsd-kind-icon">_viewport<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_visiblerect" class="tsd-kind-icon">_visible<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_adjustsizekeepcanvassize" class="tsd-kind-icon">adjust<wbr>Size<wbr>Keep<wbr>Canvas<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_adjustviewportmeta" class="tsd-kind-icon">adjust<wbr>Viewport<wbr>Meta</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_convertmousetolocation" class="tsd-kind-icon">convert<wbr>Mouse<wbr>ToLocation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_convertpointwithscale" class="tsd-kind-icon">convert<wbr>Point<wbr>With<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_converttouchwidthscale" class="tsd-kind-icon">convert<wbr>Touch<wbr>Width<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_converttoucheswithscale" class="tsd-kind-icon">convert<wbr>Touches<wbr>With<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_initframesize" class="tsd-kind-icon">init<wbr>Frame<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_orientationchange" class="tsd-kind-icon">orientation<wbr>Change</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_resizeevent" class="tsd-kind-icon">resize<wbr>Event</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#_setviewportmeta" class="tsd-kind-icon">set<wbr>Viewport<wbr>Meta</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#adjustviewportmeta" class="tsd-kind-icon">adjust<wbr>Viewport<wbr>Meta</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#converttolocationinview" class="tsd-kind-icon">convert<wbr>ToLocation<wbr>InView</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#emit" class="tsd-kind-icon">emit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#enableantialias" class="tsd-kind-icon">enable<wbr>Anti<wbr>Alias</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#enableautofullscreen" class="tsd-kind-icon">enable<wbr>Auto<wbr>Full<wbr>Screen</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#enableretina" class="tsd-kind-icon">enable<wbr>Retina</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getcanvassize" class="tsd-kind-icon">get<wbr>Canvas<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getdesignresolutionsize" class="tsd-kind-icon">get<wbr>Design<wbr>Resolution<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getdevicepixelratio" class="tsd-kind-icon">get<wbr>Device<wbr>Pixel<wbr>Ratio</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getframesize" class="tsd-kind-icon">get<wbr>Frame<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getresolutionpolicy" class="tsd-kind-icon">get<wbr>Resolution<wbr>Policy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getscalex" class="tsd-kind-icon">get<wbr>ScaleX</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getscaley" class="tsd-kind-icon">get<wbr>ScaleY</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getscissorrect" class="tsd-kind-icon">get<wbr>Scissor<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getviewportrect" class="tsd-kind-icon">get<wbr>Viewport<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getvisibleorigin" class="tsd-kind-icon">get<wbr>Visible<wbr>Origin</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getvisibleorigininpixel" class="tsd-kind-icon">get<wbr>Visible<wbr>Origin<wbr>InPixel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getvisiblesize" class="tsd-kind-icon">get<wbr>Visible<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#getvisiblesizeinpixel" class="tsd-kind-icon">get<wbr>Visible<wbr>Size<wbr>InPixel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#init" class="tsd-kind-icon">init</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#isantialiasenabled" class="tsd-kind-icon">is<wbr>Anti<wbr>Alias<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#isautofullscreenenabled" class="tsd-kind-icon">is<wbr>Auto<wbr>Full<wbr>Screen<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#isretinaenabled" class="tsd-kind-icon">is<wbr>Retina<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#isscissorenabled" class="tsd-kind-icon">is<wbr>Scissor<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#off" class="tsd-kind-icon">off</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#on" class="tsd-kind-icon">on</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#once" class="tsd-kind-icon">once</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#removeall" class="tsd-kind-icon">remove<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#resizewithbrowsersize" class="tsd-kind-icon">resize<wbr>With<wbr>Browser<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setcanvassize" class="tsd-kind-icon">set<wbr>Canvas<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setdesignresolutionsize" class="tsd-kind-icon">set<wbr>Design<wbr>Resolution<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setframesize" class="tsd-kind-icon">set<wbr>Frame<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setorientation" class="tsd-kind-icon">set<wbr>Orientation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setrealpixelresolution" class="tsd-kind-icon">set<wbr>Real<wbr>Pixel<wbr>Resolution</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setresizecallback" class="tsd-kind-icon">set<wbr>Resize<wbr>Callback</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setresolutionpolicy" class="tsd-kind-icon">set<wbr>Resolution<wbr>Policy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setscissorinpoints" class="tsd-kind-icon">set<wbr>Scissor<wbr>InPoints</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#setviewportinpoints" class="tsd-kind-icon">set<wbr>Viewport<wbr>InPoints</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external tsd-is-not-exported">
+								<a href="_cocos_core_platform_index_.view.html#targetoff" class="tsd-kind-icon">target<wbr>Off</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
